@@ -17,6 +17,7 @@ import initTestimonialCard from './testimonialCard.js';
 import initFadeIn from './fadeIn.js';
 import initTextFillAnimation from './textFillAnimation.js';
 import initIntroductionReveal from './introductionReveal.js';
+import initLocationPins from './locationPins.js';
 
 window.Lenis = Lenis;
 window.gsap = gsap;
@@ -33,4 +34,5 @@ window.addEventListener('DOMContentLoaded', () => {
   initFadeIn();
   initTextFillAnimation();
   initIntroductionReveal();
+  initLocationPins();
 });

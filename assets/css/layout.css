@@ -68,7 +68,7 @@ header[data-menu-open='true'] .main-nav__links ul li a {
 }
 
 .main-nav__actions {
-    @apply flex items-center gap-16;
+    @apply flex items-center gap-16 z-99;
 }
 
 .main-nav__lang {
@@ -220,7 +220,7 @@ footer::before {
 }
 
 .footer__links a {
-    @apply text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
+    @apply relative w-fit text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
 }
 
 .footer__about {
@@ -228,11 +228,11 @@ footer::before {
 }
 
 .footer__about-links {
-    @apply flex flex-col gap-24;
+    @apply flex flex-col gap-24 items-end max-768:items-start;
 }
 
 .footer__about-links a {
-    @apply text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
+    @apply relative w-fit text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
 }
 
 .footer__contact-info {
@@ -240,7 +240,7 @@ footer::before {
 }
 
 .footer__contact-info a {
-    @apply text-14 font-body text-cream transition-colors duration-300 hover:text-cream/70;
+    @apply relative w-fit text-14 font-body text-cream transition-colors duration-300 hover:text-cream/70;
 }
 
 .footer__bottom {
@@ -252,7 +252,30 @@ footer::before {
 }
 
 .footer__legal a {
-    @apply text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
+    @apply relative w-fit text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
+}
+
+.footer__links a::after,
+.footer__about-links a::after,
+.footer__contact-info a::after,
+.footer__legal a::after , .footer__copyright a::after {
+    content: '';
+    @apply absolute -bottom-3 left-0 h-1 w-full origin-left scale-x-0 bg-cream/70 transition-transform duration-300 ease-in-out;
+}
+.footer__copyright a::after {
+    content: '';
+    @apply bg-primary;
+}
+
+.footer__links a:hover::after,
+.footer__links a:focus-visible::after,
+.footer__about-links a:hover::after,
+.footer__about-links a:focus-visible::after,
+.footer__contact-info a:hover::after,
+.footer__contact-info a:focus-visible::after,
+.footer__legal a:hover::after,
+.footer__legal a:focus-visible::after , .footer__copyright a:hover::after {
+    @apply scale-x-100;
 }
 
 .footer__legal span {
@@ -269,4 +292,7 @@ footer::before {
 
 .footer__copyright {
     @apply py-30 text-center max-768:py-20;
+}
+.footer__copyright a {
+    @apply relative
 }

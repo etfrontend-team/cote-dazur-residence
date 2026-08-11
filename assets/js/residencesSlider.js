@@ -1,6 +1,6 @@
 // ============================================================
 // residencesSlider.js — Desktop: pinned scroll-scrub clip-path reveal.
-// Each stacked .residences-slide wipes in left-to-right over the one below
+// Each stacked .residences-slide wipes in right-to-left over the one below
 // it as the user scrolls, with a slow Ken Burns zoom on the active image
 // (reference: springs.estate's l-residences slider uses a scroll/parallax
 // zoom). A scroll-hijacked pin doesn't translate to touch, so mobile
@@ -75,7 +75,7 @@ export default function initResidencesSlider() {
 
   slides.forEach((slide, i) => {
     if (i === 0) return;
-    gsap.set(slide, { clipPath: 'inset(0% 100% 0% 0%)' });
+    gsap.set(slide, { clipPath: 'inset(0% 0% 0% 100%)' });
   });
 
   const totalDuration = slides.length - 1;

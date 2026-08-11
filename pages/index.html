@@ -11,6 +11,25 @@
       name="description"
       content="Contemporary residences in Bečići with panoramic Adriatic views, landscaped terraces and dedicated spa and wellness amenities."
     />
+
+    <!-- faviocn -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sacramento&display=swap" rel="stylesheet"> 
    
     <link
@@ -24,210 +43,225 @@
       href="/assets/images/loader-building.webp"
     />
     <link
+      rel="preload"
+      as="image"
+      href="/assets/images/footer-building.webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/proven-background-terrace.webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/hero-bg.webp"
+    />
+    <link
       rel="stylesheet"
       href="/dist/style.css"
     />
   </head>
-  <body class="is-preloading">
-    <div
-    class="header-scroll-sentinel"
-    aria-hidden="true"
-  ></div>
-  <header id="site-header">
-    <div class="container-fluid">
-      <div class="main-nav">
-        <a
-          href="/"
-          class="main-nav__logo"
-          role="link"
-          target="_self"
-          aria-label="Côte d'Azur Résidence — Home"
-        >
-          <img
-            src="/assets/images/logo-header.png"
-            width="244"
-            height="30"
-            alt="Côte d'Azur Résidence logo"
-            loading="lazy"
-            decoding="async"
-          />
-        </a>
+  <body>
+  <div
+  class="header-scroll-sentinel"
+  aria-hidden="true"
+></div>
+<header id="site-header">
+  <div class="container-fluid">
+    <div class="main-nav">
+      <a
+        href="/"
+        class="main-nav__logo"
+        role="link"
+        target="_self"
+        aria-label="Côte d'Azur Résidence — Home"
+      >
+        <img
+          src="/assets/images/logo-header.png"
+          width="244"
+          height="30"
+          alt="Côte d'Azur Résidence logo"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
 
-        <nav
-          id="primary-nav"
-          class="main-nav__links"
-          aria-label="Primary"
-        >
-          <ul>
-            <li>
-              <a
-                href="#residences"
-                role="link"
-                target="_self"
-                aria-label="Residences"
-                >Residences</a
+      <nav
+        id="primary-nav"
+        class="main-nav__links"
+        aria-label="Primary"
+      >
+        <ul>
+          <li>
+            <a
+              href="#residences"
+              role="link"
+              target="_self"
+              aria-label="Residences"
+              >Residences</a
+            >
+          </li>
+          <li>
+            <a
+              href="#amenities"
+              role="link"
+              target="_self"
+              aria-label="Amenities"
+              >Amenities</a
+            >
+          </li>
+          <li>
+            <a
+              href="#location"
+              role="link"
+              target="_self"
+              aria-label="Location"
+              >Location</a
+            >
+          </li>
+          <li>
+            <a
+              href="#gallery"
+              role="link"
+              target="_self"
+              aria-label="Gallery"
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              role="link"
+              target="_self"
+              aria-label="About"
+              >About</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div class="main-nav__actions">
+        <div class="main-nav__lang">
+          <button
+            type="button"
+            class="main-nav__lang-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="lang-list"
+            aria-label="Change language"
+          >
+            <span>ENG</span>
+            <img
+              src="/assets/icons/arrow-down.svg"
+              width="24"
+              height="24"
+              alt="Dropdown arrow icon"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+
+          <ul
+            id="lang-list"
+            class="main-nav__lang-list"
+            role="menu"
+          >
+            <li role="none">
+              <button
+                type="button"
+                role="menuitem"
+                aria-label="Switch to English"
+                >English</button
               >
             </li>
-            <li>
-              <a
-                href="#amenities"
-                role="link"
-                target="_self"
-                aria-label="Amenities"
-                >Amenities</a
+            <li role="none">
+              <button
+                type="button"
+                role="menuitem"
+                aria-label="Switch to French"
+                >Français</button
               >
             </li>
-            <li>
-              <a
-                href="#location"
-                role="link"
-                target="_self"
-                aria-label="Location"
-                >Location</a
+            <li role="none">
+              <button
+                type="button"
+                role="menuitem"
+                aria-label="Switch to Italian"
+                >Italiano</button
               >
             </li>
-            <li>
-              <a
-                href="#gallery"
-                role="link"
-                target="_self"
-                aria-label="Gallery"
-                >Gallery</a
-              >
-            </li>
-            <li>
-              <a
-                href="#about"
-                role="link"
-                target="_self"
-                aria-label="About"
-                >About</a
+            <li role="none">
+              <button
+                type="button"
+                role="menuitem"
+                aria-label="Switch to Spanish"
+                >Español</button
               >
             </li>
           </ul>
-        </nav>
-
-        <div class="main-nav__actions">
-          <div class="main-nav__lang">
-            <button
-              type="button"
-              class="main-nav__lang-toggle"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="lang-list"
-              aria-label="Change language"
-            >
-              <span>ENG</span>
-              <img
-                src="/assets/icons/arrow-down.svg"
-                width="24"
-                height="24"
-                alt="Dropdown arrow icon"
-                loading="lazy"
-                decoding="async"
-              />
-            </button>
-
-            <ul
-              id="lang-list"
-              class="main-nav__lang-list"
-              role="menu"
-            >
-              <li role="none">
-                <button
-                  type="button"
-                  role="menuitem"
-                  aria-label="Switch to English"
-                  >English</button
-                >
-              </li>
-              <li role="none">
-                <button
-                  type="button"
-                  role="menuitem"
-                  aria-label="Switch to French"
-                  >Français</button
-                >
-              </li>
-              <li role="none">
-                <button
-                  type="button"
-                  role="menuitem"
-                  aria-label="Switch to Italian"
-                  >Italiano</button
-                >
-              </li>
-              <li role="none">
-                <button
-                  type="button"
-                  role="menuitem"
-                  aria-label="Switch to Spanish"
-                  >Español</button
-                >
-              </li>
-            </ul>
-          </div>
-
-          <a
-            href="#contact"
-            class="btn btn-primary btn-primary-invert main-nav__cta"
-            role="link"
-            target="_self"
-            aria-label="Request information"
-            >Request Information</a
-          >
-
-          <button
-            type="button"
-            class="main-nav__trigger"
-            aria-label="Open menu"
-            aria-expanded="false"
-            aria-controls="primary-nav"
-          >
-            <img
-              src="/assets/icons/menu-icon.svg"
-              width="24"
-              height="26"
-              alt="Menu icon"
-              loading="lazy"
-              decoding="async"
-            />
-          </button>
-
-          <button
-            type="button"
-            class="main-nav__close"
-            aria-label="Close menu"
-            aria-controls="primary-nav"
-          >
-            <img
-              src="/assets/icons/close-icon.svg"
-              width="24"
-              height="24"
-              alt="Close icon"
-              loading="lazy"
-              decoding="async"
-            />
-          </button>
         </div>
+
+        <a
+          href="#contact"
+          class="btn btn-primary btn-primary-invert main-nav__cta"
+          role="link"
+          target="_self"
+          aria-label="Request information"
+          >Request Information</a
+        >
+
+        <button
+          type="button"
+          class="main-nav__trigger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <img
+            src="/assets/icons/menu-icon.svg"
+            width="24"
+            height="26"
+            alt="Menu icon"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+
+        <button
+          type="button"
+          class="main-nav__close"
+          aria-label="Close menu"
+          aria-controls="primary-nav"
+        >
+          <img
+            src="/assets/icons/close-icon.svg"
+            width="24"
+            height="24"
+            alt="Close icon"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
       </div>
     </div>
+  </div>
 
-    <div
-      class="main-nav__mobile-bg"
-      aria-hidden="true"
-    >
-      <img
-        src="/assets/images/hero-bg.webp"
-        width="1920"
-        height="1200"
-        alt="Blurred Côte d'Azur Résidence building exterior"
-        loading="lazy"
-        decoding="async"
-      />
-      <div class="main-nav__mobile-overlay"></div>
-    </div>
-  </header>
+  <div
+    class="main-nav__mobile-bg"
+    aria-hidden="true"
+  >
+    <img
+      src="/assets/images/hero-bg.webp"
+      width="1920"
+      height="1200"
+      alt="Blurred Côte d'Azur Résidence building exterior"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="main-nav__mobile-overlay"></div>
+  </div>
+</header>
     <main>
       <section class="hero-section bg-white pt-0 pb-0">
         <div
@@ -293,13 +327,6 @@
               />
             </div>
           </div>
-        </div>
-        <div
-          class="hero-section__reveal"
-          data-hero-reveal
-          aria-hidden="true"
-        >
-          <div class="hero-section__reveal-slide"></div>
         </div>
         <div class="hero-section__media">
           <!-- eslint-disable @html-eslint/require-attrs -->
@@ -771,6 +798,456 @@
         </div>
       </section>
 
+      <section
+      id="amenities"
+      class="horizontal-section bg-white pt-120 pb-120 max-1199:pt-70 max-1199:pb-70 max-768:pt-40 max-768:pb-40"
+    >
+      <div class="">
+        <div class="hz-content">
+          <div class="hz-frame pl-64 max-1199:pl-40 max-768:pl-24 max-425:pl-16">
+            <div class="hz-film">
+              <article class="hz-slide">
+                <div class="hz-slide__info">
+                    <div class="max-w-300 max-1199:max-w-260 max-768:max-w-220 mr-auto">
+                        <div class="title title-primary">
+                          <h2>Amenities</h2>
+                        </div>
+                        <div class="content content-primary medium">
+                          <p>Spa, infinity pool, landscaped terraces, private parking.</p>
+                        </div>
+                        <a
+                          href="#contact"
+                          class="btn-secondary-variant-2 mt-40"
+                          role="link"
+                          target="_self"
+                          aria-label="Discover more about Côte d'Azur Résidence amenities"
+                        >
+                          <span>Discover more</span>
+                          <span
+                            class="btn-secondary-variant-2__line"
+                            aria-hidden="true"
+                          ></span>
+                        </a>
+                    </div>
+                    <div class="mt-40 self-end image-variant-2 image-overlay">
+                        <img
+                        src="/assets/images/3_bloom_2x.webp"
+                        width="888"
+                        height="560"
+                        alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                </div>
+                <div class="image-variant-1 image-overlay">
+                  <img
+                    src="/assets/images/3_bloom_2x.webp"
+                    width="888"
+                    height="560"
+                    alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </article>
+
+              <article class="hz-slide">
+                <div class="hz-slide__info">
+                    <div class="max-w-300 max-1199:max-w-260 max-768:max-w-220 mr-auto">
+                        <div class="title title-primary">
+                          <h2>Amenities</h2>
+                        </div>
+
+                    </div>
+                    <div class="-translate-y-2/12 mt-auto translate-x-[45%] z-1 self-end image-variant-3 image-overlay">
+                        <img
+                        src="/assets/images/2_bloom_2x.webp"
+                        width="888"
+                        height="560"
+                        alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                </div>
+                <div class="image-variant-1 image-overlay">
+                  <img
+                    src="/assets/images/3_bloom_2x.webp"
+                    width="888"
+                    height="560"
+                    alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="mt-40 image-variant-2 image-overlay">
+                    <img
+                      src="/assets/images/3_bloom_2x.webp"
+                      width="888"
+                      height="560"
+                      alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+              </article>
+
+
+              <article class="hz-slide">
+                <div class="hz-slide__info">
+                    <div class="max-w-430 max-1199:max-w-360 max-768:max-w-280 mr-auto">
+                        <div class="title title-primary">
+                          <h2>SPA & wellness Centre</h2>
+                        </div>
+                    </div>
+                    <div class=" -translate-y-2/12 mt-auto translate-x-[45%] z-1 self-end image-variant-3 image-overlay">
+                        <img
+                        src="/assets/images/2_bloom_2x.webp"
+                        width="888"
+                        height="560"
+                        alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                </div>
+                <div class="image-stack">
+                  <div class="image-variant-1 image-overlay">
+                    <img
+                      src="/assets/images/3_bloom_2x.webp"
+                      width="888"
+                      height="560"
+                      alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="image-corner-inset">
+                    <div class="image-variant-2 image-overlay">
+                      <img
+                        src="/assets/images/3_bloom_2x.webp"
+                        width="888"
+                        height="560"
+                        alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="image-variant-4 image-overlay">
+                    <img
+                      src="/assets/images/2_bloom_2x.webp"
+                      width="888"
+                      height="560"
+                      alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                </div>
+              </article>
+
+
+              <article class="hz-slide">
+                <div class="hz-slide__info">
+                    <div class="max-w-430 max-1199:max-w-360 max-768:max-w-280 mr-auto">
+                        <div class="title title-primary">
+                          <h2>Landscaped Grounds</h2>
+                        </div>
+                    </div>
+                    <div class="-translate-y-4/12 mt-auto translate-x-[45%] z-1 self-end image-variant-3 image-overlay">
+                        <img
+                        src="/assets/images/2_bloom_2x.webp"
+                        width="888"
+                        height="560"
+                        alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                </div>
+                <div class="image-stack">
+                  <div class="image-variant-1 image-overlay">
+                    <img
+                      src="/assets/images/3_bloom_2x.webp"
+                      width="888"
+                      height="560"
+                      alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+              
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class=" image-variant-4 image-overlay">
+                        <img
+                          src="/assets/images/2_bloom_2x.webp"
+                          width="888"
+                          height="560"
+                          alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                    </div>
+                        <div class="image-variant-2 w-[50vw]! 768:w-350! 768:h-350! image-overlay -translate-y-2/12">
+                          <img
+                            src="/assets/images/3_bloom_2x.webp"
+                            width="888"
+                            height="560"
+                            alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LOCATION SECTION ===== -->
+    <section class="location-section pt-0 pb-0">
+      <div class="location-map">
+
+        <!-- Background map image -->
+        <div class="location-map-bg">
+          <img
+            src="/assets/images/location-map.webp"
+            width="1401"
+            height="934"
+            alt="Geographic map of Montenegro Riviera showing Côte d'Azur's location near Bečići"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <!-- Route connecting lines — inline SVG overlay (desktop only) -->
+        <!-- viewBox matches Figma frame 18:4935 (1440×900). Each path is translated to its -->
+        <!-- bounding-box center, rotated 32.01°, then shifted by half the path's natural size. -->
+        <svg
+          class="location-lines-overlay"
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <!-- Line 26 — short curve near Budva (cx=490.5, cy=370, SVG 72.17×40.69) -->
+          <g transform="translate(490.5,370) rotate(32.01) translate(-36.086,-20.345)">
+            <path d="M1.00006 1.00006C40.856 4.39205 55.3257 7.7317 71.1719 39.69" stroke="#0D4898" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" fill="none"/>
+          </g>
+          <!-- Line 27 — short curve near Sveti Stefan (cx=643.45, cy=442.79, SVG 94.54×27.22) -->
+          <g transform="translate(643.45,442.79) rotate(32.01) translate(-47.269,-13.609)">
+            <path d="M1.00025 12.1206C42.569 -6.35498 61.208 -1.92435 93.5374 26.2186" stroke="#0D4898" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" fill="none"/>
+          </g>
+          <!-- Line 28 — long curve to Podgorica Airport (cx=912.5, cy=379.25, SVG 232.82×415.72) -->
+          <g transform="translate(912.5,379.25) rotate(32.01) translate(-116.408,-207.859)">
+            <path d="M1.0001 414.717C28.984 373.642 207.064 54.7951 231.814 1.00024" stroke="#0D4898" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" fill="none"/>
+          </g>
+          <!-- Line 29 — short curve Budva → Sveti Stefan (cx=547.52, cy=401.72, SVG 60.78×47.65) -->
+          <g transform="translate(547.52,401.72) rotate(32.01) translate(-30.390,-23.824)">
+            <path d="M1.00027 46.6472C9.21375 22.0818 21.2491 -0.220195 59.7804 1.05191" stroke="#0D4898" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" fill="none"/>
+          </g>
+          <!-- Line 30 — medium curve Bay of Kotor → Budva area (cx=481, cy=303.5, SVG 159.62×142.87) -->
+          <g transform="translate(481,303.5) rotate(32.01) translate(-79.811,-71.437)">
+            <path d="M158.622 141.874C155.124 95.7111 52.3571 14.3032 1.00024 1.00024" stroke="#0D4898" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" fill="none"/>
+          </g>
+          <!-- Line 31 — medium curve Tivat → Bay of Kotor (cx=472.98, cy=275.88, SVG 204.2×180.16) -->
+          <g transform="translate(472.98,275.88) rotate(32.01) translate(-102.098,-90.079)">
+            <path d="M203.195 179.158C199.697 132.995 144.153 -11.5362 1.00007 1.87312" stroke="#0D4898" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" fill="none"/>
+          </g>
+        </svg>
+
+        <!-- Côte d'Azur map marker -->
+        <div
+          class="location-cda-marker"
+          aria-hidden="true"
+        >
+          <p class="location-cda-text">CÔTE D'AZUR</p>
+          <div class="location-cda-dot"></div>
+        </div>
+
+        <!-- Pin 1 — Podgorica International Airport -->
+        <button
+          type="button"
+          aria-label="View Podgorica Airport location details"
+          class="location-pin js-location-pin location-pin-1"
+          data-pin-title="Podgorica Airport"
+          data-pin-distance="~45 min drive"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
+        >
+          <img
+            src="/assets/images/location-icon-airport.svg"
+            width="18"
+            height="18"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+
+        <!-- Pin 2 — Tivat International Airport -->
+        <button
+          type="button"
+          aria-label="View Tivat Airport location details"
+          class="location-pin js-location-pin location-pin-2"
+          data-pin-title="Tivat Airport"
+          data-pin-distance="~20 min drive"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
+        >
+          <img
+            src="/assets/images/location-icon-airport2.svg"
+            width="18"
+            height="18"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+
+        <!-- Pin 3 — Bay of Kotor -->
+        <button
+          type="button"
+          aria-label="View Bay of Kotor location details"
+          class="location-pin js-location-pin location-pin-3"
+          data-pin-title="Bay of Kotor"
+          data-pin-distance="~30 min drive"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
+        >
+          <img
+            src="/assets/images/location-icon-boat.svg"
+            width="16"
+            height="16"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+
+        <!-- Pin 4 — Sveti Stefan -->
+        <button
+          type="button"
+          aria-label="View Sveti Stefan location details"
+          class="location-pin js-location-pin location-pin-4"
+          data-pin-title="Sveti Stefan"
+          data-pin-distance="~10 min drive"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
+        >
+          <img
+            src="/assets/images/location-icon-beach.svg"
+            width="18"
+            height="18"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+
+        <!-- Pin 5 — Budva Old Town -->
+        <button
+          type="button"
+          aria-label="View Budva Old Town location details"
+          class="location-pin js-location-pin location-pin-5"
+          data-pin-title="Budva Old Town"
+          data-pin-distance="~5 min drive"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
+        >
+          <img
+            src="/assets/images/location-icon-beach.svg"
+            width="12"
+            height="12"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+
+        <!-- Pin 6 — Petrovac -->
+        <button
+          type="button"
+          aria-label="View Petrovac location details"
+          class="location-pin js-location-pin location-pin-6"
+          data-pin-title="Petrovac"
+          data-pin-distance="~20 min drive"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
+        >
+          <img
+            src="/assets/images/location-icon-castle.svg"
+            width="18"
+            height="18"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        </button>
+
+        <!-- Bottom-left label -->
+        <div class="location-content">
+          <div class="title title-primary">
+            <h2>Locations</h2>
+          </div>
+          <div class="content content-primary">
+            <p>Bečići — The Heart of the Budva Riviera</p>
+          </div>
+        </div>
+
+        <!-- Popup (shown on pin click) -->
+        <div
+          class="location-popup js-location-popup"
+          role="dialog"
+          aria-modal="false"
+          aria-hidden="true"
+          aria-label="Location details"
+        >
+          <!-- Top row: thumbnail + destination -->
+          <div class="location-popup-top">
+            <div class="location-popup-thumb">
+              <img
+                class="js-popup-thumb"
+                src="/assets/images/location-beach-thumb.webp"
+                width="79"
+                height="62"
+                alt="Location photo"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="location-popup-destination">
+              <span class="location-popup-label">Destination</span>
+              <p
+                class="location-popup-value"
+                data-popup-title
+              ></p>
+            </div>
+          </div>
+
+          <!-- Full-width divider -->
+          <span
+            class="location-popup-divider"
+            aria-hidden="true"
+          ></span>
+
+          <!-- Distance row -->
+          <div class="location-popup-bottom">
+            <span class="location-popup-label">Distance</span>
+            <p
+              class="location-popup-value"
+              data-popup-distance
+            ></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
       <section class="testimonial-section bg-cream pt-120 pb-120 max-1199:pt-70 max-1199:pb-70 max-768:pt-40 max-768:pb-40">
         <div class="container-fluid">
           <div class="testimonial-card__wrap">
@@ -978,6 +1455,7 @@
                   </div>
                 </div>
 
+              </form>
                 <button
                   type="submit"
                   class="btn btn-cream-outline"
@@ -985,7 +1463,6 @@
                 >
                   Submit
                 </button>
-              </form>
             </div>
 
             <div class="footer__main">
