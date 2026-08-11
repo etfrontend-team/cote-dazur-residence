@@ -225,6 +225,66 @@
     @apply opacity-100;
 }
 
+
+/* ===== FIND PROPERTY ===== */
+
+.find-property {
+  @apply relative -top-[45px] rounded-tl-20 max-992:rounded-tl-none w-[calc(100vw-110px)] max-992:w-full  left-55 right-55 z-40 flex items-stretch shadow-find-property max-1199:left-40 max-1199:right-40 max-1024:left-0 max-1024:right-0 max-1024:flex-col;
+}
+
+.find-property-label {
+  @apply bg-primary rounded-tl-20 flex flex-col justify-center items-start px-40 py-24 shrink-0 max-1024:flex-row max-1024:gap-4 max-1024:px-24;
+}
+
+.find-property-label span {
+  @apply text-cream text-14 font-body tracking-1.4 uppercase leading-snug;
+}
+
+.find-property-filters {
+  @apply bg-white border border-cream flex-1 flex items-center justify-between px-40 py-24 max-1199:px-24 max-992:flex-wrap max-992:gap-16 max-992:px-24;
+}
+
+.find-property-filter {
+  @apply flex flex-col gap-10 w-200 relative max-1199:w-160 max-992:w-[48%] max-576:w-[47%];
+}
+
+.filter-label {
+  @apply text-dark-charcoal text-14 font-body tracking-1.4 uppercase;
+}
+
+.filter-trigger {
+  @apply flex items-center gap-28 cursor-pointer;
+}
+
+.filter-value {
+  @apply text-primary text-heading-5 font-body;
+}
+
+.filter-trigger img {
+  @apply block shrink-0;
+}
+
+.find-property-divider {
+  @apply self-stretch border-l border-primary/20 max-992:hidden;
+}
+
+.filter-dropdown {
+  @apply absolute bottom-full left-0 bg-white border border-primary/20 z-50 min-w-full hidden mb-2;
+}
+
+.find-property-filter.is-open .filter-dropdown {
+  @apply flex flex-col;
+}
+
+.filter-option {
+  @apply text-primary text-14 font-body px-16 py-10 text-left cursor-pointer hover:bg-primary/10 transition-colors duration-200;
+}
+
+.find-property-search {
+  @apply shrink-0 leading-[1.25] border-primary text-primary;
+}
+
+
 /* ==========================================================================
    Residences slider — full-bleed GSAP ScrollTrigger clip-path reveal
    (Figma nodes 18:4759, 72:58). Pinned in the viewport while each stacked

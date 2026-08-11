@@ -26,6 +26,7 @@
     --font-Cinzel: "Cinzel", serif;
     --font-body: "Open Sans", sans-serif;
     --font-Sacramento: "Sacramento", cursive;
+      --shadow-find-property: 0px 4px 44px rgba(0, 0, 0, 0.1);
     --font-inherit: inherit;
   
     /* font-weight */

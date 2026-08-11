@@ -387,7 +387,250 @@
             </div>
           </div>
         </div>
-      </section>
+
+         <!-- Find Property Bar -->
+        </section>
+        
+        <div class="find-property" aria-label="Property search filters">
+          <div class="find-property-label">
+            <span>Find Your</span>
+            <span>Property</span>
+          </div>
+
+          <div class="find-property-filters">
+            <div class="find-property-filter js-filter-dropdown">
+              <span class="filter-label">Property Type</span>
+              <button
+                type="button"
+                aria-label="Select property type"
+                aria-expanded="false"
+                class="filter-trigger"
+              >
+                <span class="filter-value">All Types</span>
+                <img
+                      src="../assets/images/icon-angle-down.svg"  
+                  width="24"
+                  height="24"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <div class="filter-dropdown" role="listbox">
+                <button
+                  type="button"
+                  aria-label="All property types"
+                  class="filter-option"
+                >
+                  All Types
+                </button>
+                <button
+                  type="button"
+                  aria-label="Apartments"
+                  class="filter-option"
+                >
+                  Apartments
+                </button>
+                <button
+                  type="button"
+                  aria-label="Penthouses"
+                  class="filter-option"
+                >
+                  Penthouses
+                </button>
+                <button
+                  type="button"
+                  aria-label="Commercial spaces"
+                  class="filter-option"
+                >
+                  Commercial
+                </button>
+              </div>
+            </div>
+
+            <div class="find-property-divider" aria-hidden="true"></div>
+
+            <div class="find-property-filter js-filter-dropdown">
+              <span class="filter-label">Bedrooms</span>
+              <button
+                type="button"
+                aria-label="Select number of bedrooms"
+                aria-expanded="false"
+                class="filter-trigger"
+              >
+                <span class="filter-value">Any</span>
+                <img
+                  src="../assets/images/icon-angle-down.svg"
+                  width="24"
+                  height="24"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <div class="filter-dropdown" role="listbox">
+                <button
+                  type="button"
+                  aria-label="Any number of bedrooms"
+                  class="filter-option"
+                >
+                  Any
+                </button>
+                <button
+                  type="button"
+                  aria-label="1 bedroom"
+                  class="filter-option"
+                >
+                  1
+                </button>
+                <button
+                  type="button"
+                  aria-label="2 bedrooms"
+                  class="filter-option"
+                >
+                  2
+                </button>
+                <button
+                  type="button"
+                  aria-label="3 bedrooms"
+                  class="filter-option"
+                >
+                  3
+                </button>
+                <button
+                  type="button"
+                  aria-label="4 or more bedrooms"
+                  class="filter-option"
+                >
+                  4+
+                </button>
+              </div>
+            </div>
+
+            <div class="find-property-divider" aria-hidden="true"></div>
+
+            <div class="find-property-filter js-filter-dropdown">
+              <span class="filter-label">Min Price</span>
+              <button
+                type="button"
+                aria-label="Select minimum price"
+                aria-expanded="false"
+                class="filter-trigger"
+              >
+                <span class="filter-value">No min</span>
+                <img
+                  src="../assets/images/icon-angle-down.svg"
+                  width="24"
+                  height="24"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <div class="filter-dropdown" role="listbox">
+                <button
+                  type="button"
+                  aria-label="No minimum price"
+                  class="filter-option"
+                >
+                  No min
+                </button>
+                <button
+                  type="button"
+                  aria-label="Minimum price 100,000 EUR"
+                  class="filter-option"
+                >
+                  €100,000
+                </button>
+                <button
+                  type="button"
+                  aria-label="Minimum price 200,000 EUR"
+                  class="filter-option"
+                >
+                  €200,000
+                </button>
+                <button
+                  type="button"
+                  aria-label="Minimum price 300,000 EUR"
+                  class="filter-option"
+                >
+                  €300,000
+                </button>
+                <button
+                  type="button"
+                  aria-label="Minimum price 500,000 EUR"
+                  class="filter-option"
+                >
+                  €500,000
+                </button>
+              </div>
+            </div>
+
+            <div class="find-property-divider" aria-hidden="true"></div>
+
+            <div class="find-property-filter js-filter-dropdown">
+              <span class="filter-label">Max Price</span>
+              <button
+                type="button"
+                aria-label="Select maximum price"
+                aria-expanded="false"
+                class="filter-trigger"
+              >
+                <span class="filter-value">No max</span>
+                <img
+                  src="../assets/images/icon-angle-down.svg"
+                  width="24"
+                  height="24"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </button>
+              <div class="filter-dropdown" role="listbox">
+                <button
+                  type="button"
+                  aria-label="No maximum price"
+                  class="filter-option"
+                >
+                  No max
+                </button>
+                <button
+                  type="button"
+                  aria-label="Maximum price 300,000 EUR"
+                  class="filter-option"
+                >
+                  €300,000
+                </button>
+                <button
+                  type="button"
+                  aria-label="Maximum price 500,000 EUR"
+                  class="filter-option"
+                >
+                  €500,000
+                </button>
+                <button
+                  type="button"
+                  aria-label="Maximum price 750,000 EUR"
+                  class="filter-option"
+                >
+                  €750,000
+                </button>
+                <button
+                  type="button"
+                  aria-label="Maximum price 1,000,000 EUR or above"
+                  class="filter-option"
+                >
+                  €1,000,000+
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              aria-label="Search for properties"
+              class="btn btn-secondary find-property-search"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+
 
       <section class="introduction-section pt-90 pb-112">
         <div class="flex items-center flex-col">
