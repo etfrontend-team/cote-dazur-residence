@@ -1,0 +1,115 @@
+.visually-hidden {
+    @apply sr-only;
+}
+
+/* ==========================================================================
+   Preloader
+   ========================================================================== */
+
+.preloader-section {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-white;
+}
+
+.preloader-section__stage {
+    @apply relative flex w-full items-center justify-center;
+}
+
+.preloader-section__logo-frame {
+    @apply relative mx-auto w-fit;
+}
+
+.preloader-section__logo-img {
+    @apply block h-auto w-auto;
+}
+
+.preloader-section__split-wrap {
+    @apply absolute inset-0 flex justify-between opacity-0;
+}
+
+.preloader-section__split {
+    @apply relative h-full shrink-0 overflow-hidden;
+}
+
+/* Figma node 5:82 crops the wordmark 406px "CÔTE" + 581px "D'AZUR" out of a
+   1048px-wide canvas (~38.7%/55.4%), rescaled here to our actual logo asset's
+   real intrinsic size (488×60, not the 1048×129 in its stale width/height
+   attrs): 189px + 271px, leaving the wordmark's own 28px blank gap between
+   the words — justify-between on the wrap keeps it centered between the two
+   pieces instead of splitting the image evenly. */
+.preloader-section__split--left {
+    @apply w-189;
+}
+
+.preloader-section__split--right {
+    @apply w-271;
+}
+
+.preloader-section__split--left img {
+    @apply absolute top-0 left-0 h-full w-auto max-w-none;
+}
+
+.preloader-section__split--right img {
+    @apply absolute top-0 right-0 h-full w-auto max-w-none;
+}
+
+/* Small centered photo window (218×137, Figma node 5:85). JS grows its
+   width/height straight to the viewport size instead of transform:scale, so
+   the source image is re-sampled crisp at every size instead of upscaling an
+   already-painted layer. Deliberate exception to the transform/opacity-only
+   animation rule for this one element. */
+.preloader-section__reveal {
+    @apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden opacity-0;
+}
+
+.preloader-section__reveal-img {
+    @apply block h-full w-full object-cover;
+}
+
+.preloader-section__reveal-overlay {
+    @apply pointer-events-none absolute inset-0;
+    background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+/* ==========================================================================
+   Hero section
+   ========================================================================== */
+
+.hero-section {
+    @apply relative flex flex-col justify-end h-screen overflow-hidden;
+}
+
+.hero-section__media {
+    @apply relative w-full h-full;
+}
+
+.hero-section__media-img {
+    @apply block w-full h-full object-cover;
+}
+
+.hero-section__overlay {
+    @apply pointer-events-none absolute inset-0;
+    background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.hero-section__inner {
+    @apply absolute inset-0 flex flex-col justify-end;
+}
+
+/* pb-123/gap-108 are exact Figma values at desktop; max-1199/max-768 scale them
+   down proportionally since no separate Figma tablet/mobile frame was supplied. */
+.hero-section__row {
+    @apply flex flex-row items-end justify-between gap-108 pb-123 max-1199:gap-60 max-1199:pb-70 max-768:flex-col max-768:items-start max-768:gap-30 max-768:pb-40;
+}
+
+.hero-section__copy {
+    @apply flex flex-1 flex-col items-start gap-24;
+}
+
+.hero-section__ctas {
+    @apply flex shrink-0 items-center gap-16 max-768:flex-wrap;
+}
+

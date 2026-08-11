@@ -1,0 +1,72 @@
+.btn {
+    @apply px-28 py-10 border font-body transition-all duration-300 w-fit;
+}
+
+.btn-primary {
+    @apply  border-cream bg-cream/59 uppercase text-cream text-16 font-normal  hover:bg-transparent;
+}
+
+.btn-primary-invert {
+    @apply bg-transparent! hover:bg-cream/59!;
+}
+
+.btn-secondary {
+    @apply border-primary backdrop-blur-[2px] text-primary font-normal tracking-1.6 uppercase ;
+}
+
+.btn-secondary-variant-2 {
+    @apply relative inline-flex border-0! text-primary pb-8;
+}
+
+.btn-secondary-variant-2::after {
+    content: "";
+    @apply absolute left-0 bottom-0 w-full h-1 bg-primary origin-right scale-x-100 transition-transform duration-300 ease-out;
+}
+
+.btn-secondary-variant-2:hover::after {
+    @apply origin-left scale-x-0;
+}
+
+.btn-secondary-variant-2-cream {
+    @apply text-cream!;
+}
+
+.btn-secondary-variant-2-cream::after {
+    @apply bg-cream!;
+}
+
+.btn-cream-glass {
+    @apply border-cream bg-cream/35 backdrop-blur-2 uppercase text-cream text-16 font-normal hover:bg-cream/55;
+}
+
+.btn-cream-outline {
+    @apply border-cream backdrop-blur-2 uppercase text-cream text-16 font-normal hover:bg-cream/20;
+}
+
+.container-fluid {
+    @apply w-full px-64 max-1199:px-40 max-768:px-20;
+}
+
+.form-line {
+    @apply relative flex h-35 w-full items-center border-b border-cream;
+}
+
+.form-line input {
+    @apply h-full w-full bg-transparent text-14 font-body text-cream outline-none placeholder:text-cream/40;
+}
+
+.form-select {
+    @apply relative flex h-35 w-full items-center border-b border-cream;
+}
+
+.form-select select {
+    @apply h-full w-full appearance-none bg-transparent pr-24 text-14 font-body text-cream/40 outline-none;
+}
+
+.form-select img {
+    @apply pointer-events-none absolute right-0;
+}
+
+.form-textarea {
+    @apply block h-80 w-full resize-none border-b border-cream bg-transparent pt-8 text-14 font-body text-cream outline-none placeholder:text-cream/40;
+}

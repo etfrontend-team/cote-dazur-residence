@@ -1,0 +1,268 @@
+/* ===================== Header ===================== */
+
+.header-scroll-sentinel {
+    @apply pointer-events-none absolute top-0 left-0 w-full;
+}
+
+header {
+    @apply fixed top-0 left-0 z-50 w-full py-14 max-1199:py-12 max-768:py-10;
+}
+
+header::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 -z-10 bg-black/35 opacity-0 backdrop-blur-md transition-opacity duration-300;
+}
+
+header[data-scrolled='true']::before {
+    @apply opacity-100;
+}
+
+.main-nav {
+    @apply relative z-50 flex items-center justify-between gap-24;
+}
+
+.main-nav__logo {
+    @apply shrink-0;
+}
+
+.main-nav__logo img {
+    @apply h-auto max-1366:max-w-190 max-768:max-w-140;
+}
+
+/* Single nav, reused for desktop row + mobile fullscreen overlay via [data-menu-open] */
+.main-nav__links {
+    @apply flex items-center gap-24 max-1199:hidden;
+}
+
+.main-nav__links ul {
+    @apply flex items-center gap-24;
+}
+
+.main-nav__links ul li a {
+    @apply relative inline-block py-4 text-14 font-body tracking-1.4 text-cream uppercase;
+}
+
+.main-nav__links ul li a::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 h-1 w-full origin-left scale-x-0 bg-cream transition-transform duration-300;
+}
+
+.main-nav__links ul li a:hover::after {
+    @apply scale-x-100;
+}
+
+header[data-menu-open='true'] .main-nav__links {
+    @apply max-1199:pointer-events-auto max-1199:fixed max-1199:inset-0 max-1199:z-40 max-1199:flex max-1199:flex-col max-1199:items-start max-1199:justify-center max-1199:px-64 max-768:px-20;
+}
+
+header[data-menu-open='true'] .main-nav__links ul {
+    @apply max-1199:flex-col max-1199:items-start max-1199:gap-16;
+}
+
+header[data-menu-open='true'] .main-nav__links ul li a {
+    @apply max-1199:font-Cinzel max-1199:text-28 max-1199:tracking-1.4 max-768:text-24;
+}
+
+.main-nav__actions {
+    @apply flex items-center gap-16;
+}
+
+.main-nav__lang {
+    @apply relative;
+}
+
+.main-nav__lang-toggle {
+    @apply flex items-center gap-4 text-14 font-body tracking-1.4 text-cream uppercase;
+}
+
+.main-nav__lang-list {
+    @apply pointer-events-none absolute top-full right-0 z-10 mt-8 flex flex-col gap-2 border border-cream/30 bg-black/80 p-8 opacity-0 backdrop-blur-md transition-opacity duration-200;
+}
+
+.main-nav__lang[data-open='true'] .main-nav__lang-list {
+    @apply pointer-events-auto opacity-100;
+}
+
+.main-nav__lang-list li button {
+    @apply block w-full px-8 py-6 text-left text-14 font-body tracking-1.4 whitespace-nowrap text-cream uppercase transition-colors duration-200 hover:text-cream/60;
+}
+
+.main-nav__cta {
+    @apply max-1366:px-20 max-1366:py-8 max-1366:text-14 max-1199:hidden;
+}
+
+header[data-menu-open='true'] .main-nav__cta {
+    @apply max-1199:pointer-events-auto max-1199:fixed max-1199:z-40 max-1199:block max-1199:right-64 max-1199:bottom-64 max-1199:left-64 max-1199:text-center max-768:right-20 max-768:bottom-30 max-768:left-20;
+}
+
+.main-nav__trigger {
+    @apply hidden items-center gap-10 p-10 max-1199:flex;
+}
+
+header[data-menu-open='true'] .main-nav__trigger {
+    @apply max-1199:hidden;
+}
+
+.main-nav__trigger span {
+    @apply text-14 font-body tracking-1.4 text-cream uppercase;
+}
+
+.main-nav__mobile-bg {
+    @apply pointer-events-none fixed inset-0 z-30 hidden opacity-0 transition-opacity duration-500 max-1199:block;
+}
+
+header[data-menu-open='true'] .main-nav__mobile-bg {
+    @apply pointer-events-auto opacity-100;
+}
+
+.main-nav__mobile-bg img {
+    @apply h-full w-full scale-110 object-cover blur-md;
+}
+
+.main-nav__mobile-overlay {
+    @apply absolute inset-0 bg-black/60;
+}
+
+/* Grouped inside .main-nav__actions (after lang) so it sits next to the lang dropdown at the
+   right edge, in-flow instead of fixed, sharing the row's items-center baseline with the logo */
+.main-nav__close {
+    @apply pointer-events-none hidden shrink-0 p-10 opacity-0 transition-opacity duration-300;
+}
+
+header[data-menu-open='true'] .main-nav__close {
+    @apply pointer-events-auto max-1199:flex max-1199:opacity-100;
+}
+
+body[data-menu-open='true'] {
+    @apply overflow-hidden;
+}
+
+/* ===================== Footer ===================== */
+
+footer {
+    @apply relative block p-15 max-768:p-10;
+}
+
+/* Figma has no separate mobile/tablet frame for the footer — spacing below
+   scales the desktop values down proportionally at max-1199/max-768. */
+footer::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 -z-10 bg-tan/20 backdrop-blur-50;
+}
+
+.footer__panel {
+    @apply relative bg-primary py-60 shadow-footer-panel max-1199:py-40 max-768:py-30;
+}
+
+.footer__content {
+    @apply flex flex-col gap-60 max-1199:gap-40 max-768:gap-30;
+}
+
+.footer__logo {
+    @apply mx-auto h-auto w-830 max-1199:w-660 max-768:w-390 max-576:w-260;
+}
+
+.footer__newsletter {
+    @apply flex flex-wrap items-center justify-between gap-24;
+}
+
+.footer__newsletter-fields {
+    @apply flex flex-wrap items-center gap-24 max-768:flex-col max-768:items-start max-768:w-full;
+}
+
+.footer__newsletter-inputs {
+    @apply flex flex-wrap items-center gap-24 max-768:w-full;
+}
+
+.footer__newsletter-inputs .form-line {
+    @apply w-252 max-768:w-full;
+}
+
+.footer__main {
+    @apply flex flex-wrap items-start gap-64 max-1199:gap-40 max-768:flex-col max-768:gap-30 justify-between;
+}
+
+.footer__form {
+    @apply flex flex-col gap-24 max-768:w-full;
+}
+
+.footer__form-row {
+    @apply flex flex-wrap gap-24;
+}
+
+.footer__form-row .form-line,
+.footer__form-row .form-select {
+    @apply w-200 max-768:w-full;
+}
+
+.footer__media {
+    @apply relative shrink-0 size-329 max-768:size-full max-768:max-w-full max-576:h-320 ;
+}
+
+.footer__media-photo {
+    @apply block size-full rounded-br-40 rounded-tl-40 object-cover border border-[#FCFBF5] border-15;
+}
+
+.footer__media-badge {
+    @apply absolute bottom-27 left-27 flex size-18 items-center justify-center;
+}
+
+.footer__nav-columns {
+    @apply flex flex-wrap gap-64 pt-36 max-1199:gap-40 max-1199:pt-0 max-768:justify-between max-768:w-full max-576:flex-col max-576:items-start max-576:gap-24;
+}
+
+.footer__links {
+    @apply flex flex-col gap-24;
+}
+
+.footer__links a {
+    @apply text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
+}
+
+.footer__about {
+    @apply flex flex-col gap-24 text-right max-576:text-left;
+}
+
+.footer__about-links {
+    @apply flex flex-col gap-24;
+}
+
+.footer__about-links a {
+    @apply text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
+}
+
+.footer__contact-info {
+    @apply flex flex-col gap-24;
+}
+
+.footer__contact-info a {
+    @apply text-14 font-body text-cream transition-colors duration-300 hover:text-cream/70;
+}
+
+.footer__bottom {
+    @apply flex flex-wrap items-center justify-between gap-16;
+}
+
+.footer__legal {
+    @apply flex flex-wrap items-center gap-8;
+}
+
+.footer__legal a {
+    @apply text-14 font-body tracking-1.4 text-cream uppercase transition-colors duration-300 hover:text-cream/70;
+}
+
+.footer__legal span {
+    @apply text-14 text-cream/50;
+}
+
+.footer__socials {
+    @apply flex items-center gap-24;
+}
+
+.footer__socials img {
+    @apply block size-24;
+}
+
+.footer__copyright {
+    @apply py-30 text-center max-768:py-20;
+}

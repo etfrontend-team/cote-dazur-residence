@@ -1,0 +1,99 @@
+.testimonial-card__wrap {
+ @apply will-change-transform;
+}
+
+.testimonial-card {
+ @apply relative mx-auto flex w-full max-w-860 items-stretch gap-15 rounded-bl-20 992:rounded-bl-40 1199:rounded-bl-60 bg-white max-640:pb-30 p-15 shadow-testimonial max-1024:max-w-660 max-768:max-w-full max-640:flex-col max-768:gap-20 will-change-transform;
+}
+
+.testimonial-card__media {
+ @apply relative block shrink-0 basis-399 overflow-hidden rounded-bl-50 rounded-tr-50 max-1024:basis-220 max-640:aspect-testimonial max-640:w-full max-640:basis-400 aspect-[399/527];
+}
+
+.testimonial-card__media img {
+ @apply block h-full w-full rounded-bl-50 rounded-tr-50 object-cover;
+}
+
+.testimonial-card__divider {
+ @apply mr-49 block shrink-0 self-stretch border-l border-solid border-[#D1DCD2] max-1024:mr-24 max-768:hidden;
+}
+
+.testimonial-card__body {
+ @apply flex flex-1 flex-col justify-center gap-38 pr-30 max-1024:gap-24 max-1024:pr-15 max-768:gap-20 max-768:pr-0 max-768:pt-20;
+}
+
+.testimonial-card__brand {
+ @apply absolute top-30 right-23 w-154 h-19 object-contain max-1024:top-20 max-1024:right-15 max-1024:w-120 max-1024:h-15 max-640:hidden;
+}
+
+/* ==========================================================================
+   Horizontal scroll section — Figma nodes 18:4802 (info+media template) and
+   18:108 (Slider exploration frame, source of the multi-slide filmstrip idea).
+   Vertical scroll drives a horizontal translate on .hz-film, mirroring the
+   measuna.com hz-content/hz-frame/hz-film scrub pattern: JS sets .hz-content
+   height to .hz-film's scroll width so the page scroll distance matches the
+   horizontal travel distance, while .hz-frame stays sticky to the viewport.
+   ========================================================================== */
+
+.hz-content {
+ @apply relative;
+}
+
+.hz-frame {
+ @apply sticky top-0 h-screen w-full overflow-hidden;
+}
+
+.hz-film {
+ @apply flex h-full items-center gap-100 will-change-transform max-1024:gap-60 max-768:gap-40;
+}
+
+.horizontal-section--static .hz-content {
+ @apply h-auto;
+}
+
+.horizontal-section--static .hz-frame {
+ @apply static overflow-x-auto;
+}
+
+.hz-slide {
+ @apply flex shrink-0 items-center gap-64 max-1024:gap-40 max-768:flex-col max-768:items-start max-768:gap-24;
+}
+
+.hz-slide__info {
+ @apply flex w-313 shrink-0 flex-col items-start gap-24 max-1024:w-260 max-768:w-full;
+}
+
+/* Figma only confirms exact pixel geometry at the 1440 desktop frame (node
+   18:4802) — no tablet/mobile frame was supplied, so 1024/768 scale the
+   image down proportionally per html-css-js-rules CSS rule 21. */
+.hz-slide__media {
+ @apply relative shrink-0 w-888 h-560 max-1024:w-620 max-1024:h-392 max-768:aspect-hz-main max-768:h-auto max-768:w-full;
+}
+
+.hz-slide__media img {
+ @apply block h-full w-full rounded-tl-50 object-cover;
+}
+
+/* Accent image position is approximated for a repeating multi-slide
+   component — the exact Figma gutter placement (below the text column) does
+   not translate cleanly once the same template repeats across slides and
+   breakpoints, so it is anchored to the main image's bottom-left corner. */
+.hz-slide__media-accent {
+ @apply absolute -bottom-40 -left-40 w-237 h-271 overflow-hidden rounded-br-40 shadow-testimonial max-1024:-bottom-20 max-1024:-left-20 max-1024:w-140 max-1024:h-160 max-768:hidden;
+}
+
+.hz-slide__media-accent img {
+ @apply block h-full w-full rounded-br-40 object-cover;
+}
+
+.hz-cta {
+ @apply inline-flex flex-col items-start gap-10 text-16 font-body tracking-1.6 text-primary uppercase transition-colors duration-300 hover:text-tan;
+}
+
+.hz-cta__line {
+ @apply block h-1 w-46 origin-left scale-x-100 bg-primary transition-transform duration-300;
+}
+
+.hz-cta:hover .hz-cta__line {
+ @apply scale-x-125;
+}

@@ -1,0 +1,168 @@
+@font-face {
+    font-family: "Cinzel";
+    src: url("/assets/fonts/cinzel-500-latin.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Cinzel";
+    src: url("/assets/fonts/cinzel-500-latin-ext.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1EFF;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/assets/fonts/inter-400-latin.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/assets/fonts/inter-400-latin-ext.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1EFF;
+}
+
+*,
+*::before,
+*::after {
+  @apply box-border;
+}
+
+img,
+video {
+  @apply block max-w-full;
+}
+
+ul,
+ol {
+  @apply m-0 list-none p-0;
+}
+
+a {
+  @apply text-inherit no-underline transition-colors duration-300;
+}
+
+button {
+  @apply font-body cursor-pointer border-0 bg-transparent p-0;
+}
+
+body {
+    @apply font-body relative overflow-x-hidden m-0 p-0 bg-white antialiased;
+}
+
+h1, .h1 {
+    @apply text-heading-1 leading-65 font-Cinzel font-medium;
+}
+
+h2, .h2 {
+    @apply text-heading-2 leading-69 font-Sacramento font-normal;
+}
+h3, .h3 {
+    @apply text-heading-3 leading-56 font-Sacramento font-normal;
+}
+
+
+.title-cream h1,
+.title-cream h2,
+.title-cream h3,
+.title-cream h4,
+.title-cream h5,
+.title-cream h6,
+.title-cream .h1,
+.title-cream .h2,
+.title-cream .h3,
+.title-cream .h4,
+.title-cream .h5,
+.title-cream .h6 {
+    @apply text-cream;
+}
+
+
+.title-primary h1,
+.title-primary h2,
+.title-primary h3,
+.title-primary h4,
+.title-primary h5,
+.title-primary h6,
+.title-primary .h1,
+.title-primary .h2,
+.title-primary .h3,
+.title-primary .h4,
+.title-primary .h5,
+.title-primary .h6 {
+    @apply text-primary;
+}
+
+.title-dark-blue-gray h1,
+.title-dark-blue-gray h2,
+.title-dark-blue-gray h3,
+.title-dark-blue-gray h4,
+.title-dark-blue-gray h5,
+.title-dark-blue-gray h6,
+.title-dark-blue-gray .h1,
+.title-dark-blue-gray .h2,
+.title-dark-blue-gray .h3,
+.title-dark-blue-gray .h4,
+.title-dark-blue-gray .h5,
+.title-dark-blue-gray .h6 {
+    @apply text-dark-blue-gray;
+}
+
+.content-primary p {
+    @apply text-primary;
+}
+ p a {
+    @apply text-primary;
+ }
+
+.content-dark-blue-gray p {
+    @apply text-dark-blue-gray;
+}
+
+.content-cream p {
+    @apply text-cream;
+}
+
+.content.big p {
+    @apply text-24 leading-32 font-normal font-body;
+}
+
+.content.small p {
+    @apply text-14 leading-normal font-normal font-body;
+}
+
+.content.medium p {
+    @apply text-18 leading-normal font-normal font-body;
+}
+
+.content.tagline p {
+    @apply text-28 leading-38 font-normal font-body;
+}
+
+.content.label p {
+    @apply text-14 tracking-1.4 uppercase font-normal font-body;
+}
+
+.content p {
+    @apply text-16 font-body leading-normal font-normal;
+}
+
+h1 strong , .h1 strong , h2 strong , .h2 strong , h3 strong , .h3 strong , h4 strong , .h4 strong ,  h5 strong , .h5 strong , h6 strong , .h6 strong , p strong {
+    @apply font-bold!
+}
+
+
+
+
+
+
