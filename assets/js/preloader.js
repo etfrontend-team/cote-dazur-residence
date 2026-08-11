@@ -14,20 +14,18 @@ export default function initPreloader() {
   const wordEnd = preloader.querySelector('.preloader-section__word--end')
   const wordImgs = preloader.querySelectorAll('.preloader-section__word-img')
   const heroMedia = document.querySelector('.hero-section__media')
-  const heroReveal = document.querySelector('[data-hero-reveal]')
   const fadeWords = document.querySelectorAll('.hero-fade-word')
   const fadeIns = document.querySelectorAll('.hero-fade-in')
 
   const finish = () => {
+    preloader.style.display = 'none'
+    preloader.setAttribute('aria-hidden', 'true')
     window.gsap?.set(growing, { clearProps: 'all' })
     window.gsap?.set([...fadeWords, ...fadeIns], {
       clearProps: 'opacity,visibility,transform',
     })
     if (heroMedia) window.gsap.set(heroMedia, { autoAlpha: 1 })
-    if (heroReveal) heroReveal.setAttribute('aria-hidden', 'true')
     preloader.classList.remove('is-expanding')
-    preloader.style.display = 'none'
-    preloader.setAttribute('aria-hidden', 'true')
     document.body.classList.remove('is-preloading')
     window.siteLenis?.start()
   }
@@ -54,7 +52,6 @@ export default function initPreloader() {
   gsap.set(box, { width: 0, height: BOX_H, overflow: 'hidden' })
   gsap.set(wordImgs, { yPercent: 100 })
   gsap.set(heroMedia, { autoAlpha: 0 })
-  gsap.set(heroReveal, { autoAlpha: 0 })
   gsap.set(fadeWords, { autoAlpha: 0, y: '0.55em' })
   gsap.set(fadeIns, { autoAlpha: 0, y: 28 })
 
@@ -91,33 +88,32 @@ export default function initPreloader() {
     .fromTo(wordEnd, { x: '0em' }, { x: '0.05em', duration: 1.25 }, '<')
     .addLabel('split')
 
-  // Phase 2 — crossfade + expand start together (stagger runs in parallel)
-  tl.fromTo(
-      coverExtras,
-      { opacity: 1 },
-      { opacity: 0, duration: 0.05, ease: 'none', stagger: 0.55 },
-      'split-=0.05',
-    )
-    .add(pinGrowing, 'split-=0.05')
-    .to(growing, { width: viewportW, height: viewportH, duration: 1.7 }, 'split-=0.05')
-    .to(box, { width: viewportW * 1.1, duration: 1.7 }, 'split-=0.05')
-    .to(preloader, { backgroundColor: 'rgba(255,255,255,0)', duration: 0.6 }, 'split-=0.05')
-    .to([wordStart, wordEnd], { autoAlpha: 0, duration: 0.45, ease: 'power2.out' }, 'split+=0.3')
-    .to(heroReveal, { autoAlpha: 1, duration: 1.4, ease: 'power2.out' }, 'split+=0.45')
-    .to(heroMedia, { autoAlpha: 1, duration: 0.01 }, 'split+=1.35')
+  // Phase 2 — show one center image at a time before the banner opens.
+  coverExtras.forEach((cover, index) => {
+    tl.to(cover, { opacity: 0, duration: 0.18, ease: 'power1.out' }, `split+=${0.55 + index * 0.55}`)
+  })
+  tl.addLabel('imageSequenceDone', `split+=${0.55 + coverExtras.length * 0.55}`)
 
-  // Phase 3 — hero text during expand
+  // Phase 3 — expand the final image into the hero banner.
+  tl.add(pinGrowing, 'imageSequenceDone+=0.1')
+    .to(growing, { width: viewportW, height: viewportH, duration: 1.7 }, 'imageSequenceDone+=0.1')
+    .to(box, { width: viewportW * 1.1, duration: 1.7 }, 'imageSequenceDone+=0.1')
+    .to(preloader, { backgroundColor: 'rgba(255,255,255,0)', duration: 0.6 }, 'imageSequenceDone+=0.1')
+    .to([wordStart, wordEnd], { autoAlpha: 0, duration: 0.45, ease: 'power2.out' }, 'imageSequenceDone+=0.45')
+    .to(heroMedia, { autoAlpha: 1, duration: 0.01 }, 'imageSequenceDone+=1.7')
+
+  // Phase 4 — hero text during expand.
   tl.fromTo(
       fadeWords,
       { autoAlpha: 0, y: '0.55em' },
       { autoAlpha: 1, y: 0, duration: 1, ease: 'expo.out', stagger: 0.06 },
-      'split+=1.35',
+      'imageSequenceDone+=1.45',
     )
     .fromTo(
       fadeIns,
       { autoAlpha: 0, y: 28 },
       { autoAlpha: 1, y: 0, duration: 0.95, ease: 'expo.out', stagger: 0.08 },
-      'split+=1.45',
+      'imageSequenceDone+=1.55',
     )
 }
 

@@ -37,12 +37,16 @@
     --color-cream: #EBEBDE;
     --color-tan: #A18A6B;
     --color-overlay-dark: #171B23;
+    --color-dark-charcoal: #35454C;
     --color-charcoal: #35454C;
     --color-navy-blue: #E2E9F3;
+    --color-forest-green: #354c3f;
 
     --text-heading-1: 48px;
     --text-heading-2: 68px;
     --text-heading-3: 52px;
+    --text-heading-5: 18px;
+    --text-heading-6: 16px;
 
     --text-32: 32px;
     --text-28: 28px;
@@ -50,6 +54,7 @@
     --text-14:14px;
     --text-24:24px;
     --text-16:16px;
+    --text-12: 12px;
 
     --leading-38: 38px;
     --leading-32: 32px;
@@ -71,6 +76,7 @@
 
     --shadow-testimonial: 2.2px 2.2px 4.4px 1.1px rgba(0,0,0,0.10);
     --shadow-footer-panel: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    --shadow-location-popup: 0px 0px 16px 0px rgba(0,0,0,0.25);
 
     --aspect-testimonial: 399 / 527;
     --aspect-hz-main: 888 / 560;
@@ -78,4 +84,22 @@
     --aspect-proven-accent: 266 / 294;
 
     --spacing: 1px;
+       /* Location map — pin & marker positions (%, relative to 1440×900 Figma frame 18:4986) */
+       --spacing-pin-1-left: 78.96%;
+       --spacing-pin-1-top: 28.56%;
+       --spacing-pin-2-left: 30.56%;
+       --spacing-pin-2-top: 20.89%;
+       --spacing-pin-3-left: 29.03%;
+       --spacing-pin-3-top: 15.78%;
+       --spacing-pin-4-left: 40.76%;
+       --spacing-pin-4-top: 46.44%;
+       --spacing-pin-5-left: 31.60%;
+       --spacing-pin-5-top: 36.44%;
+       --spacing-pin-6-left: 47.64%;
+       --spacing-pin-6-top: 55.11%;
+       --spacing-cda-left: 44.79%;
+       --spacing-cda-top: 43.22%;
+       --spacing-cda-dot-left: 52.92%;
+       --spacing-cda-dot-top: 48.33%;
+   
 }

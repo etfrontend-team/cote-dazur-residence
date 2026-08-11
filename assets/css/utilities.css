@@ -15,7 +15,7 @@
 }
 
 .preloader-section {
-    @apply pointer-events-none absolute inset-0 z-10 flex items-center justify-center overflow-hidden bg-white;
+    @apply pointer-events-none absolute inset-0 z-60 flex items-center justify-center overflow-hidden bg-white;
 }
 
 .preloader-section.is-expanding {
@@ -118,18 +118,6 @@
     @apply relative z-0 w-full h-full overflow-hidden;
 }
 
-.hero-section__reveal {
-    @apply pointer-events-none absolute inset-0 z-20;
-}
-
-.hero-section__reveal-slide {
-    @apply absolute inset-0 bg-cover bg-center;
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%),
-        url('/assets/images/hero-bg.webp');
-}
-
 .hero-section__media-img {
     @apply block w-full h-full object-cover;
 }
@@ -226,7 +214,7 @@
 /* ==========================================================================
    Residences slider — full-bleed GSAP ScrollTrigger clip-path reveal
    (Figma nodes 18:4759, 72:58). Pinned in the viewport while each stacked
-   slide wipes in left-to-right over the last as the user scrolls, in place
+   slide wipes in right-to-left over the last as the user scrolls, in place
    of a swipeable carousel. Figma reuses one background photo across all
    three Block cards; distinct existing project photos stand in per block
    here instead so the wipe is visually legible slide-to-slide.
@@ -376,3 +364,158 @@
 .residences-slide__filter-extra-inner {
     @apply flex flex-col gap-16 max-1199:gap-12;
 }
+
+
+/* ===== LOCATION SECTION ===== */
+
+.location-section {
+    @apply py-0;
+  }
+  
+  .location-map {
+    @apply relative h-900 overflow-hidden max-1199:h-700 max-768:h-600 max-425:h-420;
+  }
+  
+  .location-map-bg {
+    @apply absolute inset-0;
+  }
+  
+  .location-map-bg img {
+    @apply w-full h-full object-cover object-center;
+  }
+  
+  /* Route connecting lines — inline SVG overlay */
+  
+  .location-lines-overlay {
+    @apply absolute inset-0 w-full h-full pointer-events-none max-768:hidden;
+  }
+  
+  /* CÔTE D'AZUR map marker */
+  
+  .location-cda-marker {
+    /* @apply absolute flex items-center gap-8 pointer-events-none left-[27%] 1512:left-[30%] top-[45%] -translate-x-[72%] max-768:hidden; */
+    @apply absolute flex items-center gap-8 pointer-events-none left-[33%] top-[45%] translate-x-[-67%] max-1366:left-[32%] max-1366:translate-x-[-68%] max-768:left-[30%] max-768:translate-x-[-70%]  max-768:hidden;
+  }
+  
+  .location-cda-text {
+    @apply font-Cinzel font-medium text-primary tracking-widest text-14 leading-none;
+  }
+  
+  .location-cda-dot {
+    @apply w-10 h-10 rounded-full bg-primary;
+  }
+  
+  /* Location pins — navy circles with icon */
+  
+  .location-pin {
+    @apply absolute w-36 h-36 max-576:w-26 max-576:h-26 rounded-full bg-primary flex items-center justify-center cursor-pointer z-10
+           transition-transform duration-200 hover:scale-110 active:scale-95
+           -translate-x-1/2 -translate-y-1/2;
+  }
+  
+  .location-pin img {
+    @apply block shrink-0 w-18 h-18 max-576:w-12 max-576:h-12;
+  }
+  
+  .location-pin-1 {
+    @apply left-pin-1-left top-pin-1-top;
+  }
+  
+  .location-pin-2 {
+    @apply left-pin-2-left top-pin-2-top max-576:left-[20%];
+  }
+  
+  .location-pin-3 {
+    @apply left-pin-3-left top-pin-3-top max-576:left-[16%];
+  }
+  
+  .location-pin-4 {
+    @apply left-pin-4-left top-pin-4-top;
+  }
+  
+  .location-pin-5 {
+    @apply left-pin-5-left top-pin-5-top max-576:left-[20%];
+  }
+  
+  .location-pin-6 {
+    @apply left-pin-6-left top-pin-6-top;
+  }
+  
+  /* Active pin ring */
+  
+  /* .location-pin.is-active {
+    @apply ring-2 ring-primary/40 ring-offset-2;
+  } */
+  
+  /* Bottom-left label */
+  
+  .location-content {
+    @apply absolute bottom-0 left-0 px-64 pb-50 max-1199:px-40 max-1199:pb-40 max-768:px-24 max-768:pb-30 max-425:px-16 max-425:pb-24;
+  }
+  
+  .location-content .title h2 {
+    @apply mb-4 max-992:text-heading-1 max-768:text-[42px] max-992:leading-tight;
+  }
+  
+  .location-content .content p {
+    @apply text-18 leading-snug opacity-80 max-768:text-16 max-576:text-14;
+  }
+  
+  /* Popup card — flex-col: top row + divider + distance row */
+  
+  .location-popup {
+    @apply absolute w-288 bg-white shadow-location-popup flex flex-col
+           opacity-0 pointer-events-none
+           transition-all duration-300 translate-y-4 z-20
+           max-768:w-full max-768:left-0 max-768:right-0 max-768:bottom-0 max-768:top-auto max-768:translate-y-0;
+  }
+  
+  .location-popup.is-open {
+    @apply opacity-100 pointer-events-auto translate-y-0;
+  }
+  
+  /* Popup — top row (thumbnail + destination) */
+  
+  .location-popup-top {
+    @apply flex items-start pt-18 pb-10;
+  }
+  
+  .location-popup-thumb {
+    @apply shrink-0 w-79 h-62 overflow-hidden ml-16;
+  }
+  
+  .location-popup-thumb img {
+    @apply w-full h-full object-cover;
+  }
+  
+  .location-popup-destination {
+    @apply flex flex-col ml-14 gap-6;
+  }
+  
+  /* Popup — full-width divider */
+  
+  .location-popup-divider {
+    @apply block h-px bg-dark-charcoal/20 mx-16;
+  }
+  
+  /* Popup — distance row (below divider) */
+  
+  .location-popup-bottom {
+    @apply flex flex-col px-16 pt-12 pb-16 gap-12;
+  }
+  
+  /* Shared label + value styles */
+  
+  .location-popup-label {
+    @apply text-12 font-body font-normal text-dark-charcoal tracking-widest uppercase leading-none;
+  }
+  
+  .location-popup-value {
+    @apply text-18 max-768:text-14 font-body font-semibold text-primary leading-tight;
+  }
+  
+  /* content color modifier for popup text */
+  
+  .content-dark-charcoal p {
+    @apply text-dark-charcoal;
+  }
