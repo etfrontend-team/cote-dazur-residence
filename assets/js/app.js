@@ -18,6 +18,7 @@ import initFadeIn from './fadeIn.js';
 import initTextFillAnimation from './textFillAnimation.js';
 import initIntroductionReveal from './introductionReveal.js';
 import initLocationPins from './locationPins.js';
+import initFilterDropdowns from './filterdropdown.js';
 
 window.Lenis = Lenis;
 window.gsap = gsap;
@@ -43,4 +44,5 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
     ScrollTrigger.refresh();
   });
+  initFilterDropdowns();
 });
