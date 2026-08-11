@@ -27,12 +27,20 @@ window.addEventListener('DOMContentLoaded', () => {
   initLenis();
   initHeader();
   initPreloader();
+  // Pin-based triggers (e.g. residences slider) must register before horizontal
+  // scroll so pin-spacer layout exists when ScrollTrigger positions are calculated.
+  initResidencesSlider();
   initHorizontalScroll();
   initHorizontalSectionHeaderToggle();
-  initResidencesSlider();
   initTestimonialCard();
   initFadeIn();
   initTextFillAnimation();
   initIntroductionReveal();
   initLocationPins();
+
+  ScrollTrigger.refresh();
+
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
 });

@@ -39,7 +39,7 @@ export default function initHorizontalScroll() {
       trigger: content,
       start: 'top top',
       end: 'bottom bottom',
-      scrub: 1,
+      scrub: true,
       invalidateOnRefresh: true,
     },
   }).to(film, {

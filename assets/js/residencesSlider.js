@@ -85,7 +85,7 @@ export default function initResidencesSlider() {
       trigger: container,
       start: 'top top',
       end: () => `+=${(slides.length - 1) * window.innerHeight}`,
-      scrub: 1,
+      scrub: true,
       pin: true,
       invalidateOnRefresh: true,
     },

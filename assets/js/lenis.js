@@ -4,27 +4,26 @@
 // ============================================================
 
 export default function initLenis() {
-  if (!window.Lenis) return;
+  if (!window.Lenis || !window.gsap || !window.ScrollTrigger) return;
 
   const lenis = new window.Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    lerp: 0.1,
     orientation: 'vertical',
     smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 1,
   });
 
   window.siteLenis = lenis;
 
-  lenis.on('scroll', () => {
-    window.ScrollTrigger?.update();
+  // Keep Lenis and ScrollTrigger on the same GSAP tick (recommended Lenis integration).
+  lenis.on('scroll', window.ScrollTrigger.update);
+
+  window.gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
   });
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
+  window.gsap.ticker.lagSmoothing(0);
 }
 
 // ============================================================
