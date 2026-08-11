@@ -63,11 +63,76 @@
     />
   </head>
   <body>
-  <div
-  class="header-scroll-sentinel"
-  aria-hidden="true"
-></div>
-<header id="site-header">
+    <div
+      class="preloader-section"
+      data-preloader
+      aria-hidden="false"
+    >
+      <div class="preloader-section__track">
+        <div class="preloader-section__word preloader-section__word--start">
+          <img
+            class="preloader-section__word-img"
+            src="/assets/images/logo-blue.svg"
+            width="1048"
+            height="129"
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        <div
+          class="preloader-section__box"
+          data-preloader-box
+        >
+          <div class="preloader-section__box-inner">
+            <div
+              class="preloader-section__growing"
+              data-preloader-growing
+            >
+              <div class="preloader-section__cover-stack">
+                <div
+                  class="preloader-section__cover-extra"
+                  data-preloader-cover-extra
+                  style="background-image: url('/assets/images/loader-building.webp')"
+                ></div>
+                <div
+                  class="preloader-section__cover-extra"
+                  data-preloader-cover-extra
+                  style="background-image: url('/assets/images/footer-building.webp')"
+                ></div>
+                <div
+                  class="preloader-section__cover-extra"
+                  data-preloader-cover-extra
+                  style="background-image: url('/assets/images/1_bloom_2x.webp')"
+                ></div>
+                <div
+                  class="preloader-section__cover-image"
+                  data-preloader-cover-main
+                  style="background-image: url('/assets/images/3_bloom_2x.webp')"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="preloader-section__word preloader-section__word--end">
+          <img
+            class="preloader-section__word-img"
+            src="/assets/images/logo-blue.svg"
+            width="1048"
+            height="129"
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="page-wrap">
+      <div
+        class="header-scroll-sentinel"
+        aria-hidden="true"
+      ></div>
+      <header id="site-header">
   <div class="container-fluid">
     <div class="main-nav">
       <a
@@ -264,70 +329,6 @@
 </header>
     <main>
       <section class="hero-section bg-white pt-0 pb-0">
-        <div
-          class="preloader-section"
-          data-preloader
-          aria-hidden="false"
-        >
-          <div class="preloader-section__track">
-            <div class="preloader-section__word preloader-section__word--start">
-              <img
-                class="preloader-section__word-img"
-                src="/assets/images/logo-blue.svg"
-                width="1048"
-                height="129"
-                alt=""
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="preloader-section__box"
-              data-preloader-box
-            >
-              <div class="preloader-section__box-inner">
-                <div
-                  class="preloader-section__growing"
-                  data-preloader-growing
-                >
-                  <div class="preloader-section__cover-stack">
-                    <div
-                      class="preloader-section__cover-extra"
-                      data-preloader-cover-extra
-                      style="background-image: url('/assets/images/loader-building.webp')"
-                    ></div>
-                    <div
-                      class="preloader-section__cover-extra"
-                      data-preloader-cover-extra
-                      style="background-image: url('/assets/images/footer-building.webp')"
-                    ></div>
-                    <div
-                      class="preloader-section__cover-extra"
-                      data-preloader-cover-extra
-                      style="background-image: url('/assets/images/proven-background-terrace.webp')"
-                    ></div>
-                    <div
-                      class="preloader-section__cover-image"
-                      data-preloader-cover-main
-                      style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%), url('/assets/images/hero-bg.webp')"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="preloader-section__word preloader-section__word--end">
-              <img
-                class="preloader-section__word-img"
-                src="/assets/images/logo-blue.svg"
-                width="1048"
-                height="129"
-                alt=""
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
         <div class="hero-section__media">
           <!-- eslint-disable @html-eslint/require-attrs -->
           <img
@@ -2286,5 +2287,6 @@
       type="module"
       src="/assets/js/app.js"
     ></script>
+    </div>
   </body>
 </html>

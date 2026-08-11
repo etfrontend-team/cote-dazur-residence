@@ -57,7 +57,19 @@ button {
 }
 
 body {
-    @apply font-body relative overflow-x-hidden m-0 p-0 bg-white antialiased;
+    @apply font-body relative overflow-x-hidden overflow-y-hidden m-0 p-0 bg-white antialiased;
+}
+
+body.is-loaded {
+    @apply overflow-y-visible;
+}
+
+.page-wrap {
+    @apply pointer-events-none opacity-0 transition-opacity duration-700 ease-out;
+}
+
+body.is-loaded .page-wrap {
+    @apply pointer-events-auto opacity-100;
 }
 
 h1, .h1 {

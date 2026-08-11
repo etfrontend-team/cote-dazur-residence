@@ -6,20 +6,8 @@
    Preloader
    ========================================================================== */
 
-.is-preloading {
-    overflow: hidden;
-}
-
-.is-preloading .hero-section__inner {
-    pointer-events: none;
-}
-
 .preloader-section {
-    @apply pointer-events-none absolute inset-0 z-60 flex items-center justify-center overflow-hidden bg-white;
-}
-
-.preloader-section.is-expanding {
-    overflow: visible;
+    @apply pointer-events-none fixed inset-0 z-60 flex items-center justify-center overflow-hidden bg-white;
 }
 
 .hero-fade-word {
@@ -75,9 +63,7 @@
 }
 
 .preloader-section__growing {
-    @apply absolute flex items-center justify-center overflow-hidden;
-    width: 0%;
-    height: 100%;
+    @apply absolute flex h-full w-full items-center justify-center overflow-hidden;
 }
 
 .preloader-section__cover-stack {
@@ -87,7 +73,7 @@
 
 .preloader-section__cover-extra,
 .preloader-section__cover-image {
-    @apply absolute inset-0 h-full w-full overflow-hidden;
+    @apply absolute inset-0 h-full w-full overflow-hidden bg-cover bg-center bg-no-repeat;
 }
 
 .preloader-section__cover-extra img,

@@ -319,6 +319,9 @@
   .mt-40 {
     margin-top: calc(var(--spacing) * 40);
   }
+  .mt-60 {
+    margin-top: calc(var(--spacing) * 60);
+  }
   .mt-auto {
     margin-top: auto;
   }
@@ -444,6 +447,9 @@
   .pt-24 {
     padding-top: calc(var(--spacing) * 24);
   }
+  .pt-90 {
+    padding-top: calc(var(--spacing) * 90);
+  }
   .pt-100 {
     padding-top: calc(var(--spacing) * 100);
   }
@@ -458,6 +464,9 @@
   }
   .pb-100 {
     padding-bottom: calc(var(--spacing) * 100);
+  }
+  .pb-112 {
+    padding-bottom: calc(var(--spacing) * 112);
   }
   .pb-120 {
     padding-bottom: calc(var(--spacing) * 120);
@@ -633,6 +642,11 @@
       width: calc(var(--spacing) * 350) !important;
     }
   }
+  @media (width >= 993px) {
+    .\39 92\:mt-90 {
+      margin-top: calc(var(--spacing) * 90);
+    }
+  }
 }
 @font-face {
   font-family: "Cinzel";
@@ -697,11 +711,30 @@ body {
   position: relative;
   margin: 0px;
   overflow-x: hidden;
+  overflow-y: hidden;
   background-color: var(--color-white);
   padding: 0px;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body.is-loaded {
+  overflow-y: visible;
+}
+.page-wrap {
+  pointer-events: none;
+  opacity: 0%;
+  transition-property: opacity;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 700ms;
+  transition-duration: 700ms;
+  --tw-ease: var(--ease-out);
+  transition-timing-function: var(--ease-out);
+}
+body.is-loaded .page-wrap {
+  pointer-events: auto;
+  opacity: 100%;
 }
 h1, .h1 {
   font-family: var(--font-Cinzel);
@@ -1846,15 +1879,9 @@ footer::before {
   white-space: nowrap;
   border-width: 0;
 }
-.is-preloading {
-  overflow: hidden;
-}
-.is-preloading .hero-section__inner {
-  pointer-events: none;
-}
 .preloader-section {
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   inset: 0px;
   z-index: 60;
   display: flex;
@@ -1862,9 +1889,6 @@ footer::before {
   justify-content: center;
   overflow: hidden;
   background-color: var(--color-white);
-}
-.preloader-section.is-expanding {
-  overflow: visible;
 }
 .hero-fade-word {
   display: inline-block;
@@ -1935,11 +1959,11 @@ footer::before {
 .preloader-section__growing {
   position: absolute;
   display: flex;
+  height: 100%;
+  width: 100%;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: 0%;
-  height: 100%;
 }
 .preloader-section__cover-stack {
   position: absolute;
@@ -1954,6 +1978,9 @@ footer::before {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .preloader-section__cover-extra img, .preloader-section__cover-image img {
   display: block;
