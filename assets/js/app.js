@@ -16,6 +16,7 @@ import initResidencesSlider from './residencesSlider.js';
 import initTestimonialCard from './testimonialCard.js';
 import initFadeIn from './fadeIn.js';
 import initTextFillAnimation from './textFillAnimation.js';
+import initIntroductionReveal from './introductionReveal.js';
 
 window.Lenis = Lenis;
 window.gsap = gsap;
@@ -30,4 +31,5 @@ window.addEventListener('DOMContentLoaded', () => {
   initTestimonialCard();
   initFadeIn();
   initTextFillAnimation();
+  initIntroductionReveal();
 });
