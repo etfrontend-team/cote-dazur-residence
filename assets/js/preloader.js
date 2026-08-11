@@ -13,6 +13,7 @@ export default function initPreloader() {
   const wordStart = preloader.querySelector('.preloader-section__word--start')
   const wordEnd = preloader.querySelector('.preloader-section__word--end')
   const wordImgs = preloader.querySelectorAll('.preloader-section__word-img')
+  const header = document.getElementById('site-header')
   const heroMedia = document.querySelector('.hero-section__media')
   const fadeWords = document.querySelectorAll('.hero-fade-word')
   const fadeIns = document.querySelectorAll('.hero-fade-in')
@@ -24,6 +25,7 @@ export default function initPreloader() {
     window.gsap?.set([...fadeWords, ...fadeIns], {
       clearProps: 'opacity,visibility,transform',
     })
+    if (header) window.gsap?.set(header, { clearProps: 'opacity,visibility,transform' })
     if (heroMedia) window.gsap.set(heroMedia, { autoAlpha: 1 })
     preloader.classList.remove('is-expanding')
     document.body.classList.remove('is-preloading')
@@ -51,6 +53,7 @@ export default function initPreloader() {
   gsap.set(growing, { width: '0%', height: '100%' })
   gsap.set(box, { width: 0, height: BOX_H, overflow: 'hidden' })
   gsap.set(wordImgs, { yPercent: 100 })
+  gsap.set(header, { autoAlpha: 0, y: -16 })
   gsap.set(heroMedia, { autoAlpha: 0 })
   gsap.set(fadeWords, { autoAlpha: 0, y: '0.55em' })
   gsap.set(fadeIns, { autoAlpha: 0, y: 28 })
@@ -100,20 +103,21 @@ export default function initPreloader() {
     .to(box, { width: viewportW * 1.1, duration: 1.7 }, 'imageSequenceDone+=0.1')
     .to(preloader, { backgroundColor: 'rgba(255,255,255,0)', duration: 0.6 }, 'imageSequenceDone+=0.1')
     .to([wordStart, wordEnd], { autoAlpha: 0, duration: 0.45, ease: 'power2.out' }, 'imageSequenceDone+=0.45')
-    .to(heroMedia, { autoAlpha: 1, duration: 0.01 }, 'imageSequenceDone+=1.7')
+    .to(heroMedia, { autoAlpha: 1, duration: 0.01 }, 'imageSequenceDone+=1.5')
+    .to(header, { autoAlpha: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 'imageSequenceDone+=1.15')
 
   // Phase 4 — hero text during expand.
   tl.fromTo(
       fadeWords,
       { autoAlpha: 0, y: '0.55em' },
       { autoAlpha: 1, y: 0, duration: 1, ease: 'expo.out', stagger: 0.06 },
-      'imageSequenceDone+=1.45',
+      'imageSequenceDone+=1.15',
     )
     .fromTo(
       fadeIns,
       { autoAlpha: 0, y: 28 },
       { autoAlpha: 1, y: 0, duration: 0.95, ease: 'expo.out', stagger: 0.08 },
-      'imageSequenceDone+=1.55',
+      'imageSequenceDone+=1.25',
     )
 }
 
