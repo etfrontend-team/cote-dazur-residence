@@ -9,7 +9,7 @@ import { gsap } from '/node_modules/gsap/index.js';
 import { ScrollTrigger } from '/node_modules/gsap/ScrollTrigger.js';
 
 import initLenis from './lenis.js';
-import initHeader from './header.js';
+import initHeader, { initHorizontalSectionHeaderToggle } from './header.js';
 import initPreloader from './preloader.js';
 import initHorizontalScroll from './horizontalScroll.js';
 import initResidencesSlider from './residencesSlider.js';
@@ -27,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initPreloader();
   initHorizontalScroll();
+  initHorizontalSectionHeaderToggle();
   initResidencesSlider();
   initTestimonialCard();
   initFadeIn();

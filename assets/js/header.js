@@ -78,6 +78,24 @@ function initLangDropdown(header) {
   });
 }
 
+export function initHorizontalSectionHeaderToggle() {
+  const header = document.getElementById('site-header');
+  const section = document.querySelector('.horizontal-section');
+  const content = section?.querySelector('.hz-content');
+  if (!header || !section || !content || !window.ScrollTrigger) return;
+
+  const isStatic = section.classList.contains('horizontal-section--static');
+
+  window.ScrollTrigger.create({
+    trigger: isStatic ? section : content,
+    start: 'top top',
+    end: isStatic ? 'bottom top' : 'bottom bottom',
+    onToggle: (self) => {
+      header.dataset.hidden = String(self.isActive);
+    },
+  });
+}
+
 export default function initHeader() {
   const header = document.getElementById('site-header');
   if (!header) return;
