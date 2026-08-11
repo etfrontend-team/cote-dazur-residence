@@ -40,11 +40,11 @@
 }
 
 .hz-frame {
- @apply sticky top-0 h-screen w-full overflow-hidden;
+ @apply sticky top-0 h-dvh w-full overflow-hidden;
 }
 
 .hz-film {
- @apply flex h-full items-center gap-100 will-change-transform max-1024:gap-60 max-768:gap-40;
+ @apply flex h-full items-center will-change-transform gap-80 992:gap-115;
 }
 
 .horizontal-section--static .hz-content {
@@ -52,48 +52,125 @@
 }
 
 .horizontal-section--static .hz-frame {
- @apply static overflow-x-auto;
+ @apply static h-auto overflow-visible;
+}
+
+.horizontal-section--static .hz-film {
+ @apply h-auto flex-col;
+}
+
+.horizontal-section--static .hz-slide {
+ @apply w-full;
 }
 
 .hz-slide {
- @apply flex shrink-0 items-center gap-64 max-1024:gap-40 max-768:flex-col max-768:items-start max-768:gap-24;
+ @apply flex shrink-0 gap-37 max-1199:gap-24 max-768:gap-16;
 }
 
 .hz-slide__info {
- @apply flex w-313 shrink-0 flex-col items-start gap-24 max-1024:w-260 max-768:w-full;
+ @apply flex w-437 shrink-0 flex-col items-start max-1199:w-320 max-768:w-260 max-425:w-220 max-768:gap-12;
 }
 
-/* Figma only confirms exact pixel geometry at the 1440 desktop frame (node
-   18:4802) — no tablet/mobile frame was supplied, so 1024/768 scale the
-   image down proportionally per html-css-js-rules CSS rule 21. */
-.hz-slide__media {
- @apply relative shrink-0 w-888 h-560 max-1024:w-620 max-1024:h-392 max-768:aspect-hz-main max-768:h-auto max-768:w-full;
+.image-variant-1 {
+ @apply relative shrink-0 overflow-hidden rounded-tl-50 w-888 h-560 max-1199:w-620 max-1199:h-391 will-change-transform;
 }
 
-.hz-slide__media img {
+@media (max-width: 768px) {
+  .image-variant-1 {
+    width: 120vw;
+    height: calc(100vh - 300px);
+  }
+}
+
+.image-variant-1 img {
  @apply block h-full w-full rounded-tl-50 object-cover;
 }
 
-/* Accent image position is approximated for a repeating multi-slide
-   component — the exact Figma gutter placement (below the text column) does
-   not translate cleanly once the same template repeats across slides and
-   breakpoints, so it is anchored to the main image's bottom-left corner. */
-.hz-slide__media-accent {
- @apply absolute -bottom-40 -left-40 w-237 h-271 overflow-hidden rounded-br-40 shadow-testimonial max-1024:-bottom-20 max-1024:-left-20 max-1024:w-140 max-1024:h-160 max-768:hidden;
+.image-overlay::before {
+    @apply pointer-events-none absolute top-0 left-0 right-0 z-1 h-1/3 opacity-40;
+    content: "";
+    background: linear-gradient(
+    0,
+    rgba(0, 0, 0, 0) 0%,
+        #000000 100%
+    );
 }
 
-.hz-slide__media-accent img {
- @apply block h-full w-full rounded-br-40 object-cover;
+.image-overlay::after {
+    @apply pointer-events-none absolute bottom-0 left-0 right-0 z-1 h-1/3 opacity-70;
+    content: "";
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        #000000 100%
+    );
 }
 
-.hz-cta {
- @apply inline-flex flex-col items-start gap-10 text-16 font-body tracking-1.6 text-primary uppercase transition-colors duration-300 hover:text-tan;
+
+.image-variant-2 {
+    @apply relative shrink-0 overflow-hidden rounded-br-40 w-237 h-271 max-1199:w-180 max-1199:h-206 will-change-transform;
+   }
+
+@media (max-width: 768px) {
+  .image-variant-2 {
+    width: 45vw;
+    height: 30vh;
+  }
+}
+   
+.image-variant-2 img {
+    @apply block h-full w-full  object-cover;
 }
 
-.hz-cta__line {
- @apply block h-1 w-46 origin-left scale-x-100 bg-primary transition-transform duration-300;
+
+.image-variant-3 {
+    @apply relative shrink-0 overflow-hidden rounded-bl-40 w-424 h-250 max-1199:w-300 max-1199:h-177 will-change-transform;
+   }
+
+@media (max-width: 768px) {
+  .image-variant-3 {
+    width: 75vw;
+    height: 25vh;
+  }
+}
+   
+.image-variant-3 img {
+    @apply block h-full w-full  object-cover;
 }
 
-.hz-cta:hover .hz-cta__line {
- @apply scale-x-125;
+.image-variant-4 {
+    @apply relative shrink-0 overflow-hidden rounded-br-40 w-532 h-250 max-1199:w-380 max-1199:h-179 will-change-transform;
+   }
+
+@media (max-width: 768px) {
+  .image-variant-4 {
+    width: 80vw;
+    height: 25vh;
+  }
+}
+   
+.image-variant-4 img {
+    @apply block h-full w-full  object-cover;
+}
+
+.image-stack {
+    @apply relative;
+}
+
+.image-corner-inset {
+    @apply absolute right-0 bottom-0 z-1 translate-x-8/12 -translate-y-4/12;
+}
+
+
+
+.introduction-header {
+    @apply max-w-950 mx-auto flex flex-col gap-10 justify-center items-center;
+}
+
+.introduction-section .content-block-wrapper {
+    @apply mt-127;
+}
+
+.introduction-section .content-block-wrapper .content-block {
+    @apply max-w-790 mx-auto;
 }

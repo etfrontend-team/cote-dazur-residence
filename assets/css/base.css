@@ -133,6 +133,9 @@ h3, .h3 {
     @apply text-cream;
 }
 
+.content-charcoal p {
+    @apply text-charcoal/36;
+}
 .content.big p {
     @apply text-24 leading-32 font-normal font-body;
 }
