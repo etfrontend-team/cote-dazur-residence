@@ -1,26 +1,34 @@
 // ============================================================
-// preloader.js — Logo split-reveal → grow-into-banner intro
-// Matches Figma node 5:79's three keyframes: full logo, then the wordmark
-// split with a small 218×137 photo in the gap, then that photo filling the
-// full 1440×900 frame as the hero banner.
-// Runs once on initial load, then hands off to the hero section.
+// preloader.js — Bend Club loader (matches reference timeline)
 // ============================================================
 
 export default function initPreloader() {
   const preloader = document.querySelector('[data-preloader]')
   if (!preloader) return
 
-  const logo = preloader.querySelector('[data-preloader-logo]')
-  const splitWrap = preloader.querySelector('[data-preloader-split-wrap]')
-  const splitLeft = preloader.querySelector('.preloader-section__split--left')
-  const splitRight = preloader.querySelector('.preloader-section__split--right')
-  const reveal = preloader.querySelector('[data-preloader-reveal]')
-  const heroCopy = document.querySelector('.hero-section__copy')
-  const heroCtas = document.querySelector('.hero-section__ctas')
+  const box = preloader.querySelector('[data-preloader-box]')
+  const growing = preloader.querySelector('[data-preloader-growing]')
+  const coverExtras = preloader.querySelectorAll('[data-preloader-cover-extra]')
+  const track = preloader.querySelector('.preloader-section__track')
+  const wordStart = preloader.querySelector('.preloader-section__word--start')
+  const wordEnd = preloader.querySelector('.preloader-section__word--end')
+  const wordImgs = preloader.querySelectorAll('.preloader-section__word-img')
+  const heroMedia = document.querySelector('.hero-section__media')
+  const heroReveal = document.querySelector('[data-hero-reveal]')
+  const fadeWords = document.querySelectorAll('.hero-fade-word')
+  const fadeIns = document.querySelectorAll('.hero-fade-in')
 
   const finish = () => {
+    window.gsap?.set(growing, { clearProps: 'all' })
+    window.gsap?.set([...fadeWords, ...fadeIns], {
+      clearProps: 'opacity,visibility,transform',
+    })
+    if (heroMedia) window.gsap.set(heroMedia, { autoAlpha: 1 })
+    if (heroReveal) heroReveal.setAttribute('aria-hidden', 'true')
+    preloader.classList.remove('is-expanding')
     preloader.style.display = 'none'
     preloader.setAttribute('aria-hidden', 'true')
+    document.body.classList.remove('is-preloading')
     window.siteLenis?.start()
   }
 
@@ -34,62 +42,82 @@ export default function initPreloader() {
   }
 
   const gsap = window.gsap
-  const failSafe = setTimeout(finish, 7000)
+  const failSafe = setTimeout(finish, 9000)
+
+  const em = parseFloat(getComputedStyle(track).fontSize) || 60
+  const BOX_W = (218 / 129) * em
+  const BOX_H = (137 / 129) * em
+  const viewportW = window.innerWidth
+  const viewportH = window.innerHeight
+
+  gsap.set(growing, { width: '0%', height: '100%' })
+  gsap.set(box, { width: 0, height: BOX_H, overflow: 'hidden' })
+  gsap.set(wordImgs, { yPercent: 100 })
+  gsap.set(heroMedia, { autoAlpha: 0 })
+  gsap.set(heroReveal, { autoAlpha: 0 })
+  gsap.set(fadeWords, { autoAlpha: 0, y: '0.55em' })
+  gsap.set(fadeIns, { autoAlpha: 0, y: 28 })
+
+  const pinGrowing = () => {
+    const rect = growing.getBoundingClientRect()
+    if (rect.width < 1) return
+
+    gsap.set(growing, {
+      position: 'fixed',
+      left: rect.left + rect.width / 2,
+      top: rect.top + rect.height / 2,
+      xPercent: -50,
+      yPercent: -50,
+      width: rect.width,
+      height: rect.height,
+      zIndex: 15,
+    })
+    preloader.classList.add('is-expanding')
+  }
 
   const tl = gsap.timeline({
-    defaults: { ease: 'power2.out' },
+    defaults: { ease: 'expo.inOut' },
     onComplete: () => {
       clearTimeout(failSafe)
       finish()
     },
   })
 
-  // Figma node 5:85 — the gap photo is 218×137 before it grows to fullscreen.
-  const WINDOW_W = 218
-  const WINDOW_H = 137
+  // Phase 1 — logo split + center image opens
+  tl.fromTo(wordImgs, { yPercent: 100 }, { yPercent: 0, duration: 1.25, stagger: 0.12 })
+    .fromTo(box, { width: 0 }, { width: BOX_W, duration: 1.25 }, '<1.05')
+    .fromTo(growing, { width: '0%' }, { width: '100%', duration: 1.25 }, '<')
+    .fromTo(wordStart, { x: '0em' }, { x: '-0.05em', duration: 1.25 }, '<')
+    .fromTo(wordEnd, { x: '0em' }, { x: '0.05em', duration: 1.25 }, '<')
+    .addLabel('split')
 
-  gsap.set(reveal, { width: WINDOW_W, height: WINDOW_H, opacity: 0 })
-  if (heroCopy) gsap.set(heroCopy.children, { opacity: 0, y: 24 })
-  if (heroCtas) gsap.set(heroCtas.children, { opacity: 0, y: 24 })
-
-  // 1. Logo fades in whole first (Figma keyframe 1)
-  tl.from(logo, { opacity: 0, y: 16, duration: 0.7 }).to({}, { duration: 0.35 })
-
-  // 2. Wordmark splits apart and the photo appears in the gap (Figma keyframe 2)
-  // The wordmark's own blank gap is already 28px (488 - 189 - 271); each
-  // half only needs to travel half of the remaining distance to clear room
-  // for the 218px photo window.
-  const NATURAL_GAP = 28
-  const SPREAD = (WINDOW_W - NATURAL_GAP) / 2
-
-  tl.to(logo, { opacity: 0, duration: 0.4, ease: 'power2.inOut' }, 'split')
-    .set(splitWrap, { opacity: 1 }, 'split')
-    .fromTo(splitLeft, { x: 0 }, { x: -SPREAD, duration: 0.8, ease: 'power3.inOut' }, 'split')
-    .fromTo(splitRight, { x: 0 }, { x: SPREAD, duration: 0.8, ease: 'power3.inOut' }, 'split')
-    .to(reveal, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 'split+=0.2')
-    .to({}, { duration: 0.4 })
-
-  // 3. Photo window grows by literally resizing width/height (not
-  // transform:scale) so the source image is re-sampled crisp at every size,
-  // straight to full viewport — landing on the real hero banner (Figma
-  // keyframe 3). Deliberate exception to the transform/opacity-only
-  // animation rule for this one element.
-  tl.to(splitWrap, { opacity: 0, duration: 0.4, ease: 'power2.inOut' }, 'expand')
-    .to(
-      reveal,
-      { width: window.innerWidth, height: window.innerHeight, duration: 1.4, ease: 'power4.in' },
-      'expand',
+  // Phase 2 — crossfade + expand start together (stagger runs in parallel)
+  tl.fromTo(
+      coverExtras,
+      { opacity: 1 },
+      { opacity: 0, duration: 0.05, ease: 'none', stagger: 0.55 },
+      'split-=0.05',
     )
-    .to(preloader, { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 'expand+=1.05')
-    .to(
-      heroCopy ? heroCopy.children : [],
-      { opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out' },
-      'expand+=1.2',
+    .add(pinGrowing, 'split-=0.05')
+    .to(growing, { width: viewportW, height: viewportH, duration: 1.7 }, 'split-=0.05')
+    .to(box, { width: viewportW * 1.1, duration: 1.7 }, 'split-=0.05')
+    .to(preloader, { backgroundColor: 'rgba(255,255,255,0)', duration: 0.6 }, 'split-=0.05')
+    .to([wordStart, wordEnd], { autoAlpha: 0, duration: 0.45, ease: 'power2.out' }, 'split+=0.3')
+    .to(heroReveal, { autoAlpha: 1, duration: 1.4, ease: 'power2.out' }, 'split+=0.45')
+    .to(heroMedia, { autoAlpha: 1, duration: 0.01 }, 'split+=1.35')
+
+  // Phase 3 — hero text during expand
+  tl.fromTo(
+      fadeWords,
+      { autoAlpha: 0, y: '0.55em' },
+      { autoAlpha: 1, y: 0, duration: 1, ease: 'expo.out', stagger: 0.06 },
+      'split+=1.35',
     )
-    .to(
-      heroCtas ? heroCtas.children : [],
-      { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' },
-      'expand+=1.4',
+    .fromTo(
+      fadeIns,
+      { autoAlpha: 0, y: 28 },
+      { autoAlpha: 1, y: 0, duration: 0.95, ease: 'expo.out', stagger: 0.08 },
+      'split+=1.45',
     )
 }
 

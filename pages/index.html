@@ -14,81 +14,293 @@
    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sacramento&display=swap" rel="stylesheet"> 
    
     <link
+      rel="preload"
+      as="image"
+      href="/assets/images/logo-blue.svg"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/loader-building.webp"
+    />
+    <link
       rel="stylesheet"
       href="/dist/style.css"
     />
   </head>
-  <body>
-    <!-- <div
-      class="preloader-section"
-      data-preloader
-      aria-hidden="true"
-    >
-      <div class="preloader-section__stage">
-        <div class="preloader-section__logo-frame">
-          
+  <body class="is-preloading">
+    <div
+    class="header-scroll-sentinel"
+    aria-hidden="true"
+  ></div>
+  <header id="site-header">
+    <div class="container-fluid">
+      <div class="main-nav">
+        <a
+          href="/"
+          class="main-nav__logo"
+          role="link"
+          target="_self"
+          aria-label="Côte d'Azur Résidence — Home"
+        >
           <img
-            class="preloader-section__logo-img"
-            data-preloader-logo
-            src="/assets/images/logo-cote-dazur.webp"
-            width="488"
-            height="60"
-            alt="Côte d'Azur Résidences"
-            loading="eager"
+            src="/assets/images/logo-header.png"
+            width="244"
+            height="30"
+            alt="Côte d'Azur Résidence logo"
+            loading="lazy"
             decoding="async"
           />
-          <div
-            class="preloader-section__split-wrap"
-            data-preloader-split-wrap
-          >
-            <div class="preloader-section__split preloader-section__split--left">
+        </a>
+
+        <nav
+          id="primary-nav"
+          class="main-nav__links"
+          aria-label="Primary"
+        >
+          <ul>
+            <li>
+              <a
+                href="#residences"
+                role="link"
+                target="_self"
+                aria-label="Residences"
+                >Residences</a
+              >
+            </li>
+            <li>
+              <a
+                href="#amenities"
+                role="link"
+                target="_self"
+                aria-label="Amenities"
+                >Amenities</a
+              >
+            </li>
+            <li>
+              <a
+                href="#location"
+                role="link"
+                target="_self"
+                aria-label="Location"
+                >Location</a
+              >
+            </li>
+            <li>
+              <a
+                href="#gallery"
+                role="link"
+                target="_self"
+                aria-label="Gallery"
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                role="link"
+                target="_self"
+                aria-label="About"
+                >About</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="main-nav__actions">
+          <div class="main-nav__lang">
+            <button
+              type="button"
+              class="main-nav__lang-toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="lang-list"
+              aria-label="Change language"
+            >
+              <span>ENG</span>
               <img
-                src="/assets/images/logo-cote-dazur.webp"
-                width="488"
-                height="60"
-                alt="Côte d'Azur Résidences"
+                src="/assets/icons/arrow-down.svg"
+                width="24"
+                height="24"
+                alt="Dropdown arrow icon"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+
+            <ul
+              id="lang-list"
+              class="main-nav__lang-list"
+              role="menu"
+            >
+              <li role="none">
+                <button
+                  type="button"
+                  role="menuitem"
+                  aria-label="Switch to English"
+                  >English</button
+                >
+              </li>
+              <li role="none">
+                <button
+                  type="button"
+                  role="menuitem"
+                  aria-label="Switch to French"
+                  >Français</button
+                >
+              </li>
+              <li role="none">
+                <button
+                  type="button"
+                  role="menuitem"
+                  aria-label="Switch to Italian"
+                  >Italiano</button
+                >
+              </li>
+              <li role="none">
+                <button
+                  type="button"
+                  role="menuitem"
+                  aria-label="Switch to Spanish"
+                  >Español</button
+                >
+              </li>
+            </ul>
+          </div>
+
+          <a
+            href="#contact"
+            class="btn btn-primary btn-primary-invert main-nav__cta"
+            role="link"
+            target="_self"
+            aria-label="Request information"
+            >Request Information</a
+          >
+
+          <button
+            type="button"
+            class="main-nav__trigger"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+          >
+            <img
+              src="/assets/icons/menu-icon.svg"
+              width="24"
+              height="26"
+              alt="Menu icon"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+
+          <button
+            type="button"
+            class="main-nav__close"
+            aria-label="Close menu"
+            aria-controls="primary-nav"
+          >
+            <img
+              src="/assets/icons/close-icon.svg"
+              width="24"
+              height="24"
+              alt="Close icon"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="main-nav__mobile-bg"
+      aria-hidden="true"
+    >
+      <img
+        src="/assets/images/hero-bg.webp"
+        width="1920"
+        height="1200"
+        alt="Blurred Côte d'Azur Résidence building exterior"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="main-nav__mobile-overlay"></div>
+    </div>
+  </header>
+    <main>
+      <section class="hero-section bg-white pt-0 pb-0">
+        <div
+          class="preloader-section"
+          data-preloader
+          aria-hidden="false"
+        >
+          <div class="preloader-section__track">
+            <div class="preloader-section__word preloader-section__word--start">
+              <img
+                class="preloader-section__word-img"
+                src="/assets/images/logo-blue.svg"
+                width="1048"
+                height="129"
+                alt=""
                 loading="eager"
                 decoding="async"
               />
             </div>
-            <div class="preloader-section__split preloader-section__split--right">
+            <div
+              class="preloader-section__box"
+              data-preloader-box
+            >
+              <div class="preloader-section__box-inner">
+                <div
+                  class="preloader-section__growing"
+                  data-preloader-growing
+                >
+                  <div class="preloader-section__cover-stack">
+                    <div
+                      class="preloader-section__cover-extra"
+                      data-preloader-cover-extra
+                      style="background-image: url('/assets/images/loader-building.webp')"
+                    ></div>
+                    <div
+                      class="preloader-section__cover-extra"
+                      data-preloader-cover-extra
+                      style="background-image: url('/assets/images/footer-building.webp')"
+                    ></div>
+                    <div
+                      class="preloader-section__cover-extra"
+                      data-preloader-cover-extra
+                      style="background-image: url('/assets/images/proven-background-terrace.webp')"
+                    ></div>
+                    <div
+                      class="preloader-section__cover-image"
+                      data-preloader-cover-main
+                      style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%), url('/assets/images/hero-bg.webp')"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="preloader-section__word preloader-section__word--end">
               <img
-                src="/assets/images/logo-cote-dazur.webp"
-                width="488"
-                height="60"
-                alt="Côte d'Azur Résidences"
+                class="preloader-section__word-img"
+                src="/assets/images/logo-blue.svg"
+                width="1048"
+                height="129"
+                alt=""
                 loading="eager"
                 decoding="async"
               />
             </div>
           </div>
-          
         </div>
         <div
-          class="preloader-section__reveal"
-          data-preloader-reveal
+          class="hero-section__reveal"
+          data-hero-reveal
+          aria-hidden="true"
         >
-          
-          <img
-            class="preloader-section__reveal-img"
-            data-preloader-reveal-img
-            src="/assets/images/loader-building.webp"
-            width="436"
-            height="274"
-            alt="Côte d'Azur Résidences building exterior"
-            loading="eager"
-            decoding="async"
-          />
-          
-          <div
-            class="preloader-section__reveal-overlay"
-            aria-hidden="true"
-          ></div>
+          <div class="hero-section__reveal-slide"></div>
         </div>
-      </div>
-    </div> -->
-    <main>
-      <section class="hero-section bg-white pt-0 pb-0">
         <div class="hero-section__media">
           <!-- eslint-disable @html-eslint/require-attrs -->
           <img
@@ -112,19 +324,23 @@
           <div class="hero-section__row">
             <div class="hero-section__copy">
               <div class="title title-cream">
-                <h1>CÔTE D&rsquo;AZUR RESIDENCES</h1>
+                <h1>
+                  <span class="hero-fade-word">CÔTE</span>
+                  <span class="hero-fade-word">D&rsquo;AZUR</span>
+                  <span class="hero-fade-word">RESIDENCES</span>
+                </h1>
               </div>
-              <div class="content content-cream tagline">
+              <div class="content content-cream tagline hero-fade-in">
                 <p>Elevated coastal living in Bečići</p>
               </div>
-              <div class="content content-cream medium">
+              <div class="content content-cream medium hero-fade-in">
                 <p>
                   Contemporary residences with panoramic Adriatic views, landscaped terraces and
                   dedicated spa and wellness amenities.
                 </p>
               </div>
             </div>
-            <div class="hero-section__ctas">
+            <div class="hero-section__ctas hero-fade-in">
               <a
                 href="#residences"
                 role="link"
@@ -141,6 +357,560 @@
                 class="btn btn-primary btn-primary-invert"
                 >Download Brochure</a
               >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="residences-slider-section bg-white p-15 max-768:p-10">
+        <div
+          class="residences-slider"
+          data-fade
+        >
+          <div class="residences-slider__track">
+          <div class="residences-slide">
+            <div class="residences-slide__media">
+              <img
+                src="/assets/images/residences-slide-1.webp"
+                width="1410"
+                height="900"
+                alt="Côte d'Azur Résidences building exterior among olive trees at dusk"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="residences-slide__overlay"
+              aria-hidden="true"
+            ></div>
+            <div class="residences-slide__content">
+              <div class="residences-slide__copy">
+                <div class="title title-cream">
+                  <h2>Residences</h2>
+                </div>
+                <div class="content content-cream residences-slide__tagline">
+                  <p>Three Blocks, One Address</p>
+                </div>
+              </div>
+              <a
+                href="#residences"
+                role="link"
+                target="_self"
+                aria-label="View floor plans"
+                class="btn-glass"
+                >View floor plans</a
+              >
+            </div>
+          </div>
+
+          <div class="residences-slider__blocks">
+          <div class="residences-slide">
+            <div class="residences-slide__media">
+              <img
+                src="/assets/images/residences-slide-2.webp"
+                width="1410"
+                height="900"
+                alt="Ivy-covered stone wall along a walkway at Côte d'Azur Résidences, Block 1"
+                loading="lazy"
+                decoding="async"
+              />
+              <div
+                class="residences-slide__overlay"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="residences-slide__tabs"
+                role="tablist"
+                aria-label="Blocks"
+              >
+                <button
+                  type="button"
+                  class="residences-slide__tab is-active"
+                  role="tab"
+                  aria-label="Show Block 1"
+                  aria-selected="true"
+                  data-slide-target="0"
+                >
+                  Block 1
+                </button>
+                <button
+                  type="button"
+                  class="residences-slide__tab"
+                  role="tab"
+                  aria-label="Show Block 2"
+                  aria-selected="false"
+                  data-slide-target="1"
+                >
+                  Block 2
+                </button>
+                <button
+                  type="button"
+                  class="residences-slide__tab"
+                  role="tab"
+                  aria-label="Show Block 3"
+                  aria-selected="false"
+                  data-slide-target="2"
+                >
+                  Block 3
+                </button>
+              </div>
+            </div>
+            <div class="residences-slide__filter">
+              <div class="residences-slide__filter-block">
+                <div class="content content-cream label">
+                  <p>Block 1</p>
+                </div>
+                <div class="content content-cream small residences-slide__filter-caption">
+                  <p>Blocks</p>
+                </div>
+              </div>
+
+              <div class="residences-slide__filter-extra">
+                <div>
+                  <div class="residences-slide__filter-extra-inner">
+                    <div
+                      class="residences-slide__filter-divider"
+                      aria-hidden="true"
+                    ></div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream residences-slide__filter-figure">
+                        <p>67</p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Apartments</p>
+                      </div>
+                    </div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream residences-slide__filter-figure">
+                        <p>5,653&nbsp;m&sup2;</p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Net Sellable Area</p>
+                      </div>
+                    </div>
+                    <div
+                      class="residences-slide__filter-divider"
+                      aria-hidden="true"
+                    ></div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream small residences-slide__filter-config">
+                        <p>
+                          Ground + 3 floors, with lower levels housing the Spa &amp; Wellness
+                          Centre and parking
+                        </p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Configuration</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="#residences"
+                role="link"
+                target="_self"
+                aria-label="View floor plans for Block 1"
+                class="btn-secondary-variant-2 btn-secondary-variant-2-cream"
+              >
+                <span>View floor plans</span>
+                <span
+                  class="btn-secondary-variant-2__line btn-secondary-variant-2__line-cream"
+                  aria-hidden="true"
+                ></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="residences-slide">
+            <div class="residences-slide__media">
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcset="/assets/images/residences-slide-2.webp"
+                />
+                <img
+                  src="/assets/images/4.webp"
+                  width="1410"
+                  height="900"
+                  alt="Côte d'Azur Résidences building exterior amid olive terraces, Block 2"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <div
+                class="residences-slide__overlay"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="residences-slide__tabs"
+                role="tablist"
+                aria-label="Blocks"
+              >
+                <button
+                  type="button"
+                  class="residences-slide__tab"
+                  role="tab"
+                  aria-label="Show Block 1"
+                  aria-selected="false"
+                  data-slide-target="0"
+                >
+                  Block 1
+                </button>
+                <button
+                  type="button"
+                  class="residences-slide__tab is-active"
+                  role="tab"
+                  aria-label="Show Block 2"
+                  aria-selected="true"
+                  data-slide-target="1"
+                >
+                  Block 2
+                </button>
+                <button
+                  type="button"
+                  class="residences-slide__tab"
+                  role="tab"
+                  aria-label="Show Block 3"
+                  aria-selected="false"
+                  data-slide-target="2"
+                >
+                  Block 3
+                </button>
+              </div>
+            </div>
+            <div class="residences-slide__filter">
+              <div class="residences-slide__filter-block">
+                <div class="content content-cream label">
+                  <p>Block 2</p>
+                </div>
+                <div class="content content-cream small residences-slide__filter-caption">
+                  <p>Blocks</p>
+                </div>
+              </div>
+
+              <div class="residences-slide__filter-extra">
+                <div>
+                  <div class="residences-slide__filter-extra-inner">
+                    <div
+                      class="residences-slide__filter-divider"
+                      aria-hidden="true"
+                    ></div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream residences-slide__filter-figure">
+                        <p>20</p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Apartments</p>
+                      </div>
+                    </div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream residences-slide__filter-figure">
+                        <p>1,506.5&nbsp;m&sup2;</p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Net Sellable Area</p>
+                      </div>
+                    </div>
+                    <div
+                      class="residences-slide__filter-divider"
+                      aria-hidden="true"
+                    ></div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream small residences-slide__filter-config">
+                        <p>Ground + 3 floors</p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Configuration</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="#residences"
+                role="link"
+                target="_self"
+                aria-label="View floor plans for Block 2"
+                class="btn-secondary-variant-2 btn-secondary-variant-2-cream"
+              >
+                <span>View floor plans</span>
+                <span
+                  class="btn-secondary-variant-2__line btn-secondary-variant-2__line-cream"
+                  aria-hidden="true"
+                ></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="residences-slide">
+            <div class="residences-slide__media">
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcset="/assets/images/residences-slide-2.webp"
+                />
+                <img
+                  src="/assets/images/6.webp"
+                  width="1410"
+                  height="900"
+                  alt="Côte d'Azur Résidences building exterior overlooking the hillside, Block 3"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <div
+                class="residences-slide__overlay"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="residences-slide__tabs"
+                role="tablist"
+                aria-label="Blocks"
+              >
+                <button
+                  type="button"
+                  class="residences-slide__tab"
+                  role="tab"
+                  aria-label="Show Block 1"
+                  aria-selected="false"
+                  data-slide-target="0"
+                >
+                  Block 1
+                </button>
+                <button
+                  type="button"
+                  class="residences-slide__tab"
+                  role="tab"
+                  aria-label="Show Block 2"
+                  aria-selected="false"
+                  data-slide-target="1"
+                >
+                  Block 2
+                </button>
+                <button
+                  type="button"
+                  class="residences-slide__tab is-active"
+                  role="tab"
+                  aria-label="Show Block 3"
+                  aria-selected="true"
+                  data-slide-target="2"
+                >
+                  Block 3
+                </button>
+              </div>
+            </div>
+            <div class="residences-slide__filter">
+              <div class="residences-slide__filter-block">
+                <div class="content content-cream label">
+                  <p>Block 3</p>
+                </div>
+                <div class="content content-cream small residences-slide__filter-caption">
+                  <p>Blocks</p>
+                </div>
+              </div>
+
+              <div class="residences-slide__filter-extra">
+                <div>
+                  <div class="residences-slide__filter-extra-inner">
+                    <div
+                      class="residences-slide__filter-divider"
+                      aria-hidden="true"
+                    ></div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream residences-slide__filter-figure">
+                        <p>14</p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Apartments</p>
+                      </div>
+                    </div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream residences-slide__filter-figure">
+                        <p>824.5&nbsp;m&sup2;</p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Net Sellable Area</p>
+                      </div>
+                    </div>
+                    <div
+                      class="residences-slide__filter-divider"
+                      aria-hidden="true"
+                    ></div>
+                    <div class="residences-slide__filter-stat">
+                      <div class="content content-cream small residences-slide__filter-config">
+                        <p>Ground + 5 floors</p>
+                      </div>
+                      <div class="content content-cream small residences-slide__filter-caption">
+                        <p>Configuration</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="#residences"
+                role="link"
+                target="_self"
+                aria-label="View floor plans for Block 3"
+                class="btn-secondary-variant-2 btn-secondary-variant-2-cream"
+              >
+                <span>View floor plans</span>
+                <span
+                  class="btn-secondary-variant-2__line btn-secondary-variant-2__line-cream"
+                  aria-hidden="true"
+                ></span>
+              </a>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonial-section bg-cream pt-120 pb-120 max-1199:pt-70 max-1199:pb-70 max-768:pt-40 max-768:pb-40">
+        <div class="container-fluid">
+          <div class="testimonial-card__wrap">
+            <div class="testimonial-card">
+                <img
+                    src="/assets/images/logo-cote-dazur.webp"
+                    width="154"
+                    height="19"
+                    alt="Côte d'Azur Résidence wordmark"
+                    loading="lazy"
+                    decoding="async"
+                    class="testimonial-card__brand"
+                />
+                <div class="testimonial-card__media">
+                    <img
+                        src="/assets/images/11_bloom_2x.webp"
+                        width="399"
+                        height="527"
+                        alt="Landscaped courtyard and entrance of a Côte d'Azur Résidence villa suite at golden hour"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+                <div
+                    class="testimonial-card__divider"
+                    aria-hidden="true"
+                ></div>
+                <div class="testimonial-card__body">
+                    <div class="content content-primary medium">
+                        <p>&ldquo;Decades of luxury travel, curated into five exceptional Suites.&rdquo;</p>
+                    </div>
+                    <div class="content content-primary label">
+                        <p>Reviewer name</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+      <section class="image-with-content-section bg-white pt-24 pb-62 px-15">
+        <div class="image-with-content">
+          <div
+            class="image-with-content__media"
+            data-fade
+          >
+            <img
+              src="/assets/images/proven-background-terrace.webp"
+              width="698"
+              height="798"
+              alt="Poolside terrace with sun loungers overlooking the Adriatic coastline at Côte d'Azur Résidences"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="image-with-content__panel">
+            <div
+              class="image-with-content__leaves"
+              aria-hidden="true"
+            >
+              <img
+                src="/assets/images/proven-background-leaves.webp"
+                width="1400"
+                height="843"
+                alt="Decorative leaf shadow"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div class="image-with-content__content">
+              <div class="title title-cream image-with-content__title">
+                <h3>A Proven Development Background</h3>
+              </div>
+
+              <div
+                class="image-with-content__accent"
+                data-fade
+              >
+                <img
+                  src="/assets/images/proven-background-accent.webp"
+                  width="1200"
+                  height="675"
+                  alt="Aerial render of the Côte d'Azur Résidences building overlooking the Adriatic Sea"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div
+                class="image-with-content__desc"
+                data-fade
+              >
+                <div class="content content-cream">
+                  <p>
+                    Côte d&rsquo;Azur is developed with the experience behind Emerald Residence in
+                    Bar, one of Emerald Invest&rsquo;s previous residential projects on the
+                    Montenegrin coast.
+                  </p>
+                </div>
+                <div class="content content-cream">
+                  <p>
+                    Côte d&rsquo;Azur is developed with the experience behind Emerald Residence in
+                    Bar, one of Emerald Invest&rsquo;s previous residential projects on the
+                    Montenegrin coast.
+                  </p>
+                </div>
+
+                <div class="image-with-content__ctas">
+                  <a
+                        href="#gallery"
+                        class="btn-secondary-variant-2 btn-secondary-variant-2-cream"
+                        role="link"
+                        target="_self"
+                        aria-label="Discover our previous project"
+                      >
+                        <span>Discover our previous project</span>
+                        <span
+                          class="btn-secondary-variant-2__line btn-secondary-variant-2__line-cream"
+                          aria-hidden="true"
+                        ></span>
+                      </a>
+                      <a
+                      href="#contact"
+                      class="btn-secondary-variant-2 btn-secondary-variant-2-cream"
+                      role="link"
+                      target="_self"
+                      aria-label="Book a viewing"
+                    >
+                      <span>Book a viewing</span>
+                      <span
+                        class="btn-secondary-variant-2__line btn-secondary-variant-2__line-cream"
+                        aria-hidden="true"
+                      ></span>
+                    </a>
+                  
+                 
+                </div>
+              </div>
             </div>
           </div>
         </div>

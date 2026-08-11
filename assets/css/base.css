@@ -61,14 +61,14 @@ body {
 }
 
 h1, .h1 {
-    @apply text-heading-1 leading-65 font-Cinzel font-medium;
+    @apply text-heading-1 leading-65 max-1199:text-[32px] max-1199:leading-40 font-Cinzel font-medium;
 }
 
 h2, .h2 {
-    @apply text-heading-2 leading-69 font-Sacramento font-normal;
+    @apply text-heading-2 leading-69 max-1199:text-heading-1 max-1199:leading-65 font-Sacramento font-normal;
 }
 h3, .h3 {
-    @apply text-heading-3 leading-56 font-Sacramento font-normal;
+    @apply text-heading-3 leading-56 max-1199:text-[35px] max-1199:leading-45 font-Sacramento font-normal;
 }
 
 
@@ -146,7 +146,7 @@ h3, .h3 {
 }
 
 .content.tagline p {
-    @apply text-28 leading-38 font-normal font-body;
+    @apply text-28 leading-38 max-1199:text-[22px] max-1199:leading-30 font-normal font-body;
 }
 
 .content.label p {

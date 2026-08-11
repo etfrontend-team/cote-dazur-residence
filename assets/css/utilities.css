@@ -6,70 +6,104 @@
    Preloader
    ========================================================================== */
 
+.is-preloading {
+    overflow: hidden;
+}
+
+.is-preloading .hero-section__inner {
+    pointer-events: none;
+}
+
 .preloader-section {
-    @apply fixed inset-0 z-50 flex items-center justify-center bg-white;
+    @apply pointer-events-none absolute inset-0 z-10 flex items-center justify-center overflow-hidden bg-white;
 }
 
-.preloader-section__stage {
-    @apply relative flex w-full items-center justify-center;
+.preloader-section.is-expanding {
+    overflow: visible;
 }
 
-.preloader-section__logo-frame {
-    @apply relative mx-auto w-fit;
+.hero-fade-word {
+    @apply inline-block;
 }
 
-.preloader-section__logo-img {
-    @apply block h-auto w-auto;
+/* Figma 218×137 gap centered against 1048×129 logo */
+.preloader-section__track {
+    @apply flex items-end justify-center font-medium leading-none;
+    font-size: clamp(2.5rem, 8vw, 3.75rem);
+    height: 1em;
 }
 
-.preloader-section__split-wrap {
-    @apply absolute inset-0 flex justify-between opacity-0;
+.preloader-section__word {
+    @apply relative shrink-0 overflow-hidden;
+    height: 1em;
 }
 
-.preloader-section__split {
-    @apply relative h-full shrink-0 overflow-hidden;
+/* Figma 1048×129 logo-blue.svg — "CÔTE" 406px + "D'AZUR" 581px */
+.preloader-section__word--start {
+    @apply flex justify-end;
+    width: calc(406 / 129 * 1em);
 }
 
-/* Figma node 5:82 crops the wordmark 406px "CÔTE" + 581px "D'AZUR" out of a
-   1048px-wide canvas (~38.7%/55.4%), rescaled here to our actual logo asset's
-   real intrinsic size (488×60, not the 1048×129 in its stale width/height
-   attrs): 189px + 271px, leaving the wordmark's own 28px blank gap between
-   the words — justify-between on the wrap keeps it centered between the two
-   pieces instead of splitting the image evenly. */
-.preloader-section__split--left {
-    @apply w-189;
+.preloader-section__word--end {
+    @apply flex justify-start;
+    width: calc(581 / 129 * 1em);
 }
 
-.preloader-section__split--right {
-    @apply w-271;
+.preloader-section__word-img {
+    @apply block h-full w-auto max-w-none;
 }
 
-.preloader-section__split--left img {
-    @apply absolute top-0 left-0 h-full w-auto max-w-none;
+.preloader-section__word--start .preloader-section__word-img {
+    @apply absolute top-0 left-0;
 }
 
-.preloader-section__split--right img {
-    @apply absolute top-0 right-0 h-full w-auto max-w-none;
+.preloader-section__word--end .preloader-section__word-img {
+    @apply absolute top-0 right-0;
 }
 
-/* Small centered photo window (218×137, Figma node 5:85). JS grows its
-   width/height straight to the viewport size instead of transform:scale, so
-   the source image is re-sampled crisp at every size instead of upscaling an
-   already-painted layer. Deliberate exception to the transform/opacity-only
-   animation rule for this one element. */
-.preloader-section__reveal {
-    @apply pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden opacity-0;
+.preloader-section__box {
+    @apply relative flex shrink-0 flex-col items-center justify-center overflow-hidden;
+    width: 0;
+    height: calc(137 / 129 * 1em);
+    margin: 0 0.08em;
 }
 
-.preloader-section__reveal-img {
-    @apply block h-full w-full object-cover;
+.preloader-section__box-inner {
+    @apply relative flex h-full items-center justify-center;
+    min-width: calc(218 / 129 * 1em);
+    height: 100%;
 }
 
-.preloader-section__reveal-overlay {
-    @apply pointer-events-none absolute inset-0;
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
+.preloader-section__growing {
+    @apply absolute flex items-center justify-center overflow-hidden;
+    width: 0%;
+    height: 100%;
+}
+
+.preloader-section__cover-stack {
+    @apply absolute inset-0 h-full w-full;
+    min-width: calc(218 / 129 * 1em);
+}
+
+.preloader-section__cover-extra,
+.preloader-section__cover-image {
+    @apply absolute inset-0 h-full w-full bg-cover bg-center;
+}
+
+.preloader-section__cover-extra:nth-child(1) {
+    z-index: 4;
+}
+
+.preloader-section__cover-extra:nth-child(2) {
+    z-index: 3;
+}
+
+.preloader-section__cover-extra:nth-child(3) {
+    z-index: 2;
+}
+
+.preloader-section__cover-image {
+    z-index: 1;
 }
 
 /* ==========================================================================
@@ -81,7 +115,19 @@
 }
 
 .hero-section__media {
-    @apply relative w-full h-full;
+    @apply relative z-0 w-full h-full overflow-hidden;
+}
+
+.hero-section__reveal {
+    @apply pointer-events-none absolute inset-0 z-20;
+}
+
+.hero-section__reveal-slide {
+    @apply absolute inset-0 bg-cover bg-center;
+    background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%),
+        url('/assets/images/hero-bg.webp');
 }
 
 .hero-section__media-img {
@@ -96,11 +142,9 @@
 }
 
 .hero-section__inner {
-    @apply absolute inset-0 flex flex-col justify-end;
+    @apply absolute inset-0 z-30 flex flex-col justify-end;
 }
 
-/* pb-123/gap-108 are exact Figma values at desktop; max-1199/max-768 scale them
-   down proportionally since no separate Figma tablet/mobile frame was supplied. */
 .hero-section__row {
     @apply flex flex-row items-end justify-between gap-108 pb-123 max-1199:gap-60 max-1199:pb-70 max-768:flex-col max-768:items-start max-768:gap-30 max-768:pb-40;
 }
@@ -113,3 +157,222 @@
     @apply flex shrink-0 items-center gap-16 max-768:flex-wrap;
 }
 
+/* ==========================================================================
+   Image-with-content section
+   ========================================================================== */
+
+.image-with-content {
+    @apply flex flex-row items-stretch max-768:flex-col;
+}
+
+.image-with-content__media {
+    @apply relative flex-1 min-w-0 max-768:flex-none max-768:w-full max-768:aspect-proven-media;
+}
+
+.image-with-content__media img {
+    @apply absolute inset-0 block h-full w-full object-cover;
+}
+
+.image-with-content__panel {
+    @apply relative flex-1 min-w-0 overflow-hidden bg-primary max-768:flex-none max-768:w-full;
+}
+
+.image-with-content__leaves {
+    @apply pointer-events-none absolute inset-0 -scale-x-100 opacity-50 mix-blend-multiply;
+}
+
+.image-with-content__leaves img {
+    @apply block h-full w-full object-cover;
+}
+
+
+.image-with-content__content {
+    @apply relative mx-auto flex max-w-620 flex-col items-center gap-32 px-24 py-75 max-1199:gap-24 max-1199:py-50 max-768:gap-20 max-768:py-40;
+}
+
+.image-with-content__title {
+    @apply text-center;
+}
+
+.image-with-content__accent {
+    @apply relative aspect-proven-accent w-full max-w-266 overflow-hidden rounded-tl-40 rounded-br-40;
+}
+
+.image-with-content__accent img {
+    @apply block h-full w-full object-cover;
+}
+
+.image-with-content__desc {
+    @apply flex w-full flex-col items-center gap-16;
+}
+
+.image-with-content__desc p {
+    @apply text-center text-cream/70;
+}
+
+.image-with-content__ctas {
+    @apply flex flex-wrap items-start justify-center gap-100 max-1199:gap-15 max-768:flex-col max-768:items-center;
+}
+
+
+[data-fade] {
+    @apply opacity-0;
+}
+
+[data-fade].is-visible {
+    @apply opacity-100;
+}
+
+/* ==========================================================================
+   Residences slider — full-bleed GSAP ScrollTrigger clip-path reveal
+   (Figma nodes 18:4759, 72:58). Pinned in the viewport while each stacked
+   slide wipes in left-to-right over the last as the user scrolls, in place
+   of a swipeable carousel. Figma reuses one background photo across all
+   three Block cards; distinct existing project photos stand in per block
+   here instead so the wipe is visually legible slide-to-slide.
+   ========================================================================== */
+
+.residences-slider {
+    @apply relative h-screen w-full overflow-hidden rounded-tl-50 rounded-br-50 max-768:h-auto max-768:overflow-visible max-768:rounded-none;
+}
+
+/* Desktop keeps the pinned clip-path wipe (residencesSlider.js). Mobile keeps
+   one stable image in place and swaps only the block card content on tab tap. */
+.residences-slider__track {
+    @apply relative h-full w-full max-768:flex max-768:h-auto max-768:flex-col;
+}
+
+.residences-slide {
+    @apply absolute inset-0 isolate h-full w-full overflow-hidden max-768:sticky max-768:top-0 max-768:inset-auto max-768:h-screen max-768:w-full;
+}
+
+.residences-slider__blocks {
+    @apply max-768:block max-768:overflow-hidden;
+}
+
+.residences-slider__blocks.is-content-fading .residences-slide.is-mobile-active .residences-slide__filter {
+    @apply max-768:opacity-35;
+}
+
+/* One full-width card per screen (photo+tabs, then the stats card below —
+   same photo-then-content split as .testimonial-card) instead of the desktop
+   photo-overlay card. Tabs swap the active block content in place on mobile. */
+.residences-slider__blocks .residences-slide {
+    @apply max-768:hidden max-768:bg-primary;
+}
+
+.residences-slider__blocks .residences-slide.is-mobile-active {
+    @apply max-768:relative max-768:top-auto max-768:inset-auto max-768:flex max-768:h-auto max-768:w-full max-768:flex-col max-768:overflow-visible;
+}
+
+.residences-slider__blocks .residences-slide__media {
+    @apply max-768:relative max-768:aspect-testimonial max-768:h-auto max-768:shrink-0;
+}
+
+.residences-slider__blocks .residences-slide__filter {
+    @apply max-768:static max-768:w-full max-768:transition-opacity max-768:duration-500 max-768:ease-in-out;
+}
+
+.residences-slide__tabs {
+    @apply hidden max-768:absolute max-768:inset-x-0 max-768:bottom-0 max-768:z-10 max-768:flex max-768:justify-around max-768:gap-8 max-768:px-16 max-768:py-12;
+}
+
+.residences-slide__tab {
+    @apply relative border-0 bg-transparent p-0 pb-8 text-14 font-body text-cream/60 uppercase tracking-1.4 transition-colors duration-300;
+}
+
+.residences-slide__tab::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-cream transition-transform duration-300;
+}
+
+.residences-slide__tab.is-active {
+    @apply text-cream;
+}
+
+.residences-slide__tab.is-active::after {
+    @apply scale-x-100;
+}
+
+.residences-slide__media {
+    @apply absolute inset-0 h-full w-full overflow-hidden;
+}
+
+.residences-slide__media picture {
+    @apply block h-full w-full;
+}
+
+.residences-slide__media img {
+    @apply block h-full w-full object-cover;
+}
+
+.residences-slide__overlay {
+    @apply pointer-events-none absolute inset-0 mix-blend-hard-light;
+    background-image: linear-gradient(180deg, rgba(23, 27, 35, 0) 0%, rgba(23, 27, 35, 0.7) 100%);
+}
+
+.residences-slide__content {
+    @apply absolute inset-x-64 bottom-58 z-10 flex flex-row items-end justify-between gap-24 max-1199:inset-x-40 max-1199:bottom-40 max-768:inset-x-20 max-768:bottom-24 max-768:flex-col max-768:items-start max-768:gap-16;
+}
+
+.residences-slide__copy {
+    @apply flex flex-col gap-4;
+}
+
+.residences-slide__tagline p {
+    @apply text-cream/80;
+}
+
+.residences-slide__filter {
+    @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-34 rounded-tr-40 rounded-bl-40 bg-primary p-24 max-1199:w-240 max-1199:gap-24 max-768:w-200 max-768:gap-20 max-768:p-16;
+}
+
+.residences-slide__filter-block {
+    @apply flex flex-col gap-16;
+}
+
+.residences-slide__filter-caption p {
+    @apply text-cream/50;
+}
+
+.residences-slide__filter-figure p {
+    @apply font-Cinzel text-32 font-normal;
+}
+
+.residences-slide__filter-config p {
+    @apply text-cream max-1199:max-w-200;
+}
+
+.residences-slide__filter-divider {
+    @apply w-full border-t border-cream/20;
+}
+
+.residences-slide__filter-stat {
+    @apply flex flex-col gap-8;
+}
+
+.residences-slide__filter-extra {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+    width: 100%;
+}
+
+.residences-slide__filter-extra > div {
+    overflow: hidden;
+}
+
+.residences-slide__filter:hover .residences-slide__filter-extra,
+.residences-slide__filter:focus-within .residences-slide__filter-extra {
+    grid-template-rows: 1fr;
+}
+
+@media (max-width: 768px) {
+    .residences-slide__filter-extra {
+        grid-template-rows: 1fr;
+    }
+}
+
+.residences-slide__filter-extra-inner {
+    @apply flex flex-col gap-16 max-1199:gap-12;
+}

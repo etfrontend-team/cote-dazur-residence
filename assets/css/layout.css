@@ -159,7 +159,7 @@ footer::before {
 }
 
 .footer__logo {
-    @apply mx-auto h-auto w-830 max-1199:w-660 max-768:w-390 max-576:w-260;
+    @apply mx-auto h-auto w-830 max-1199:w-600 max-768:w-390 max-576:w-260;
 }
 
 .footer__newsletter {

@@ -11,27 +11,26 @@
 }
 
 .btn-secondary {
-    @apply border-primary backdrop-blur-[2px] text-primary font-normal tracking-1.6 uppercase ;
+    @apply border-primary backdrop-blur-[2px]  text-primary font-normal tracking-1.6 uppercase ;
 }
 
 .btn-secondary-variant-2 {
-    @apply relative inline-flex border-0! text-primary pb-8;
-}
-
-.btn-secondary-variant-2::after {
-    content: "";
-    @apply absolute left-0 bottom-0 w-full h-1 bg-primary origin-right scale-x-100 transition-transform duration-300 ease-out;
-}
-
-.btn-secondary-variant-2:hover::after {
-    @apply origin-left scale-x-0;
-}
+    @apply inline-flex flex-col items-start pt-10 gap-10 text-16 max-576:text-14 font-body tracking-1.6 text-primary uppercase transition-colors duration-300 ;
+   }
+   
+   .btn-secondary-variant-2__line {
+    @apply block h-1 max-w-46 w-full overflow-hidden bg-primary transition-all duration-500 ease-out;
+  }
+  
+  .btn-secondary-variant-2:hover .btn-secondary-variant-2__line {
+    @apply max-w-full;
+  }
 
 .btn-secondary-variant-2-cream {
     @apply text-cream!;
 }
 
-.btn-secondary-variant-2-cream::after {
+.btn-secondary-variant-2__line-cream {
     @apply bg-cream!;
 }
 
@@ -69,4 +68,8 @@
 
 .form-textarea {
     @apply block h-80 w-full resize-none border-b border-cream bg-transparent pt-8 text-14 font-body text-cream outline-none placeholder:text-cream/40;
+}
+
+.btn-glass {
+    @apply inline-flex items-center justify-center border border-cream bg-cream/35 px-28 py-10 text-16 font-normal uppercase text-cream backdrop-blur-2 transition-colors duration-300 hover:bg-cream/55;
 }
