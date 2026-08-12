@@ -1,13 +1,15 @@
 .visually-hidden {
-    @apply sr-only;
+  @apply sr-only;
 }
 
 /* ==========================================================================
-   Preloader
-   ========================================================================== */
+ Preloader
+ ========================================================================== */
 
+/* Nested inside .hero-section (relative, h-screen) so it covers exactly the hero's own
+   box, not the raw viewport — matches the reference site's structure. */
 .preloader-section {
-    @apply pointer-events-none fixed inset-0 z-60 flex items-center justify-center overflow-hidden bg-white;
+    @apply pointer-events-none absolute inset-0 z-60 flex items-center justify-center overflow-hidden bg-white;
 }
 
 .hero-fade-word {
@@ -85,8 +87,9 @@
 .preloader-section__cover-image::after {
     content: '';
     @apply pointer-events-none absolute inset-0;
+    /* Matches .hero-section__overlay exactly so the loader-to-hero handoff has zero visible shift. */
     background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%),
         linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
 }
 
@@ -106,12 +109,66 @@
     z-index: 1;
 }
 
+/* ===== HERO INTRO (Omniyat-style: scroll → SVG → banner → header) ===== */
+
+.hero-scroll-container {
+  @apply relative h-[200vh];
+}
+
+.hero-pin-wrap {
+  @apply relative flex h-screen w-full flex-col justify-between overflow-hidden;
+}
+
+.hero-intro-overlay {
+  @apply pointer-events-none absolute inset-0 z-15 hidden;
+}
+
+.hero-loader-logo,
+.hero-loader-shape {
+  @apply absolute inset-0 z-20 flex items-center justify-center pointer-events-none;
+}
+
+.hero-loader-logo img {
+  @apply block h-auto w-248 max-768:w-160;
+}
+
+.hero-loader-shape {
+  @apply absolute inset-x-0 bottom-0 z-20 flex h-full items-end justify-center overflow-visible pointer-events-none;
+}
+
+.hero-loader-shape img {
+  @apply block h-[58vh] w-auto max-w-none will-change-transform;
+}
+
+.hero-bg {
+  @apply absolute inset-0 overflow-hidden;
+}
+
+.hero-bg img,
+.hero-bg video {
+  @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.hero-bg-overlay {
+  @apply pointer-events-none absolute inset-0;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.hero-bg-overlay-top {
+  @apply pointer-events-none absolute inset-0;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.hero-content {
+  @apply absolute inset-0 z-30 flex flex-col justify-end;
+}
+
 /* ==========================================================================
    Hero section
    ========================================================================== */
 
 .hero-section {
-    @apply relative flex flex-col justify-end h-screen overflow-hidden;
+    @apply relative overflow-hidden;
 }
 
 .hero-section__media {
@@ -120,6 +177,9 @@
 
 .hero-section__media-img {
     @apply block w-full h-full object-cover;
+}
+.hero-loader-cover--main {
+  @apply z-1;
 }
 
 .hero-section__overlay {
@@ -162,7 +222,7 @@
 }
 
 .image-with-content__panel {
-    @apply relative flex-1 min-w-0 overflow-hidden bg-primary max-768:flex-none max-768:w-full;
+    @apply relative flex-1 min-w-0 overflow-hidden bg-[#0e1f1a] max-768:flex-none max-768:w-full;
 }
 
 .image-with-content__leaves {
@@ -215,11 +275,11 @@
 /* ===== FIND PROPERTY ===== */
 
 .find-property {
-  @apply relative -top-[45px] rounded-tl-20 max-992:rounded-tl-none w-[calc(100vw-110px)] max-992:w-full  left-55 right-55 z-40 flex items-stretch shadow-find-property max-1199:left-40 max-1199:right-40 max-1024:left-0 max-1024:right-0 max-1024:flex-col;
+  @apply relative -top-[45px] max-768:top-[0px] rounded-tl-20 max-992:rounded-tl-none w-[calc(100vw-110px)] max-992:w-full  left-55 right-55 z-40 flex items-stretch shadow-find-property max-1199:left-40 max-1199:right-40 max-1024:left-0 max-1024:right-0 max-1024:flex-col;
 }
 
 .find-property-label {
-  @apply bg-primary rounded-tl-20 flex flex-col justify-center items-start px-40 py-24 shrink-0 max-1024:flex-row max-1024:gap-4 max-1024:px-24;
+  @apply bg-primary rounded-tl-20 flex flex-col justify-center items-start px-40 py-24 shrink-0 max-1024:flex-row max-1024:gap-4 max-1024:px-24 max-1024:py-14 max-768:rounded-tl-none;
 }
 
 .find-property-label span {
@@ -239,7 +299,7 @@
 }
 
 .filter-trigger {
-  @apply flex items-center gap-28 cursor-pointer;
+  @apply flex items-center gap-28 cursor-pointer max-768:justify-between;
 }
 
 .filter-value {

@@ -64,10 +64,18 @@ body.is-loaded {
     @apply overflow-y-visible;
 }
 
+body.is-preloading {
+    overflow-y: auto;
+}
+
 .page-wrap {
     @apply pointer-events-none opacity-0 transition-opacity duration-700 ease-out;
 }
 
+/* Split from body.is-loaded: this only lifts page-wrap's own CSS opacity gate — harmless
+   since it settles behind the opaque preloader — so a GSAP-driven reveal (e.g. hero-fade-word/
+   hero-fade-in) is the only visible fade-in, instead of double-fading once is-loaded also lands. */
+body.is-ready .page-wrap,
 body.is-loaded .page-wrap {
     @apply pointer-events-auto opacity-100;
 }
@@ -149,7 +157,7 @@ h3, .h3 {
     @apply text-charcoal/36;
 }
 .content.big p {
-    @apply text-24 leading-32 font-normal font-body;
+    @apply text-24 leading-32 max-768:text-[20px] max-768:leading-28 font-normal font-body;
 }
 
 .content.small p {
