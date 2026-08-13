@@ -53,13 +53,38 @@ export default function initTestimonialCard() {
     },
   });
 
+  // This spring is stiff (fast eigenvalue ~ -94.7 s^-1), so Euler integration only
+  // stays stable while dt < ~21ms i.e. above ~52fps. Feeding it the raw frame delta
+  // made it diverge and sign-flip every frame on slower devices, which read as the
+  // card strobing between the clamped endpoints. Integrate at a fixed substep instead
+  // so display refresh rate can never destabilize it.
+  const FIXED_DT = 1 / 240;
+  const MAX_FRAME = 0.1;
+  const SETTLE_EPSILON = 0.0001;
+  let accumulator = 0;
+  let lastRendered = null;
+
   gsap.ticker.add((time, deltaMs) => {
-    const dt = Math.min(deltaMs / 1000, 1 / 30);
-    const displacement = progress - target;
-    const acceleration =
-      (-STIFFNESS * displacement - DAMPING * velocity) / MASS;
-    velocity += acceleration * dt;
-    progress += velocity * dt;
+    accumulator += Math.min(deltaMs / 1000, MAX_FRAME);
+
+    while (accumulator >= FIXED_DT) {
+      const displacement = progress - target;
+      const acceleration =
+        (-STIFFNESS * displacement - DAMPING * velocity) / MASS;
+      velocity += acceleration * FIXED_DT;
+      progress += velocity * FIXED_DT;
+      accumulator -= FIXED_DT;
+    }
+
+    // Skip DOM writes once the spring has settled on the current scroll target.
+    if (
+      lastRendered !== null &&
+      Math.abs(progress - lastRendered) < SETTLE_EPSILON &&
+      Math.abs(progress - target) < SETTLE_EPSILON
+    ) {
+      return;
+    }
+    lastRendered = progress;
 
     const rotateStops = mobileQuery.matches ? ROTATE_MOBILE : ROTATE_DESKTOP;
 
