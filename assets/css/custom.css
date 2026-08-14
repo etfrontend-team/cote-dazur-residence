@@ -172,11 +172,11 @@
 }
 
 .introduction-section .content-block {
-    @apply relative z-0 max-w-790 mx-auto;
+    @apply relative z-0 max-w-990 mx-auto;
 }
 
 .content-block__inner {
-    @apply flex w-full max-w-790 flex-col items-center gap-24 px-40 py-40 max-768:gap-16 max-768:px-24 max-768:py-30;
+    @apply flex w-full max-w-990 flex-col items-center gap-24 px-40 py-40 max-768:gap-16 max-768:px-24 max-768:py-30;
 }
 
 .content-block__eyebrow {
@@ -208,7 +208,7 @@
 }
 
 .wellbeing-feature .title-primary h3 {
-    @apply font-Cinzel font-medium text-18 uppercase leading-normal;
+    @apply font-Cinzel font-medium text-24 max-992:text-16 uppercase leading-normal;
 }
 
 .content-block-reveal {

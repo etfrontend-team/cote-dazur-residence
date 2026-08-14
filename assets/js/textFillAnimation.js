@@ -11,8 +11,8 @@ export default function initTextFillAnimation() {
   const { gsap, ScrollTrigger } = window;
   gsap.registerPlugin(ScrollTrigger);
 
-  const dimColor = 'rgba(53, 69, 76, 0.36)';
-  const fillColor = '#0D4898';
+  const dimColor = 'rgba(10, 10, 61, 0.36)';
+  const fillColor = '#0A0A3D';
 
   paragraphs.forEach((paragraph) => {
     const words = paragraph.textContent.trim().split(/\s+/).filter(Boolean);

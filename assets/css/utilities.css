@@ -279,7 +279,7 @@
 }
 
 .find-property-label {
-  @apply bg-primary rounded-tl-20 flex flex-col justify-center items-start px-40 py-24 shrink-0 max-1024:flex-row max-1024:gap-4 max-1024:px-24 max-1024:py-14 max-768:rounded-tl-none;
+  @apply bg-darkbg rounded-tl-20 flex flex-col justify-center items-start px-40 py-24 shrink-0 max-1024:flex-row max-1024:gap-4 max-1024:px-24 max-1024:py-14 max-768:rounded-tl-none;
 }
 
 .find-property-label span {
@@ -295,7 +295,7 @@
 }
 
 .filter-label {
-  @apply text-dark-charcoal text-14 font-body tracking-1.4 uppercase;
+  @apply text-primary text-14 font-body tracking-1.4 uppercase;
 }
 
 .filter-trigger {
@@ -432,7 +432,7 @@
 }
 
 .residences-slide__filter {
-    @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-34 rounded-tr-40 rounded-bl-40 bg-primary p-24 max-1199:w-240 max-1199:gap-24 max-768:w-200 max-768:gap-20 max-768:p-16;
+    @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-34 rounded-tr-40 rounded-bl-40 bg-darkbg p-24 max-1199:w-240 max-1199:gap-24 max-768:w-200 max-768:gap-20 max-768:p-16;
 }
 
 .residences-slide__filter-block {
@@ -444,7 +444,7 @@
 }
 
 .residences-slide__filter-figure p {
-    @apply font-Cinzel text-32 font-normal;
+    @apply font-Cinzel text-36 font-normal;
 }
 
 .residences-slide__filter-config p {
@@ -528,7 +528,7 @@
   /* Location pins — navy circles with icon */
   
   .location-pin {
-    @apply absolute w-36 h-36 max-576:w-26 max-576:h-26 rounded-full bg-primary flex items-center justify-center cursor-pointer z-10
+    @apply absolute w-36 h-36 max-576:w-26 max-576:h-26 rounded-full bg-darkbg flex items-center justify-center cursor-pointer z-10
            transition-transform duration-200 hover:scale-110 active:scale-95
            -translate-x-1/2 -translate-y-1/2;
   }

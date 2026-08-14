@@ -158,7 +158,7 @@ footer::before {
 }
 
 .footer__panel {
-    @apply relative bg-primary py-60 shadow-footer-panel max-1199:py-40 max-768:py-30;
+    @apply relative bg-darkbg py-60 shadow-footer-panel max-1199:py-40 max-768:py-30;
 }
 
 .footer__content {

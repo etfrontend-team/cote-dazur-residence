@@ -85,10 +85,10 @@ h1, .h1 {
 }
 
 h2, .h2 {
-    @apply text-heading-2 leading-69 max-1199:text-heading-1 max-1199:leading-65 font-Sacramento font-normal;
+    @apply text-heading-1 leading-48 max-1199:text-heading-1 max-1199:leading-65 font-OptimaLTPro font-normal;
 }
 h3, .h3 {
-    @apply text-heading-3 leading-56 max-1199:text-[35px] max-1199:leading-45 font-Sacramento font-normal;
+    @apply text-heading-3 leading-56 max-1199:text-[35px] max-1199:leading-45 font-OptimaLTPro font-normal;
 }
 
 
@@ -154,18 +154,18 @@ h3, .h3 {
 }
 
 .content-charcoal p {
-    @apply text-charcoal/36;
+    @apply text-primary;
 }
 .content.big p {
     @apply text-24 leading-32 max-768:text-[20px] max-768:leading-28 font-normal font-body;
 }
 
 .content.small p {
-    @apply text-14 leading-normal font-normal font-body;
+    @apply text-16 max-992:text-14 leading-normal font-normal font-body;
 }
 
 .content.medium p {
-    @apply text-18 leading-normal font-normal font-body;
+    @apply text-16 leading-normal font-normal font-body;
 }
 
 .content.tagline p {

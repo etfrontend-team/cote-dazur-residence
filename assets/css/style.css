@@ -23,9 +23,12 @@
     --breakpoint-375:376px;
 
     /* fonts */
-    --font-Cinzel: "Cinzel", serif;
+    /* --font-Cinzel: "Cinzel", serif;
     --font-body: "Open Sans", sans-serif;
-    --font-Sacramento: "Sacramento", cursive;
+    --font-Sacramento: "Sacramento", cursive; */
+    --font-Cinzel: "OptimaLTPro", serif;
+    --font-body: "Graphik", sans-serif;
+    --font-OptimaLTPro: "OptimaLTPro", serif;
       --shadow-find-property: 0px 4px 44px rgba(0, 0, 0, 0.1);
     --font-inherit: inherit;
   
@@ -33,15 +36,18 @@
     --font-weight-inherit: inherit;
 
 
-    --color-primary: #0D4898;
+    /* --color-primary: #0D4898; */
+    --color-primary: #0A0A3D;
     --color-dark-blue-gray: #35454C5C;
-    --color-cream: #EBEBDE;
+    /* --color-cream: #EBEBDE; */
+    --color-cream: #f3f1ef;
     --color-tan: #A18A6B;
     --color-overlay-dark: #171B23;
     --color-dark-charcoal: #35454C;
     --color-charcoal: #35454C;
     --color-navy-blue: #E2E9F3;
     --color-forest-green: #354c3f;
+    --color-darkbg: #1D1D1D;
 
     --text-heading-1: 48px;
     --text-heading-2: 68px;
@@ -49,6 +55,7 @@
     --text-heading-5: 18px;
     --text-heading-6: 16px;
 
+    --text-36: 36px;
     --text-32: 32px;
     --text-28: 28px;
     --text-18: 18px;
