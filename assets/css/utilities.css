@@ -295,7 +295,7 @@
 }
 
 .filter-label {
-  @apply text-primary text-14 font-body tracking-1.4 uppercase;
+  @apply text-primary text-14 font-body tracking-1.4 leading-15 uppercase;
 }
 
 .filter-trigger {
@@ -303,19 +303,20 @@
 }
 
 .filter-value {
-  @apply text-primary text-heading-5 font-body;
+  @apply text-tan text-heading-5 font-body;
 }
 
 .filter-trigger img {
   @apply block shrink-0;
+  filter: brightness(0) saturate(100%) invert(61%) sepia(10%) saturate(1078%) hue-rotate(355deg) brightness(91%) contrast(80%);
 }
 
 .find-property-divider {
-  @apply self-stretch border-l border-primary/20 max-992:hidden;
+  @apply self-stretch border-l border-tan/20 max-992:hidden;
 }
 
 .filter-dropdown {
-  @apply absolute bottom-full left-0 bg-white border border-primary/20 z-50 min-w-full hidden mb-2;
+  @apply absolute bottom-full left-0 bg-white border border-tan/20 z-50 min-w-full hidden mb-2;
 }
 
 .find-property-filter.is-open .filter-dropdown {
@@ -327,7 +328,7 @@
 }
 
 .find-property-search {
-  @apply shrink-0 leading-[1.25] border-primary text-primary;
+  @apply shrink-0 leading-[1.25] border-tan text-tan hover:bg-tan hover:text-white;
 }
 
 
@@ -378,7 +379,7 @@
 }
 
 .residences-slider__blocks .residences-slide__filter {
-    @apply max-768:static max-768:w-full max-768:transition-opacity max-768:duration-500 max-768:ease-in-out;
+    @apply max-768:static max-768:w-full max-768:transition-opacity max-768:duration-500 max-768:ease-in-out max-768:rounded-none!;
 }
 
 .residences-slide__tabs {
@@ -462,7 +463,8 @@
 .residences-slide__filter-extra {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.4s ease;
+    margin-top: -34px;
+    transition: grid-template-rows 0.4s ease, margin-top 0.4s ease;
     width: 100%;
 }
 
@@ -473,11 +475,19 @@
 .residences-slide__filter:hover .residences-slide__filter-extra,
 .residences-slide__filter:focus-within .residences-slide__filter-extra {
     grid-template-rows: 1fr;
+    margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+    .residences-slide__filter-extra {
+        margin-top: -24px;
+    }
 }
 
 @media (max-width: 768px) {
     .residences-slide__filter-extra {
         grid-template-rows: 1fr;
+        margin-top: 0;
     }
 }
 
@@ -509,20 +519,23 @@
   .location-lines-overlay {
     @apply absolute inset-0 w-full h-full pointer-events-none max-768:hidden;
   }
+  .location-lines-overlay  path {
+    @apply stroke-tan
+  }
   
   /* CÔTE D'AZUR map marker */
   
   .location-cda-marker {
     /* @apply absolute flex items-center gap-8 pointer-events-none left-[27%] 1512:left-[30%] top-[45%] -translate-x-[72%] max-768:hidden; */
-    @apply absolute flex items-center gap-8 pointer-events-none left-[33%] top-[45%] translate-x-[-67%] max-1366:left-[32%] max-1366:translate-x-[-68%] max-768:left-[30%] max-768:translate-x-[-70%]  max-768:hidden;
+    @apply absolute flex items-center gap-8 pointer-events-none left-[33.2%] top-[43.5%] translate-x-[-82%] max-1366:left-[32%] max-1366:translate-x-[-68%] max-768:left-[30%] max-768:translate-x-[-70%]  max-768:hidden;
   }
   
   .location-cda-text {
-    @apply font-Cinzel font-medium text-primary tracking-widest text-14 leading-none;
+    @apply font-Cinzel font-semibold text-tan tracking-widest text-24 leading-none;
   }
   
   .location-cda-dot {
-    @apply w-10 h-10 rounded-full bg-primary;
+    @apply w-10 h-10 rounded-full bg-tan;
   }
   
   /* Location pins — navy circles with icon */
@@ -574,7 +587,7 @@
   }
   
   .location-content .title h2 {
-    @apply mb-4 max-992:text-heading-1 max-768:text-[42px] max-992:leading-tight;
+    @apply mb-20 max-992:text-heading-1 max-768:text-[42px] max-992:leading-tight;
   }
   
   .location-content .content p {
@@ -609,7 +622,7 @@
   }
   
   .location-popup-destination {
-    @apply flex flex-col ml-14 gap-6;
+    @apply flex flex-col ml-14 gap-12;
   }
   
   /* Popup — full-width divider */
@@ -627,11 +640,11 @@
   /* Shared label + value styles */
   
   .location-popup-label {
-    @apply text-12 font-body font-normal text-dark-charcoal tracking-widest uppercase leading-none;
+    @apply text-12 font-body font-normal text-primary tracking-widest uppercase leading-none;
   }
   
   .location-popup-value {
-    @apply text-18 max-768:text-14 font-body font-semibold text-primary leading-tight;
+    @apply text-18 max-768:text-14 font-body font-semibold text-tan leading-tight;
   }
   
   /* content color modifier for popup text */

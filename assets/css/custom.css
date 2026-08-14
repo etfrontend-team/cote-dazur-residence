@@ -164,23 +164,23 @@
 
 
 .introduction-header {
-    @apply max-w-950 mx-auto flex flex-col gap-10 justify-center items-center px-20!;
+    @apply max-w-750 mx-auto flex flex-col gap-10 justify-center items-center px-20!;
 }
 
 .introduction-section .content-block-wrapper {
-    @apply mt-100 992:mt-127 relative w-full overflow-hidden;
+    @apply mt-100 992:mt-100 relative w-full overflow-hidden;
 }
 
 .introduction-section .content-block {
-    @apply relative z-0 max-w-990 mx-auto;
+    @apply relative z-0 max-w-880 mx-auto;
 }
 
 .content-block__inner {
-    @apply flex w-full max-w-990 flex-col items-center gap-24 px-40 py-40 max-768:gap-16 max-768:px-24 max-768:py-30;
+    @apply flex w-full max-w-880 flex-col items-center gap-24 px-40 py-40 max-768:gap-16 max-768:px-24 max-768:py-30;
 }
 
 .content-block__eyebrow {
-    @apply font-body text-14 uppercase tracking-1.4 leading-normal text-primary;
+    @apply font-body text-14 uppercase  leading-normal text-tan font-medium;
 }
 
 .wellbeing-features {
@@ -188,7 +188,7 @@
 }
 
 .wellbeing-feature {
-    @apply col-span-2 flex h-full flex-col items-start gap-16 rounded-tr-40 border border-solid border-navy-blue bg-white p-16 max-992:col-span-1;
+    @apply col-span-2 flex h-full flex-col items-start gap-8 rounded-tr-40 border border-solid border-navy-blue bg-white p-16 max-992:col-span-1;
 }
 
 .wellbeing-feature:nth-child(4) {
@@ -196,7 +196,7 @@
 }
 
 .wellbeing-feature__icon {
-    @apply shrink-0 text-primary;
+    @apply shrink-0 text-primary mb-22;
 }
 
 .wellbeing-feature__icon svg {
@@ -208,7 +208,7 @@
 }
 
 .wellbeing-feature .title-primary h3 {
-    @apply font-Cinzel font-medium text-24 max-992:text-16 uppercase leading-normal;
+    @apply font-Cinzel font-medium text-18 max-992:text-16 uppercase leading-normal;
 }
 
 .content-block-reveal {

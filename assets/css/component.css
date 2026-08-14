@@ -15,11 +15,11 @@
 }
 
 .btn-secondary-variant-2 {
-    @apply inline-flex flex-col items-start pt-10 gap-10 text-14 max-576:text-14 font-body tracking-1.6 text-primary uppercase transition-colors duration-300 ;
+    @apply inline-flex flex-col items-start pt-10 gap-10 text-16 max-576:text-14 font-body tracking-1.6 text-tan uppercase transition-colors duration-300 ;
    }
    
    .btn-secondary-variant-2__line {
-    @apply block h-1 max-w-46 w-full overflow-hidden bg-primary transition-all duration-500 ease-out;
+    @apply block h-1 max-w-46 w-full overflow-hidden bg-tan transition-all duration-500 ease-out;
   }
   
   .btn-secondary-variant-2:hover .btn-secondary-variant-2__line {

@@ -267,7 +267,7 @@ footer::before {
 }
 .footer__copyright a::after {
     content: '';
-    @apply bg-primary;
+    @apply bg-tan;
 }
 
 .footer__links a:hover::after,
@@ -296,6 +296,9 @@ footer::before {
 .footer__copyright {
     @apply py-30 text-center max-768:py-20;
 }
+.footer__copyright p {
+    @apply text-tan
+}
 .footer__copyright a {
-    @apply relative
+    @apply relative text-tan
 }

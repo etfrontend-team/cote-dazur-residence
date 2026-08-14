@@ -1,35 +1,145 @@
 @font-face {
-    font-family: "Cinzel";
-    src: url("/assets/fonts/cinzel-500-latin.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Cinzel";
-    src: url("/assets/fonts/cinzel-500-latin-ext.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1EFF;
-}
-
-@font-face {
-    font-family: "Inter";
-    src: url("/assets/fonts/inter-400-latin.woff2") format("woff2");
+    font-family: "OptimaLTPro";
+    src: url("/assets/fonts/OptimaLTPro-Roman.woff2") format("woff2"),
+        url("/assets/fonts/OptimaLTPro-Roman.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url("/assets/fonts/inter-400-latin-ext.woff2") format("woff2");
+    font-family: "OptimaLTPro";
+    src: url("/assets/fonts/OptimaLTPro-Roman.woff2") format("woff2"),
+        url("/assets/fonts/OptimaLTPro-Roman.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Thin.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-Thin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-ThinItalic.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-ThinItalic.woff") format("woff");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Extralight.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-Extralight.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-ExtralightItalic.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-ExtralightItalic.woff") format("woff");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Light.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-LightItalic.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-LightItalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Regular.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1EFF;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-RegularItalic.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-RegularItalic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Medium.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-MediumItalic.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-MediumItalic.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Semibold.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-Semibold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-SemiboldItalic.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-SemiboldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Bold.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-BoldItalic.woff2") format("woff2"),
+        url("/assets/fonts/Graphik-BoldItalic.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
 }
 
 *,
@@ -85,10 +195,10 @@ h1, .h1 {
 }
 
 h2, .h2 {
-    @apply text-heading-1 leading-48 max-1199:text-heading-1 max-1199:leading-65 font-OptimaLTPro font-normal;
+    @apply text-heading-1 leading-48 max-1199:text-heading-1 max-1199:leading-65 font-OptimaLTPro font-normal uppercase;
 }
 h3, .h3 {
-    @apply text-heading-3 leading-56 max-1199:text-[35px] max-1199:leading-45 font-OptimaLTPro font-normal;
+    @apply text-heading-3 leading-56 max-1199:text-[35px] max-1199:leading-45 font-OptimaLTPro font-normal uppercase;
 }
 
 
@@ -151,6 +261,9 @@ h3, .h3 {
 
 .content-cream p {
     @apply text-cream;
+}
+.content-tan p {
+    @apply text-tan
 }
 
 .content-charcoal p {
