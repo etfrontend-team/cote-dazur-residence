@@ -17,7 +17,11 @@ export default function initPreloader() {
   const header = document.getElementById('site-header')
   const heroVideo = document.querySelector('.hero-bg video')
 
-  if (!scrollContainer || !pinWrap || !window.gsap || !window.ScrollTrigger) return
+  if (!scrollContainer || !pinWrap || !window.gsap || !window.ScrollTrigger) {
+    document.body.classList.add('is-ready', 'is-loaded')
+    document.body.classList.remove('is-preloading')
+    return
+  }
 
   const gsap = window.gsap
   const { ScrollTrigger } = window

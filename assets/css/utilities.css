@@ -125,7 +125,7 @@
 
 .hero-loader-logo,
 .hero-loader-shape {
-  @apply absolute inset-0 z-20 flex items-center justify-center pointer-events-none;
+  @apply absolute inset-0 z-20 flex items-center justify-center pointer-events-none opacity-0;
 }
 
 .hero-loader-logo img {
