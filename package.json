@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tailwindcss -i ./assets/css/style.css -o ./dist/style.css --watch",
-    "build:prod": "npx tailwindcss -i ./assets/css/style.css -o ./dist/style.css --minify",
+    "build:prod": "npm run vendor && npx tailwindcss -i ./assets/css/style.css -o ./dist/style.css --minify",
+    "vendor": "mkdir -p assets/vendor/gsap assets/vendor/lenis && cp node_modules/gsap/index.js node_modules/gsap/gsap-core.js node_modules/gsap/CSSPlugin.js node_modules/gsap/ScrollTrigger.js node_modules/gsap/Observer.js assets/vendor/gsap/ && cp node_modules/lenis/dist/lenis.mjs assets/vendor/lenis/",
     "lint:fix": "npx eslint . --fix && npx prettier --write .",
     "prepare": "husky"
   },
