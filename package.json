@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tailwindcss -i ./assets/css/style.css -o ./dist/style.css --watch",
+    "build:prod": "npx tailwindcss -i ./assets/css/style.css -o ./dist/style.css --minify",
     "lint:fix": "npx eslint . --fix && npx prettier --write .",
     "prepare": "husky"
   },

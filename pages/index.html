@@ -13,49 +13,58 @@
     />
 
     <!-- faviocn -->
-    <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../assets/favicon/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sacramento&display=swap" rel="stylesheet"> 
    
  <link
    rel="preload"
    as="image"
-   href="../assets/images/loader-building.webp"
+   href="/assets/images/loader-building.webp"
  />
  <link
    rel="preload"
    as="image"
-   href="../assets/images/footer-building.webp"
+   href="/assets/images/footer-building.webp"
  />
  <link
    rel="preload"
    as="image"
-   href="../assets/images/proven-background-terrace.webp"
+   href="/assets/images/proven-background-terrace.webp"
  />
  <link
    rel="preload"
    as="image"
-   href="../assets/images/hero-bg.webp"
+   href="/assets/images/hero-bg.webp"
  />
  <link
    rel="stylesheet"
-   href="../dist/style.css"
+   href="/dist/style.css"
  />
+ <script type="importmap">
+   {
+     "imports": {
+       "lenis": "/node_modules/lenis/dist/lenis.mjs",
+       "gsap": "/node_modules/gsap/index.js",
+       "gsap/ScrollTrigger": "/node_modules/gsap/ScrollTrigger.js"
+     }
+   }
+ </script>
 </head>
 <body class="is-preloading">
    <script>
@@ -77,7 +86,7 @@
      aria-label="Côte d'Azur Résidence — Home"
    >
      <img
-       src="../assets/images/logo-header.svg"
+       src="/assets/images/logo-header.svg"
        width="244"
        height="30"
        alt="Côte d'Azur Résidence logo"
@@ -152,7 +161,7 @@
        >
          <span>ENG</span>
          <img
-           src="../assets/icons/arrow-down.svg"
+           src="/assets/icons/arrow-down.svg"
            width="24"
            height="24"
            alt="Dropdown arrow icon"
@@ -218,7 +227,7 @@
        aria-controls="primary-nav"
      >
        <img
-         src="../assets/icons/menu-icon.svg"
+         src="/assets/icons/menu-icon.svg"
          width="24"
          height="26"
          alt="Menu icon"
@@ -234,7 +243,7 @@
        aria-controls="primary-nav"
      >
        <img
-         src="../assets/icons/close-icon.svg"
+         src="/assets/icons/close-icon.svg"
          width="24"
          height="24"
          alt="Close icon"
@@ -251,7 +260,7 @@
  aria-hidden="true"
 >
  <img
-   src="../assets/images/hero-bg.webp"
+   src="/assets/images/hero-bg.webp"
    width="1920"
    height="1200"
    alt="Blurred Côte d'Azur Résidence building exterior"
@@ -267,14 +276,14 @@
           <div class="hero-pin-wrap" data-hero-pin>
             <div class="hero-bg" aria-hidden="true">
               <video
-                poster="../assets/images/hero-bg.webp"
+                poster="/assets/images/hero-bg.webp"
                 autoplay
                 muted
                 loop
                 playsinline
               >
                 <source
-                  src="../assets/images/banner-video.mp4"
+                  src="/assets/images/banner-video.mp4"
                   type="video/mp4"
                 />
               </video>
@@ -290,7 +299,7 @@
 
             <div class="hero-loader-logo" aria-hidden="true">
               <img
-                src="../assets/images/logo-header.svg"
+                src="/assets/images/logo-header.svg"
                 width="248"
                 height="43"
                 alt=""
@@ -300,7 +309,7 @@
             </div>
             <div class="hero-loader-shape" aria-hidden="true">
               <img
-                src="../assets/icons/hero-loader-shape.svg"
+                src="/assets/icons/hero-loader-shape.svg"
                 width="1993"
                 height="1058"
                 alt=""
@@ -339,7 +348,7 @@
                     >Explore Residences</a
                   >
                   <a
-                    href="../assets/documents/cote-dazur-brochure.pdf"
+                    href="/assets/documents/cote-dazur-brochure.pdf"
                     role="link"
                     target="_blank"
                     aria-label="Download brochure PDF"
@@ -370,7 +379,7 @@
               >
                 <span class="filter-value">All Types</span>
                 <img
-                      src="../assets/images/icon-angle-down.svg"  
+                      src="/assets/images/icon-angle-down.svg"  
                   width="24"
                   height="24"
                   alt=""
@@ -421,7 +430,7 @@
               >
                 <span class="filter-value">Any</span>
                 <img
-                  src="../assets/images/icon-angle-down.svg"
+                  src="/assets/images/icon-angle-down.svg"
                   width="24"
                   height="24"
                   alt=""
@@ -479,7 +488,7 @@
               >
                 <span class="filter-value">No min</span>
                 <img
-                  src="../assets/images/icon-angle-down.svg"
+                  src="/assets/images/icon-angle-down.svg"
                   width="24"
                   height="24"
                   alt=""
@@ -537,7 +546,7 @@
               >
                 <span class="filter-value">No max</span>
                 <img
-                  src="../assets/images/icon-angle-down.svg"
+                  src="/assets/images/icon-angle-down.svg"
                   width="24"
                   height="24"
                   alt=""
@@ -710,7 +719,7 @@
                 <div class="content-block-reveal">
                     <div class="content-block-reveal__panel content-block-reveal__panel--left">
                         <img
-                            src="../assets/images/1_bloom_2x.webp"
+                            src="/assets/images/1_bloom_2x.webp"
                             width="446"
                             height="547"
                             alt="Côte d'Azur Résidence hillside retreat exterior"
@@ -720,7 +729,7 @@
                     </div>
                     <div class="content-block-reveal__panel content-block-reveal__panel--right">
                         <img
-                            src="../assets/images/2_bloom_2x.webp"
+                            src="/assets/images/2_bloom_2x.webp"
                             width="446"
                             height="547"
                             alt="Côte d'Azur Résidence panoramic Adriatic view"
@@ -746,7 +755,7 @@
           <div class="residences-slide">
             <div class="residences-slide__media">
               <img
-                src="../assets/images/residences-slide-1.webp"
+                src="/assets/images/residences-slide-1.webp"
                 width="1410"
                 height="900"
                 alt="Côte d'Azur Résidences building exterior among olive trees at dusk"
@@ -782,7 +791,7 @@
           <div class="residences-slide">
             <div class="residences-slide__media">
               <img
-                src="../assets/images/residences-slide-2.webp"
+                src="/assets/images/residences-slide-2.webp"
                 width="1410"
                 height="900"
                 alt="Ivy-covered stone wall along a walkway at Côte d'Azur Résidences, Block 1"
@@ -903,10 +912,10 @@
               <picture>
                 <source
                   media="(max-width: 768px)"
-                  srcset="../assets/images/residences-slide-2.webp"
+                  srcset="/assets/images/residences-slide-2.webp"
                 />
                 <img
-                  src="../assets/images/4.webp"
+                  src="/assets/images/4.webp"
                   width="1410"
                   height="900"
                   alt="Côte d'Azur Résidences building exterior amid olive terraces, Block 2"
@@ -1025,10 +1034,10 @@
               <picture>
                 <source
                   media="(max-width: 768px)"
-                  srcset="../assets/images/residences-slide-2.webp"
+                  srcset="/assets/images/residences-slide-2.webp"
                 />
                 <img
-                  src="../assets/images/6.webp"
+                  src="/assets/images/6.webp"
                   width="1410"
                   height="900"
                   alt="Côte d'Azur Résidences building exterior overlooking the hillside, Block 3"
@@ -1179,7 +1188,7 @@
                     </div>
                     <div class="mt-40 self-end image-variant-2 image-overlay">
                         <img
-                        src="../assets/images/3_bloom_2x.webp"
+                        src="/assets/images/3_bloom_2x.webp"
                         width="888"
                         height="560"
                         alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1190,7 +1199,7 @@
                 </div>
                 <div class="image-variant-1 image-overlay">
                   <img
-                    src="../assets/images/3_bloom_2x.webp"
+                    src="/assets/images/3_bloom_2x.webp"
                     width="888"
                     height="560"
                     alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1210,7 +1219,7 @@
                     </div>
                     <div class="-translate-y-2/12 mt-auto translate-x-[45%] z-1 self-end image-variant-3 image-overlay">
                         <img
-                        src="../assets/images/2_bloom_2x.webp"
+                        src="/assets/images/2_bloom_2x.webp"
                         width="888"
                         height="560"
                         alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1221,7 +1230,7 @@
                 </div>
                 <div class="image-variant-1 image-overlay">
                   <img
-                    src="../assets/images/3_bloom_2x.webp"
+                    src="/assets/images/3_bloom_2x.webp"
                     width="888"
                     height="560"
                     alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1231,7 +1240,7 @@
                 </div>
                 <div class="mt-40 image-variant-2 image-overlay">
                     <img
-                      src="../assets/images/3_bloom_2x.webp"
+                      src="/assets/images/3_bloom_2x.webp"
                       width="888"
                       height="560"
                       alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1251,7 +1260,7 @@
                     </div>
                     <div class=" -translate-y-2/12 mt-auto translate-x-[45%] z-1 self-end image-variant-3 image-overlay">
                         <img
-                        src="../assets/images/2_bloom_2x.webp"
+                        src="/assets/images/2_bloom_2x.webp"
                         width="888"
                         height="560"
                         alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1263,7 +1272,7 @@
                 <div class="image-stack">
                   <div class="image-variant-1 image-overlay">
                     <img
-                      src="../assets/images/3_bloom_2x.webp"
+                      src="/assets/images/3_bloom_2x.webp"
                       width="888"
                       height="560"
                       alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1274,7 +1283,7 @@
                   <div class="image-corner-inset">
                     <div class="image-variant-2 image-overlay">
                       <img
-                        src="../assets/images/3_bloom_2x.webp"
+                        src="/assets/images/3_bloom_2x.webp"
                         width="888"
                         height="560"
                         alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1286,7 +1295,7 @@
                 </div>
                 <div class="image-variant-4 image-overlay">
                     <img
-                      src="../assets/images/2_bloom_2x.webp"
+                      src="/assets/images/2_bloom_2x.webp"
                       width="888"
                       height="560"
                       alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1306,7 +1315,7 @@
                     </div>
                     <div class="-translate-y-4/12 mt-auto translate-x-[45%] z-1 self-end image-variant-3 image-overlay">
                         <img
-                        src="../assets/images/2_bloom_2x.webp"
+                        src="/assets/images/2_bloom_2x.webp"
                         width="888"
                         height="560"
                         alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1318,7 +1327,7 @@
                 <div class="image-stack">
                   <div class="image-variant-1 image-overlay">
                     <img
-                      src="../assets/images/3_bloom_2x.webp"
+                      src="/assets/images/3_bloom_2x.webp"
                       width="888"
                       height="560"
                       alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1331,7 +1340,7 @@
                 <div class="flex flex-col items-center">
                     <div class=" image-variant-4 image-overlay">
                         <img
-                          src="../assets/images/2_bloom_2x.webp"
+                          src="/assets/images/2_bloom_2x.webp"
                           width="888"
                           height="560"
                           alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1341,7 +1350,7 @@
                     </div>
                         <div class="image-variant-2 w-[50vw]! 768:w-350! 768:h-350! image-overlay -translate-y-2/12">
                           <img
-                            src="../assets/images/3_bloom_2x.webp"
+                            src="/assets/images/3_bloom_2x.webp"
                             width="888"
                             height="560"
                             alt="Aerial view of Côte d'Azur Résidence towers and landscaped grounds"
@@ -1364,7 +1373,7 @@
         <!-- Background map image -->
         <div class="location-map-bg">
           <img
-            src="../assets/images/location-map.webp"
+            src="/assets/images/location-map.webp"
             width="1401"
             height="934"
             alt="Geographic map of Montenegro Riviera showing Côte d'Azur's location near Bečići"
@@ -1424,10 +1433,10 @@
           class="location-pin js-location-pin location-pin-1"
           data-pin-title="Podgorica Airport"
           data-pin-distance="~45 min drive"
-          data-pin-thumb="../assets/images/location-beach-thumb.webp"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
         >
           <img
-            src="../assets/images/location-icon-airport.svg"
+            src="/assets/images/location-icon-airport.svg"
             width="18"
             height="18"
             alt=""
@@ -1444,10 +1453,10 @@
           class="location-pin js-location-pin location-pin-2"
           data-pin-title="Tivat Airport"
           data-pin-distance="~20 min drive"
-          data-pin-thumb="../assets/images/location-beach-thumb.webp"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
         >
           <img
-            src="../assets/images/location-icon-airport2.svg"
+            src="/assets/images/location-icon-airport2.svg"
             width="18"
             height="18"
             alt=""
@@ -1464,10 +1473,10 @@
           class="location-pin js-location-pin location-pin-3"
           data-pin-title="Bay of Kotor"
           data-pin-distance="~30 min drive"
-          data-pin-thumb="../assets/images/location-beach-thumb.webp"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
         >
           <img
-            src="../assets/images/location-icon-boat.svg"
+            src="/assets/images/location-icon-boat.svg"
             width="16"
             height="16"
             alt=""
@@ -1484,10 +1493,10 @@
           class="location-pin js-location-pin location-pin-4"
           data-pin-title="Sveti Stefan"
           data-pin-distance="~10 min drive"
-          data-pin-thumb="../assets/images/location-beach-thumb.webp"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
         >
           <img
-            src="../assets/images/location-icon-beach.svg"
+            src="/assets/images/location-icon-beach.svg"
             width="18"
             height="18"
             alt=""
@@ -1504,10 +1513,10 @@
           class="location-pin js-location-pin location-pin-5"
           data-pin-title="Budva Old Town"
           data-pin-distance="~5 min drive"
-          data-pin-thumb="../assets/images/location-beach-thumb.webp"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
         >
           <img
-            src="../assets/images/location-icon-beach.svg"
+            src="/assets/images/location-icon-beach.svg"
             width="12"
             height="12"
             alt=""
@@ -1524,10 +1533,10 @@
           class="location-pin js-location-pin location-pin-6"
           data-pin-title="Petrovac"
           data-pin-distance="~20 min drive"
-          data-pin-thumb="../assets/images/location-beach-thumb.webp"
+          data-pin-thumb="/assets/images/location-beach-thumb.webp"
         >
           <img
-            src="../assets/images/location-icon-castle.svg"
+            src="/assets/images/location-icon-castle.svg"
             width="18"
             height="18"
             alt=""
@@ -1560,7 +1569,7 @@
             <div class="location-popup-thumb">
               <img
                 class="js-popup-thumb"
-                src="../assets/images/location-beach-thumb.webp"
+                src="/assets/images/location-beach-thumb.webp"
                 width="79"
                 height="62"
                 alt="Location photo"
@@ -1601,7 +1610,7 @@
           <div class="testimonial-card__wrap">
             <div class="testimonial-card">
                 <img
-                    src="../assets/images/logo-brown.svg"
+                    src="/assets/images/logo-brown.svg"
                     width="154"
                     height="19"
                     alt="Côte d'Azur Résidence wordmark"
@@ -1611,7 +1620,7 @@
                 />
                 <div class="testimonial-card__media">
                     <img
-                        src="../assets/images/11_bloom_2x.webp"
+                        src="/assets/images/11_bloom_2x.webp"
                         width="399"
                         height="527"
                         alt="Landscaped courtyard and entrance of a Côte d'Azur Résidence villa suite at golden hour"
@@ -1643,7 +1652,7 @@
             data-fade
           >
             <img
-              src="../assets/images/image.webp"
+              src="/assets/images/image.webp"
               width="698"
               height="798"
               alt="Poolside terrace with sun loungers overlooking the Adriatic coastline at Côte d'Azur Résidences"
@@ -1658,7 +1667,7 @@
               aria-hidden="true"
             >
               <img
-                src="../assets/images/proven-background-leaves.webp"
+                src="/assets/images/proven-background-leaves.webp"
                 width="1400"
                 height="843"
                 alt="Decorative leaf shadow"
@@ -1677,7 +1686,7 @@
                 data-fade
               >
                 <img
-                  src="../assets/images/proven-background-accent.webp"
+                  src="/assets/images/proven-background-accent.webp"
                   width="1200"
                   height="675"
                   alt="Aerial render of the Côte d'Azur Résidences building overlooking the Adriatic Sea"
@@ -1747,7 +1756,7 @@
           <div class="footer__content">
             <img
               class="footer__logo"
-              src="../assets/images/logo-header.svg"
+              src="/assets/images/logo-header.svg"
               width="830"
               height="102"
               alt="Côte d'Azur Résidences wordmark"
@@ -1881,7 +1890,7 @@
                       <option value="penthouse">Penthouse</option>
                     </select>
                     <img
-                      src="../assets/icons/arrow-down.svg"
+                      src="/assets/icons/arrow-down.svg"
                       width="24"
                       height="24"
                       alt="Dropdown arrow icon"
@@ -1915,7 +1924,7 @@
               <div class="footer__media">
                 <img
                   class="footer__media-photo"
-                  src="../assets/images/footer-building.webp"
+                  src="/assets/images/footer-building.webp"
                   width="900"
                   height="507"
                   alt="Côte d'Azur Résidences building exterior at golden hour"
@@ -1930,7 +1939,7 @@
                   class="footer__media-badge"
                 >
                   <img
-                    src="../assets/icons/instagram-icon.svg"
+                    src="/assets/icons/instagram-icon.svg"
                     width="18"
                     height="18"
                     alt="Instagram icon"
@@ -2059,7 +2068,7 @@
                   aria-label="Chat with us on WhatsApp"
                 >
                   <img
-                    src="../assets/icons/whatsapp-icon.svg"
+                    src="/assets/icons/whatsapp-icon.svg"
                     width="24"
                     height="24"
                     alt="WhatsApp icon"
@@ -2074,7 +2083,7 @@
                   aria-label="Chat with us on Viber"
                 >
                   <img
-                    src="../assets/icons/viber-icon.svg"
+                    src="/assets/icons/viber-icon.svg"
                     width="24"
                     height="24"
                     alt="Viber icon"
@@ -2089,7 +2098,7 @@
                   aria-label="Message us on Telegram"
                 >
                   <img
-                    src="../assets/images/telegram-icon.svg"
+                    src="/assets/images/telegram-icon.svg"
                     width="24"
                     height="24"
                     alt="Telegram icon"
@@ -2104,7 +2113,7 @@
                   aria-label="Follow us on Facebook"
                 >
                   <img
-                    src="../assets/images/facebook-icon.svg"
+                    src="/assets/images/facebook-icon.svg"
                     width="24"
                     height="24"
                     alt="Facebook icon"
@@ -2124,7 +2133,7 @@
     </footer>
     <script
       type="module"
-      src="../assets/js/app.js"
+      src="/assets/js/app.js"
     ></script>
     </div>
   </body>
