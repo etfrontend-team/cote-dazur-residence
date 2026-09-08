@@ -47,7 +47,7 @@ export default function initPreloader() {
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.body.classList.add('is-ready', 'is-loaded')
-    document.body.classList.remove('is-preloading')
+    // document.body.classList.remove('is-preloading')
     return
   }
 
@@ -84,7 +84,8 @@ export default function initPreloader() {
       pin: pinWrap,
       anticipatePin: 1,
       invalidateOnRefresh: true,
-      onLeave: () => finishIntro(),
+      // TEMP: hide-on-leave disabled — preloader stays visible for now.
+      // onLeave: () => finishIntro(),
     },
   })
 

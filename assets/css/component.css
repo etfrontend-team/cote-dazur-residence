@@ -3,7 +3,7 @@
 }
 
 .btn-primary {
-    @apply  border-cream bg-cream/59 uppercase text-cream text-16 font-normal  hover:bg-transparent;
+    @apply  border-cream bg-cream/59 uppercase text-cream text-16 max-992:text-14 font-normal  hover:bg-transparent;
 }
 
 .btn-primary-invert {
@@ -34,8 +34,8 @@
     @apply bg-cream!;
 }
 
-.btn-cream-glass {
-    @apply border-cream bg-cream/35 backdrop-blur-2 uppercase text-cream text-16 font-normal hover:bg-cream/55;
+.btn-secondary:hover {
+    @apply bg-primary text-white   ;
 }
 
 .btn-cream-outline {

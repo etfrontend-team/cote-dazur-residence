@@ -2,111 +2,8 @@
   @apply sr-only;
 }
 
-/* ==========================================================================
- Preloader
- ========================================================================== */
-
-/* Nested inside .hero-section (relative, h-screen) so it covers exactly the hero's own
-   box, not the raw viewport — matches the reference site's structure. */
-.preloader-section {
-    @apply pointer-events-none absolute inset-0 z-60 flex items-center justify-center overflow-hidden bg-white;
-}
-
 .hero-fade-word {
-    @apply inline-block;
-}
-
-/* Figma 218×137 gap centered against 1048×129 logo */
-.preloader-section__track {
-    @apply flex items-end justify-center font-medium leading-none;
-    font-size: clamp(2.5rem, 8.958333vw, 8.0625rem);
-    height: 1em;
-}
-
-.preloader-section__word {
-    @apply relative shrink-0 overflow-hidden;
-    height: 1em;
-}
-
-/* Figma 1048×129 logo-blue.svg — "CÔTE" 406px + "D'AZUR" 581px */
-.preloader-section__word--start {
-    @apply flex justify-end;
-    width: calc(406 / 129 * 1em);
-}
-
-.preloader-section__word--end {
-    @apply flex justify-start;
-    width: calc(581 / 129 * 1em);
-}
-
-.preloader-section__word-img {
-    @apply block h-full w-auto max-w-none;
-}
-
-.preloader-section__word--start .preloader-section__word-img {
-    @apply absolute top-0 left-0;
-}
-
-.preloader-section__word--end .preloader-section__word-img {
-    @apply absolute top-0 right-0;
-}
-
-.preloader-section__box {
-    @apply relative flex shrink-0 flex-col items-center justify-center overflow-hidden;
-    width: 0;
-    height: calc(137 / 129 * 1em);
-    margin: 0 calc(30.5 / 129 * 1em);
-}
-
-.preloader-section__box-inner {
-    @apply relative flex h-full items-center justify-center;
-    min-width: calc(218 / 129 * 1em);
-    height: 100%;
-}
-
-.preloader-section__growing {
-    @apply absolute flex h-full w-full items-center justify-center overflow-hidden;
-}
-
-.preloader-section__cover-stack {
-    @apply absolute inset-0 h-full w-full;
-    min-width: calc(218 / 129 * 1em);
-}
-
-.preloader-section__cover-extra,
-.preloader-section__cover-image {
-    @apply absolute inset-0 h-full w-full overflow-hidden bg-cover bg-center bg-no-repeat;
-}
-
-.preloader-section__cover-extra img,
-.preloader-section__cover-image img {
-    @apply block h-full w-full object-cover;
-}
-
-.preloader-section__cover-extra::after,
-.preloader-section__cover-image::after {
-    content: '';
-    @apply pointer-events-none absolute inset-0;
-    /* Matches .hero-section__overlay exactly so the loader-to-hero handoff has zero visible shift. */
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
-}
-
-.preloader-section__cover-extra:nth-child(1) {
-    z-index: 4;
-}
-
-.preloader-section__cover-extra:nth-child(2) {
-    z-index: 3;
-}
-
-.preloader-section__cover-extra:nth-child(3) {
-    z-index: 2;
-}
-
-.preloader-section__cover-image {
-    z-index: 1;
+  @apply inline-block;
 }
 
 /* ===== HERO INTRO (Omniyat-style: scroll → SVG → banner → header) ===== */
@@ -151,12 +48,20 @@
 
 .hero-bg-overlay {
   @apply pointer-events-none absolute inset-0;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 8%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
 }
 
 .hero-bg-overlay-top {
   @apply pointer-events-none absolute inset-0;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 71%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
 }
 
 .hero-content {
@@ -168,41 +73,140 @@
    ========================================================================== */
 
 .hero-section {
-    @apply relative overflow-hidden;
+  @apply relative overflow-hidden;
 }
 
 .hero-section__media {
-    @apply relative z-0 w-full h-full overflow-hidden;
+  @apply relative z-0 w-full h-full overflow-hidden;
 }
 
 .hero-section__media-img {
-    @apply block w-full h-full object-cover;
-}
-.hero-loader-cover--main {
-  @apply z-1;
+  @apply block w-full h-full object-cover;
 }
 
 .hero-section__overlay {
-    @apply pointer-events-none absolute inset-0;
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%),
-        linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
+  @apply pointer-events-none absolute inset-0;
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0.8) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0) 71%, rgba(0, 0, 0, 0.4) 100%);
 }
 
 .hero-section__inner {
-    @apply absolute inset-0 z-30 flex flex-col justify-end;
+  @apply absolute inset-0 z-30 flex flex-col justify-end;
 }
 
 .hero-section__row {
-    @apply flex flex-row items-end justify-between gap-108 pb-123 max-1199:gap-60 max-1199:pb-70 max-768:flex-col max-768:items-start max-768:gap-30 max-768:pb-40;
+  @apply flex flex-row items-end justify-between gap-108 pb-123 max-1199:gap-60 max-1199:pb-70 max-768:flex-col max-768:items-start max-768:gap-30 max-768:pb-40;
 }
 
 .hero-section__copy {
-    @apply flex flex-1 flex-col items-start gap-24;
+  @apply flex flex-1 flex-col items-start gap-24;
 }
 
 .hero-section__ctas {
-    @apply flex shrink-0 items-center gap-16 max-768:flex-wrap;
+  @apply flex shrink-0 items-center gap-16 max-768:flex-wrap;
+}
+
+/* ==========================================================================
+   Inner hero (sticky-pinned banner — About/interior pages)
+   Mirrors reference: section pins via `sticky`, image is scaled up 110% as a
+   safety buffer so the scrub in innerHero.js never exposes an edge, next
+   section then scrolls up over the pinned banner.
+   ========================================================================== */
+
+.inner-hero-section {
+  @apply sticky top-0 z-1 flex h-screen w-full items-end justify-center overflow-hidden;
+}
+
+.inner-hero-section__media {
+  @apply absolute inset-0 z-0 h-full w-full overflow-hidden;
+}
+
+.inner-hero-section__media-inner {
+  @apply absolute inset-0 h-full w-full scale-110 object-cover will-change-transform;
+}
+
+.inner-hero-section__inner {
+  @apply relative z-30 flex flex-col items-center gap-18 pb-100 text-center;
+}
+.inner-hero-section__inner h1 {
+  @apply text-heading-2 max-992:text-heading-1;
+}
+.inner-hero-section p {
+  @apply max-w-680;
+}
+
+/* ==========================================================================
+   About section (home-page teaser collage — links to full About page)
+   Media tiles use fixed px position/size: a deliberate pixel-perfect collage
+   layout (not content-driven), matching the reference design exactly.
+   ========================================================================== */
+
+.about-section {
+  @apply mx-15 mt-15 overflow-hidden;
+}
+
+.about-section__inner {
+  @apply flex items-center gap-120 pt-90 pb-45 pl-88 pr-136 max-1199:flex-col max-1199:items-start max-1199:gap-50 max-1199:px-60 max-1199:py-60 max-768:gap-40 max-768:px-20 max-768:pt-50 max-768:pb-60;
+}
+
+.about-section__media {
+  @apply relative h-709 w-696 shrink-0 max-1199:w-full max-768:order-2 max-768:h-461 max-768:w-388 max-425:h-auto max-425:overflow-hidden;
+}
+
+.about-section__img {
+  @apply absolute overflow-hidden;
+}
+
+.about-section__img-1 {
+  @apply left-0 top-0 h-463 w-350 max-768:h-301 max-768:w-228;
+}
+
+.about-section__img-2 {
+  @apply left-365 top-111 h-173 w-158 max-768:left-238 max-768:top-72 max-768:h-113 max-768:w-103;
+}
+
+.about-section__img-3 {
+  @apply left-365 top-299 h-299 w-231 max-768:left-238 max-768:top-195 max-768:h-195 max-768:w-150;
+}
+
+.about-section__img-4 {
+  @apply left-34 top-478 h-160 w-139 max-768:left-22 max-768:top-311 max-768:h-104 max-768:w-90;
+}
+
+.about-section__img-5 {
+  @apply left-188 top-478 h-231 w-162 max-768:left-122 max-768:top-311 max-768:h-150 max-768:w-105;
+}
+
+.about-section__content {
+  @apply flex flex-1 flex-col gap-35 max-1199:w-full max-768:order-1;
+}
+
+.about-section__text {
+  @apply flex flex-col gap-30;
+}
+
+/* ==========================================================================
+   Quote section
+   ========================================================================== */
+
+.quote-section {
+  @apply bg-white;
+}
+
+.quote-section__inner {
+  @apply flex max-w-820 flex-col items-center gap-24 mx-auto text-center;
+}
+
+.quote-section__icon {
+  @apply block h-36 w-48;
+}
+
+.quote-section__text h2 {
+  @apply capitalize max-768:text-4xl max-768:leading-snug;
+}
+.about-section__content .content p + p {
+  @apply mt-15;
 }
 
 /* ==========================================================================
@@ -210,67 +214,251 @@
    ========================================================================== */
 
 .image-with-content {
-    @apply flex flex-row items-stretch max-768:flex-col;
+  @apply flex flex-row items-stretch max-768:flex-col;
 }
 
 .image-with-content__media {
-    @apply relative flex-1 min-w-0 max-768:flex-none max-768:w-full max-768:aspect-proven-media;
+  @apply relative flex-1 min-w-0 max-768:flex-none max-768:w-full max-768:aspect-proven-media;
 }
 
 .image-with-content__media img {
-    @apply absolute inset-0 block h-full w-full object-cover;
+  @apply absolute inset-0 block h-full w-full object-cover;
 }
 
 .image-with-content__panel {
-    @apply relative flex-1 min-w-0 overflow-hidden bg-[#0e1f1a] max-768:flex-none max-768:w-full;
+  @apply relative flex-1 min-w-0 overflow-hidden bg-[#0e1f1a] max-768:flex-none max-768:w-full;
 }
 
 .image-with-content__leaves {
-    @apply pointer-events-none absolute inset-0 -scale-x-100 opacity-50 mix-blend-multiply;
+  @apply pointer-events-none absolute inset-0 -scale-x-100 opacity-50 mix-blend-multiply;
 }
 
 .image-with-content__leaves img {
-    @apply block h-full w-full object-cover;
+  @apply block h-full w-full object-cover;
 }
 
-
 .image-with-content__content {
-    @apply relative mx-auto flex max-w-620 flex-col items-center gap-32 px-24 py-75 max-1199:gap-24 max-1199:py-50 max-768:gap-20 max-768:py-40;
+  @apply relative mx-auto flex max-w-620 flex-col items-center gap-32 px-24 py-75 max-1199:gap-24 max-1199:py-50 max-768:gap-20 max-768:py-40;
 }
 
 .image-with-content__title {
-    @apply text-center;
+  @apply text-center;
 }
 
 .image-with-content__accent {
-    @apply relative aspect-proven-accent w-full max-w-266 overflow-hidden rounded-tl-40 rounded-br-40;
+  @apply relative aspect-proven-accent w-full max-w-266 overflow-hidden rounded-tl-40 rounded-br-40;
 }
 
 .image-with-content__accent img {
-    @apply block h-full w-full object-cover;
+  @apply block h-full w-full object-cover;
 }
 
 .image-with-content__desc {
-    @apply flex w-full flex-col items-center gap-16;
+  @apply flex w-full flex-col items-center gap-16;
 }
 
 .image-with-content__desc p {
-    @apply text-center text-cream/70;
+  @apply text-center text-cream/70;
 }
 
 .image-with-content__ctas {
-    @apply flex flex-wrap items-start justify-center gap-100 max-1199:gap-15 max-768:flex-col max-768:items-center;
+  @apply flex flex-wrap items-start justify-center gap-100 max-1199:gap-15 max-768:flex-col max-768:items-center;
 }
 
-
 [data-fade] {
-    @apply opacity-0;
+  @apply opacity-0;
 }
 
 [data-fade].is-visible {
-    @apply opacity-100;
+  @apply opacity-100;
 }
 
+/* ==========================================================================
+   Zigzag section (media + content split, char-reveal heading)
+   ========================================================================== */
+
+.zigzag-section__heading {
+  @apply mb-60 flex max-w-620 flex-col gap-16 max-1199:mb-40 max-768:mb-30;
+}
+
+.zigzag-section__row {
+  @apply flex flex-row items-start gap-64 max-1199:flex-col max-1199:gap-40;
+}
+
+.zigzag-section__media-group {
+  @apply relative flex-1 min-w-0 max-w-full;
+}
+
+.zigzag-section__media {
+  @apply relative block aspect-zigzag-media w-full overflow-hidden;
+}
+.zigzag-section__media--lg {
+  @apply h-700 rounded-tl-50 max-1199:h-450 max-576:h-250;
+}
+.zigzag-section__media--sm {
+  @apply h-220 rounded-br-40 max-576:h-180;
+}
+
+.zigzag-section__media img {
+  @apply block h-full w-full scale-110 object-cover will-change-transform;
+}
+
+.zigzag-section__panel {
+  @apply relative flex flex-1 min-w-0 flex-col items-start gap-24;
+}
+.zigzag-section__panel .content p + p {
+  @apply mt-15;
+}
+
+/* Fixed offset + size: a deliberate pixel-perfect overlay onto
+   .zigzag-section__media (not content-driven), same as the
+   about-section collage tiles. */
+.zigzag-section__media--sm {
+  @apply absolute -right-264 bottom-42 z-10 w-320 max-1024:hidden;
+}
+.zigzag-section-cta-wrapper {
+  @apply flex gap-40 max-576:flex-col max-576:gap-20;
+}
+
+/* ==========================================================================
+   Parallax image chain (dark, alternating rows: small accent media
+   hanging off the bottom edge, copy column, large main media —
+   each layer scroll-shifts at its own speed, see parallaxMedia.js)
+   ========================================================================== */
+
+.parallax-chain {
+  @apply flex flex-col gap-150 max-992:gap-60 max-768:gap-60;
+}
+
+.parallax-chain__row {
+  @apply relative;
+}
+
+.parallax-chain__content {
+  @apply relative flex justify-center max-992:flex-col-reverse max-992:gap-50 max-576:gap-30 992:items-center 992:pl-90 z-2;
+}
+
+/* Fixed offset + size: a deliberate pixel-perfect accent overlay hanging
+   off the main media's bottom edge (not content-driven). */
+.parallax-chain__accent {
+  @apply absolute -bottom-212 left-47 z-2 aspect-parallax-accent 1366:aspect-parallax-accent-lg h-auto w-full max-w-309 overflow-hidden max-992:hidden rounded-br-50 max-1024:hidden;
+}
+
+.parallax-chain__row--reverse .parallax-chain__accent {
+  @apply -bottom-160 left-1/2 -ml-160 1366:-bottom-136 1366:-ml-217;
+}
+
+.parallax-chain__accent img,
+.parallax-chain__accent video {
+  @apply block h-full w-full object-cover;
+}
+
+.parallax-chain__copy {
+  @apply relative z-1 flex w-full shrink-0 flex-col items-start gap-32 max-992:gap-20 max-768:gap-16 992:w-1/2 1366:-mr-72 1440:w-full 1440:max-w-613 max-576:gap-10;
+}
+
+.parallax-chain__media {
+  @apply relative w-full aspect-3/4 max-992:aspect-4/2 max-768:aspect-3/2 shrink-0 overflow-hidden 992:w-1/2 1440:w-full 1440:max-w-630;
+}
+
+.parallax-chain__media-inner {
+  @apply relative aspect-parallax-media w-full overflow-hidden rounded-tl-50;
+}
+
+.parallax-chain__media-inner img {
+  @apply block h-full w-full object-cover;
+}
+
+.parallax-chain__overlay {
+  @apply pointer-events-none absolute inset-0 z-1 bg-overlay-dark/10;
+}
+
+.explore-card h4 {
+  @apply font-OptimaLTPro font-medium text-40 max-1024:text-32 max-768:text-28;
+}
+.explore-card:nth-child(1) {
+  @apply rounded-tl-50;
+}
+.explore-card:nth-child(3) {
+  @apply rounded-br-50;
+}
+.explore-cards-heading {
+  @apply mb-60 flex max-w-820 flex-col gap-16 max-1199:mb-40 max-768:mb-30;
+}
+
+.explore-cards-heading__subtitle {
+  @apply inline-block w-fit pb-8;
+}
+
+.explore-cards-row {
+  @apply flex flex-row gap-25 max-992:flex-col;
+}
+
+.explore-card {
+  @apply relative flex flex-col w-full overflow-hidden;
+}
+
+.explore-card__media {
+  @apply block h-320 max-992:h-220 w-full overflow-hidden;
+}
+.explore-card .explore-card__media img {
+  @apply w-full h-full scale-100 object-cover transition-transform duration-300 ease-in;
+}
+.explore-card:hover .explore-card__media img {
+  @apply scale-105;
+}
+
+.explore-card--reveal .explore-card__media {
+  @apply absolute inset-0 z-10 h-full;
+  /* Chrome fails to repaint sibling cards' animated clip-path without a
+     dedicated compositor layer — promote explicitly. */
+  will-change: clip-path;
+}
+
+.explore-card--reveal .explore-card__desc {
+  @apply mt-320;
+}
+
+.explore-card__desc {
+  @apply flex flex-col flex-1 items-center gap-24 bg-cream px-32 py-32 text-center max-1199:gap-20 max-1199:px-24 max-1199:py-24 max-768:gap-16 max-768:px-16 max-768:py-20;
+}
+
+.explore-card__desc .title {
+  @apply w-full border-b border-primary/15 pb-10 max-768:pb-14;
+}
+
+.explore-card__stats {
+  @apply flex w-full flex-col items-stretch;
+}
+
+.explore-card__stat {
+  @apply flex w-full flex-row-reverse items-baseline justify-between gap-16 py-10 max-768:py-4;
+}
+
+.explore-card__stat-figure,
+.explore-card__stat-config {
+  @apply min-w-0 flex-1 max-w-[60%];
+}
+
+.explore-card__stat-caption {
+  @apply shrink-0;
+}
+
+.explore-card__stat-figure p {
+  @apply font-Cinzel text-18 font-normal text-right max-768:text-16;
+}
+
+.explore-card__stat-caption p {
+  @apply text-12 uppercase tracking-wide opacity-70 text-left;
+}
+
+.explore-card__stat-config p {
+  @apply text-right text-14 max-768:text-12;
+}
+
+.explore-card__stat-divider {
+  @apply w-full border-t border-primary/15;
+}
 
 /* ===== FIND PROPERTY ===== */
 
@@ -295,42 +483,30 @@
 }
 
 .filter-label {
-  @apply text-primary text-14 font-body tracking-1.4 leading-15 uppercase;
+  @apply text-primary text-14 max-768:text-12 font-body tracking-1.4 leading-15 uppercase;
 }
 
-.filter-trigger {
-  @apply flex items-center gap-28 cursor-pointer max-768:justify-between;
+.filter-select {
+  @apply relative flex items-center;
 }
 
-.filter-value {
-  @apply text-tan text-heading-5 font-body;
+.filter-select__input {
+  @apply text-tan text-heading-5 max-768:text-14 font-body w-full appearance-none bg-transparent pr-28 cursor-pointer outline-none;
 }
 
-.filter-trigger img {
-  @apply block shrink-0;
-  filter: brightness(0) saturate(100%) invert(61%) sepia(10%) saturate(1078%) hue-rotate(355deg) brightness(91%) contrast(80%);
+.filter-select__icon {
+  @apply pointer-events-none absolute right-0 shrink-0;
+  filter: brightness(0) saturate(100%) invert(61%) sepia(10%) saturate(1078%)
+    hue-rotate(355deg) brightness(91%) contrast(80%);
 }
 
 .find-property-divider {
   @apply self-stretch border-l border-tan/20 max-992:hidden;
 }
 
-.filter-dropdown {
-  @apply absolute bottom-full left-0 bg-white border border-tan/20 z-50 min-w-full hidden mb-2;
-}
-
-.find-property-filter.is-open .filter-dropdown {
-  @apply flex flex-col;
-}
-
-.filter-option {
-  @apply text-primary text-14 font-body px-16 py-10 text-left cursor-pointer hover:bg-primary/10 transition-colors duration-200;
-}
-
 .find-property-search {
   @apply shrink-0 leading-[1.25] border-tan text-tan hover:bg-tan hover:text-white;
 }
-
 
 /* ==========================================================================
    Residences slider — full-bleed GSAP ScrollTrigger clip-path reveal
@@ -342,313 +518,929 @@
    ========================================================================== */
 
 .residences-slider {
-    @apply relative h-screen w-full overflow-hidden rounded-tl-50 rounded-br-50 max-768:h-auto max-768:overflow-visible max-768:rounded-none;
+  @apply relative h-screen w-full overflow-hidden rounded-tl-50 rounded-br-50 max-768:h-auto max-768:overflow-visible max-768:rounded-none;
 }
 
 /* Desktop keeps the pinned clip-path wipe (residencesSlider.js). Mobile keeps
    one stable image in place and swaps only the block card content on tab tap. */
 .residences-slider__track {
-    @apply relative h-full w-full max-768:flex max-768:h-auto max-768:flex-col;
+  @apply relative h-full w-full max-768:flex max-768:h-auto max-768:flex-col;
 }
 
 .residences-slide {
-    @apply absolute inset-0 isolate h-full w-full overflow-hidden max-768:sticky max-768:top-0 max-768:inset-auto max-768:h-screen max-768:w-full;
+  @apply absolute inset-0 isolate h-full w-full overflow-hidden max-768:sticky max-768:top-0 max-768:inset-auto max-768:h-screen max-768:w-full;
 }
 
 .residences-slider__blocks {
-    @apply max-768:block max-768:overflow-hidden;
+  @apply max-768:block max-768:overflow-hidden;
 }
 
-.residences-slider__blocks.is-content-fading .residences-slide.is-mobile-active .residences-slide__filter {
-    @apply max-768:opacity-35;
+.residences-slider__blocks.is-content-fading
+  .residences-slide.is-mobile-active
+  .residences-slide__filter {
+  @apply max-768:opacity-35;
 }
 
 /* One full-width card per screen (photo+tabs, then the stats card below —
    same photo-then-content split as .testimonial-card) instead of the desktop
    photo-overlay card. Tabs swap the active block content in place on mobile. */
 .residences-slider__blocks .residences-slide {
-    @apply max-768:hidden max-768:bg-primary;
+  @apply max-768:hidden max-768:bg-primary;
 }
 
 .residences-slider__blocks .residences-slide.is-mobile-active {
-    @apply max-768:relative max-768:top-auto max-768:inset-auto max-768:flex max-768:h-auto max-768:w-full max-768:flex-col max-768:overflow-visible;
+  @apply max-768:relative max-768:top-auto max-768:inset-auto max-768:flex max-768:h-auto max-768:w-full max-768:flex-col max-768:overflow-visible;
 }
 
 .residences-slider__blocks .residences-slide__media {
-    @apply max-768:relative max-768:aspect-testimonial max-768:h-auto max-768:shrink-0;
+  @apply max-768:relative max-768:aspect-testimonial max-768:h-auto max-768:shrink-0;
 }
 
 .residences-slider__blocks .residences-slide__filter {
-    @apply max-768:static max-768:w-full max-768:transition-opacity max-768:duration-500 max-768:ease-in-out max-768:rounded-none!;
+  @apply max-768:static max-768:w-full max-768:transition-opacity max-768:duration-500 max-768:ease-in-out max-768:rounded-none!;
 }
 
 .residences-slide__tabs {
-    @apply hidden max-768:absolute max-768:inset-x-0 max-768:bottom-0 max-768:z-10 max-768:flex max-768:justify-around max-768:gap-8 max-768:px-16 max-768:py-12;
+  @apply hidden max-768:absolute max-768:inset-x-0 max-768:bottom-0 max-768:z-10 max-768:flex max-768:justify-around max-768:gap-8 max-768:px-16 max-768:py-12;
 }
 
 .residences-slide__tab {
-    @apply relative border-0 bg-transparent p-0 pb-8 text-14 font-body text-cream/60 uppercase tracking-1.4 transition-colors duration-300;
+  @apply relative border-0 bg-transparent p-0 pb-8 text-14 font-body text-cream/60 uppercase tracking-1.4 transition-colors duration-300;
 }
 
 .residences-slide__tab::after {
-    content: '';
-    @apply absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-cream transition-transform duration-300;
+  content: "";
+  @apply absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-cream transition-transform duration-300;
 }
 
 .residences-slide__tab.is-active {
-    @apply text-cream;
+  @apply text-cream;
 }
 
 .residences-slide__tab.is-active::after {
-    @apply scale-x-100;
+  @apply scale-x-100;
 }
 
 .residences-slide__media {
-    @apply absolute inset-0 h-full w-full overflow-hidden;
+  @apply absolute inset-0 h-full w-full overflow-hidden;
 }
 
 .residences-slide__media picture {
-    @apply block h-full w-full;
+  @apply block h-full w-full;
 }
 
 .residences-slide__media img {
-    @apply block h-full w-full object-cover;
+  @apply block h-full w-full object-cover;
 }
 
 .residences-slide__overlay {
-    @apply pointer-events-none absolute inset-0 mix-blend-hard-light;
-    background-image: linear-gradient(180deg, rgba(23, 27, 35, 0) 0%, rgba(23, 27, 35, 0.7) 100%);
+  @apply pointer-events-none absolute inset-0 mix-blend-hard-light;
+  background-image: linear-gradient(
+    180deg,
+    rgba(23, 27, 35, 0) 0%,
+    rgba(23, 27, 35, 0.7) 100%
+  );
 }
 
 .residences-slide__content {
-    @apply absolute inset-x-64 bottom-58 z-10 flex flex-row items-end justify-between gap-24 max-1199:inset-x-40 max-1199:bottom-40 max-768:inset-x-20 max-768:bottom-24 max-768:flex-col max-768:items-start max-768:gap-16;
+  @apply absolute inset-x-64 bottom-58 z-10 flex flex-row items-end justify-between gap-24 max-1199:inset-x-40 max-1199:bottom-40 max-768:inset-x-20 max-768:bottom-24 max-768:flex-col max-768:items-start max-768:gap-16;
 }
 
 .residences-slide__copy {
-    @apply flex flex-col gap-4;
+  @apply flex flex-col gap-4;
 }
 
 .residences-slide__tagline p {
-    @apply text-cream/80;
+  @apply text-cream/80;
 }
 
 .residences-slide__filter {
-    @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-34 rounded-tr-40 rounded-bl-40 bg-darkbg p-24 max-1199:w-240 max-1199:gap-24 max-768:w-200 max-768:gap-20 max-768:p-16;
+  @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-34 rounded-tr-40 rounded-bl-40 bg-darkbg p-24 max-1199:w-240 max-1199:gap-24 max-768:w-200 max-768:gap-20 max-768:p-16;
 }
 
 .residences-slide__filter-block {
-    @apply flex flex-col gap-16;
+  @apply flex flex-col gap-16;
 }
 
 .residences-slide__filter-caption p {
-    @apply text-cream/50;
+  @apply text-cream/50;
 }
 
 .residences-slide__filter-figure p {
-    @apply font-Cinzel text-36 font-normal;
+  @apply font-Cinzel text-36 font-normal;
 }
 
 .residences-slide__filter-config p {
-    @apply text-cream max-1199:max-w-200;
+  @apply text-cream max-1199:max-w-200;
 }
 
 .residences-slide__filter-divider {
-    @apply w-full border-t border-cream/20;
+  @apply w-full border-t border-cream/20;
 }
 
 .residences-slide__filter-stat {
-    @apply flex flex-col gap-8;
+  @apply flex flex-col gap-8;
 }
 
 .residences-slide__filter-extra {
-    display: grid;
-    grid-template-rows: 0fr;
-    margin-top: -34px;
-    transition: grid-template-rows 0.4s ease, margin-top 0.4s ease;
-    width: 100%;
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: -34px;
+  transition:
+    grid-template-rows 0.4s ease,
+    margin-top 0.4s ease;
+  width: 100%;
 }
 
 .residences-slide__filter-extra > div {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .residences-slide__filter:hover .residences-slide__filter-extra,
 .residences-slide__filter:focus-within .residences-slide__filter-extra {
-    grid-template-rows: 1fr;
-    margin-top: 0;
+  grid-template-rows: 1fr;
+  margin-top: 0;
 }
 
 @media (max-width: 1199px) {
-    .residences-slide__filter-extra {
-        margin-top: -24px;
-    }
+  .residences-slide__filter-extra {
+    margin-top: -24px;
+  }
 }
 
 @media (max-width: 768px) {
-    .residences-slide__filter-extra {
-        grid-template-rows: 1fr;
-        margin-top: 0;
-    }
+  .residences-slide__filter-extra {
+    grid-template-rows: 1fr;
+    margin-top: 0;
+  }
 }
 
 .residences-slide__filter-extra-inner {
-    @apply flex flex-col gap-16 max-1199:gap-12;
+  @apply flex flex-col gap-16 max-1199:gap-12;
 }
-
 
 /* ===== LOCATION SECTION ===== */
 
 .location-section {
-    @apply py-0;
-  }
-  
-  .location-map {
-    @apply relative h-900 overflow-hidden max-1199:h-700 max-768:h-600 max-425:h-420;
-  }
-  
-  .location-map-bg {
-    @apply absolute inset-0;
-  }
-  
-  .location-map-bg img {
-    @apply w-full h-full object-cover object-center;
-  }
-  
-  /* Route connecting lines — inline SVG overlay */
-  
-  .location-lines-overlay {
-    @apply absolute inset-0 w-full h-full pointer-events-none max-768:hidden;
-  }
-  .location-lines-overlay  path {
-    @apply stroke-tan
-  }
-  
-  /* CÔTE D'AZUR map marker */
-  
-  .location-cda-marker {
-    /* @apply absolute flex items-center gap-8 pointer-events-none left-[27%] 1512:left-[30%] top-[45%] -translate-x-[72%] max-768:hidden; */
-    @apply absolute flex items-center gap-8 pointer-events-none left-[33.2%] top-[43.5%] translate-x-[-82%] max-1366:left-[32%] max-1366:translate-x-[-68%] max-768:left-[30%] max-768:translate-x-[-70%]  max-768:hidden;
-  }
-  
-  .location-cda-text {
-    @apply font-Cinzel font-semibold text-tan tracking-widest text-24 leading-none;
-  }
-  
-  .location-cda-dot {
-    @apply w-10 h-10 rounded-full bg-tan;
-  }
-  
-  /* Location pins — navy circles with icon */
-  
-  .location-pin {
-    @apply absolute w-36 h-36 max-576:w-26 max-576:h-26 rounded-full bg-darkbg flex items-center justify-center cursor-pointer z-10
+  @apply py-0;
+}
+
+.location-map {
+  @apply relative h-900 overflow-hidden max-1199:h-700 max-768:h-600 max-425:h-420;
+}
+
+.location-map-bg {
+  @apply absolute inset-0;
+}
+
+.location-map-bg img {
+  @apply w-full h-full object-cover object-center;
+}
+
+/* Route connecting lines — inline SVG overlay */
+
+.location-lines-overlay {
+  @apply absolute inset-0 w-full h-full pointer-events-none max-768:hidden;
+}
+.location-lines-overlay path {
+  @apply stroke-tan;
+}
+
+/* CÔTE D'AZUR map marker */
+
+.location-cda-marker {
+  @apply absolute flex items-center gap-8 pointer-events-none left-[33.2%] top-[43.5%] translate-x-[-82%] max-1366:left-[32%] max-1366:translate-x-[-68%] max-768:left-[30%] max-768:translate-x-[-70%]  max-768:hidden;
+}
+
+.location-cda-text {
+  @apply font-Cinzel font-semibold text-tan tracking-widest text-24 leading-none;
+}
+
+.location-cda-dot {
+  @apply w-10 h-10 rounded-full bg-tan;
+}
+
+/* Location pins — navy circles with icon */
+
+.location-pin {
+  @apply absolute w-36 h-36 max-576:w-26 max-576:h-26 rounded-full bg-darkbg flex items-center justify-center cursor-pointer z-10
            transition-transform duration-200 hover:scale-110 active:scale-95
            -translate-x-1/2 -translate-y-1/2;
-  }
-  
-  .location-pin img {
-    @apply block shrink-0 w-18 h-18 max-576:w-12 max-576:h-12;
-  }
-  
-  .location-pin-1 {
-    @apply left-pin-1-left top-pin-1-top;
-  }
-  
-  .location-pin-2 {
-    @apply left-pin-2-left top-pin-2-top max-576:left-[20%];
-  }
-  
-  .location-pin-3 {
-    @apply left-pin-3-left top-pin-3-top max-576:left-[16%];
-  }
-  
-  .location-pin-4 {
-    @apply left-pin-4-left top-pin-4-top;
-  }
-  
-  .location-pin-5 {
-    @apply left-pin-5-left top-pin-5-top max-576:left-[20%];
-  }
-  
-  .location-pin-6 {
-    @apply left-pin-6-left top-pin-6-top;
-  }
-  
-  /* Active pin ring */
-  
-  /* .location-pin.is-active {
-    @apply ring-2 ring-primary/40 ring-offset-2;
-  } */
-  
-  /* Bottom-left label */
-  
-  .location-content {
-    @apply absolute bottom-0 left-0 px-64 pb-50 max-1199:px-40 max-1199:pb-40 max-768:px-24 max-768:pb-30 max-425:px-16 max-425:pb-24;
-  }
-  
-  .location-content .title h2 {
-    @apply mb-20 max-992:text-heading-1 max-768:text-[42px] max-992:leading-tight;
-  }
-  
-  .location-content .content p {
-    @apply text-18 leading-snug opacity-80 max-768:text-16 max-576:text-14;
-  }
-  
-  /* Popup card — flex-col: top row + divider + distance row */
-  
-  .location-popup {
-    @apply absolute w-288 bg-white shadow-location-popup flex flex-col
+}
+
+.location-pin img {
+  @apply block shrink-0 w-18 h-18 max-576:w-12 max-576:h-12;
+}
+
+.location-pin-1 {
+  @apply left-pin-1-left top-pin-1-top;
+}
+
+.location-pin-2 {
+  @apply left-pin-2-left top-pin-2-top max-576:left-[20%];
+}
+
+.location-pin-3 {
+  @apply left-pin-3-left top-pin-3-top max-576:left-[16%];
+}
+
+.location-pin-4 {
+  @apply left-pin-4-left top-pin-4-top;
+}
+
+.location-pin-5 {
+  @apply left-pin-5-left top-pin-5-top max-576:left-[20%];
+}
+
+.location-pin-6 {
+  @apply left-pin-6-left top-pin-6-top;
+}
+
+/* Bottom-left label */
+
+.location-content {
+  @apply absolute bottom-0 left-0 px-64 pb-50 max-1199:px-40 max-1199:pb-40 max-768:px-24 max-768:pb-30 max-425:px-16 max-425:pb-24;
+}
+
+.location-content .title h2 {
+  @apply mb-20 max-992:text-heading-1 max-768:text-[42px] max-992:leading-tight;
+}
+
+.location-content .content p {
+  @apply text-18 leading-snug opacity-80 max-768:text-16 max-576:text-14;
+}
+
+/* Popup card — flex-col: top row + divider + distance row */
+
+.location-popup {
+  @apply absolute w-288 bg-white shadow-location-popup flex flex-col
            opacity-0 pointer-events-none
            transition-all duration-300 translate-y-4 z-20
            max-768:w-full max-768:left-0 max-768:right-0 max-768:bottom-0 max-768:top-auto max-768:translate-y-0;
+}
+
+.location-popup.is-open {
+  @apply opacity-100 pointer-events-auto translate-y-0;
+}
+
+/* Popup — top row (thumbnail + destination) */
+
+.location-popup-top {
+  @apply flex items-start pt-18 pb-10;
+}
+
+.location-popup-thumb {
+  @apply shrink-0 w-79 h-62 overflow-hidden ml-16;
+}
+
+.location-popup-thumb img {
+  @apply w-full h-full object-cover;
+}
+
+.location-popup-destination {
+  @apply flex flex-col ml-14 gap-12;
+}
+
+/* Popup — full-width divider */
+
+.location-popup-divider {
+  @apply block h-px bg-dark-charcoal/20 mx-16;
+}
+
+/* Popup — distance row (below divider) */
+
+.location-popup-bottom {
+  @apply flex flex-col px-16 pt-12 pb-16 gap-12;
+}
+
+/* Shared label + value styles */
+
+.location-popup-label {
+  @apply text-12 font-body font-normal text-primary tracking-widest uppercase leading-none;
+}
+
+.location-popup-value {
+  @apply text-18 max-768:text-14 font-body font-semibold text-tan leading-tight;
+}
+
+/* ===== BEČIĆI LOCATION STORY ===== */
+
+.becici-section {
+  @apply bg-cream;
+}
+
+.becici-section__layout {
+  @apply grid grid-cols-12 gap-80 max-1199:gap-50 max-992:gap-60 max-768:grid-cols-1 max-768:gap-50;
+}
+
+.becici-section__journey {
+  @apply col-span-7 max-768:col-span-1;
+}
+
+/* Route hover media — one image per route, absolutely stacked and
+   crossfaded via .is-active (see locationRouteImages.js). Sticky so the
+   panel stays in view while the route list scrolls past it. */
+
+.becici-section__media {
+  @apply sticky top-100 col-span-5 h-620 w-full overflow-hidden rounded-tl-50 max-1199:h-450 max-992:col-span-5 max-768:static max-768:col-span-1 max-768:h-320;
+}
+
+.becici-section__media-item {
+  @apply absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out;
+}
+
+.becici-section__media-item.is-active {
+  @apply opacity-100;
+}
+
+.becici-section__media-item img {
+  @apply block h-full w-full object-cover;
+}
+
+.becici-section__journey-heading {
+  @apply mb-24 flex items-end justify-between gap-20 max-768:mb-16 max-576:flex-col max-576:items-start;
+}
+
+.becici-section__journey-heading .title h3 {
+  @apply text-28 leading-tight max-768:text-24;
+}
+
+.becici-section__journey-heading .content p {
+  @apply text-12 tracking-1.4 text-tan uppercase;
+}
+
+.becici-section__routes {
+  @apply border-t border-primary/20;
+}
+
+.becici-section__route {
+  @apply grid grid-cols-12 items-center gap-16 border-b border-primary/20 py-24 transition-colors duration-300 hover:bg-white/40 max-1199:py-20 max-768:gap-10 max-768:py-18;
+}
+
+.becici-section__route-number {
+  @apply col-span-1 text-12 font-body tracking-1.4 text-tan;
+}
+
+.becici-section__route-place {
+  @apply col-span-7 flex flex-col gap-6 max-992:col-span-6 max-768:col-span-7;
+}
+
+.becici-section__route-place > span,
+.becici-section__route-distance > span {
+  @apply text-12 font-body tracking-1.4 text-primary/60 uppercase;
+}
+
+.becici-section__route-place .title h3 {
+  @apply text-18 leading-tight normal-case max-768:text-16;
+}
+
+.becici-section__route-distance {
+  @apply col-span-4 flex flex-col items-end gap-6 text-right max-992:col-span-5 max-768:col-span-4 max-768:items-start max-768:text-left;
+}
+
+.becici-section__route-distance strong {
+  @apply text-14 font-body font-medium leading-tight text-primary max-576:text-12;
+}
+
+/* ==========================================================================
+   Scroll-reveal gallery — pinned section: a small center image (clip-path
+   inset, tweened toward inset(0)) grows to fill the viewport while two
+   flanking side images slide off-canvas in sync (xPercent tied to the same
+   scroll progress — see scrollRevealGallery.js) and the copy fades in once
+   the image is nearly full-bleed. The side row's spacer is w-2/5 to match
+   the center's initial clip width, so the flanking images line up flush
+   against its edges at scroll start. Percentage-based sizing throughout
+   (not px) keeps the whole effect responsive without a resize recalculation.
+   Track height and clip-path are raw CSS (unavoidable — vh units and
+   percentage inset() aren't expressible via the spacing/utility scale,
+   same exception already used elsewhere in this file for grid-template-*,
+   contain and will-change).
+   ========================================================================== */
+
+.scroll-reveal-gallery__track {
+  @apply relative w-full;
+  height: 320vh;
+}
+
+.scroll-reveal-gallery__sticky {
+  @apply bg-cream sticky top-0 h-screen w-full overflow-hidden;
+}
+
+.scroll-reveal-gallery__row {
+  @apply absolute inset-0 z-0 flex h-full w-full items-center justify-center gap-24 max-992:hidden;
+}
+
+.scroll-reveal-gallery__side {
+  @apply relative h-3/5 w-1/6 shrink-0 overflow-hidden;
+}
+
+.scroll-reveal-gallery__side img {
+  @apply block h-full w-full object-cover;
+}
+
+.scroll-reveal-gallery__spacer {
+  @apply h-full w-2/5 shrink-0;
+}
+
+.scroll-reveal-gallery__stage {
+  @apply absolute inset-0 z-10 flex h-full w-full items-center justify-center;
+}
+
+.scroll-reveal-gallery__center {
+  @apply absolute inset-0 h-full w-full overflow-hidden;
+  clip-path: inset(27% 30%);
+  will-change: clip-path;
+}
+
+.scroll-reveal-gallery__center img {
+  @apply block h-full w-full object-cover;
+}
+
+.scroll-reveal-gallery__overlay {
+  @apply pointer-events-none absolute inset-0 bg-black/45;
+}
+
+.scroll-reveal-gallery__copy {
+  @apply pointer-events-none relative z-20 flex w-full max-w-620 flex-col items-center px-24 text-center max-768:max-w-full;
+}
+
+/* ==========================================================================
+   Testimonials — sticky image panel (left) + scroll-activated review list
+   (right). Panel image crossfades and slow-zooms out as each review scrolls
+   through the vertical center; counter flips to match (About page).
+   Reference uses Almarai/Instrument Serif + a gray/black palette; this
+   reuses the site's own OptimaLTPro/Graphik fonts and primary/tan/charcoal
+   palette instead of importing new fonts, everything else (layout, spacing,
+   scroll behaviour) mirrors the reference 1:1. No Figma frame supplied —
+   sizing not covered by an existing token is a placeholder assumption.
+   ========================================================================== */
+
+.testimonials-section {
+  @apply bg-white pt-140 pb-100 max-1199:pt-90 max-1199:pb-70 max-768:pt-60 max-768:pb-50;
+}
+
+.testimonials-body {
+  @apply grid grid-cols-testimonials max-768:grid-cols-1;
+}
+
+.testimonials-panel {
+  @apply sticky top-0 h-screen overflow-hidden max-768:hidden;
+}
+
+.testimonials-panel-slides {
+  @apply relative h-full;
+}
+
+.testimonials-panel-overlay {
+  @apply pointer-events-none absolute inset-0 z-10 bg-black/40;
+}
+
+.testimonials-panel-slide {
+  @apply absolute inset-0 overflow-hidden opacity-0 transition-opacity duration-700 ease-in-out;
+}
+
+.testimonials-panel-slide.is-active {
+  @apply opacity-100;
+}
+
+.testimonials-panel-slide img {
+  @apply block h-full w-full object-cover will-change-transform;
+}
+
+.testimonials-counter {
+  @apply absolute left-60 top-1/2 z-20 flex -translate-y-1/2 items-baseline gap-6 text-cream max-1199:left-40;
+}
+
+.testimonials-counter-num-wrap {
+  @apply overflow-hidden;
+}
+
+.testimonials-counter-num,
+.testimonials-counter-sep {
+  @apply block font-Cinzel text-heading-2 leading-none max-1199:text-heading-3;
+}
+
+.testimonials-list {
+  @apply flex flex-col px-60 max-768:px-24 992:pb-200;
+}
+
+.testimonials-item {
+  @apply flex flex-col justify-center gap-32 max-1024:gap-20 992:min-h-screen;
+}
+
+.testimonials-item__media {
+  @apply relative hidden  aspect-4/3 w-full overflow-hidden rounded-tl-40 rounded-br-40 max-768:block;
+}
+
+.testimonials-item__media img {
+  @apply block h-full w-full object-cover;
+}
+
+.testimonials-item:not(:last-child) {
+  @apply mb-100 max-1024:mb-60;
+}
+
+.testimonials-item .content p + p {
+  @apply mt-15;
+}
+
+.testimonials-footer {
+  @apply mt-24 flex items-end justify-between max-576:flex-col max-576:items-start max-576:gap-16;
+}
+
+/* ==========================================================================
+   Page loader — full-screen logo-scale splash shown from first paint until
+   window `load` fires (site-wide, independent of the scroll-driven hero
+   intro on index.html). Visible by default via CSS alone so it never
+   depends on JS having loaded — an inline script (see body markup) is the
+   critical path that hides it; GSAP only adds the scale-pulse on top.
+   ========================================================================== */
+
+.page-loader {
+  @apply fixed inset-0 z-100 flex items-center justify-center bg-white transition-opacity duration-500 ease-out;
+}
+
+.page-loader.is-hidden {
+  @apply pointer-events-none;
+}
+
+.page-loader__logo {
+  @apply block h-auto w-160 max-768:w-120 animate-logo-scale;
+}
+
+@keyframes logo-scale {
+  0%,
+  100% {
+    transform: scale(1);
   }
-  
-  .location-popup.is-open {
-    @apply opacity-100 pointer-events-auto translate-y-0;
+  50% {
+    transform: scale(1.1);
   }
-  
-  /* Popup — top row (thumbnail + destination) */
-  
-  .location-popup-top {
-    @apply flex items-start pt-18 pb-10;
-  }
-  
-  .location-popup-thumb {
-    @apply shrink-0 w-79 h-62 overflow-hidden ml-16;
-  }
-  
-  .location-popup-thumb img {
-    @apply w-full h-full object-cover;
-  }
-  
-  .location-popup-destination {
-    @apply flex flex-col ml-14 gap-12;
-  }
-  
-  /* Popup — full-width divider */
-  
-  .location-popup-divider {
-    @apply block h-px bg-dark-charcoal/20 mx-16;
-  }
-  
-  /* Popup — distance row (below divider) */
-  
-  .location-popup-bottom {
-    @apply flex flex-col px-16 pt-12 pb-16 gap-12;
-  }
-  
-  /* Shared label + value styles */
-  
-  .location-popup-label {
-    @apply text-12 font-body font-normal text-primary tracking-widest uppercase leading-none;
-  }
-  
-  .location-popup-value {
-    @apply text-18 max-768:text-14 font-body font-semibold text-tan leading-tight;
-  }
-  
-  /* content color modifier for popup text */
-  
-  .content-dark-charcoal p {
-    @apply text-dark-charcoal;
-  }
+}
+
+/* ==========================================================================
+   Spec-list section — left: title + hoverable spec list, right: image that
+   crossfades to match whichever spec item is hovered/focused. First item is
+   active by default. Below 992px the list stacks above a single static
+   image (no hover target on touch, so it just shows the active/first one).
+   ========================================================================== */
+.spec-list-section {
+  @apply bg-cream pt-100 pb-100 max-1199:pt-90 max-1199:pb-90 max-768:pt-60 max-768:pb-60;
+}
+.spec-list-section__row {
+  @apply flex flex-row items-center gap-80 max-1199:gap-50 max-992:flex-col max-992:items-stretch max-992:gap-30;
+}
+
+.spec-list-section__panel {
+  @apply flex flex-1 min-w-0 flex-col gap-40 max-1199:gap-30 max-768:gap-20;
+}
+.spec-list-section__panel h2 {
+  @apply leading-tight;
+}
+
+.spec-list-section__list {
+  @apply flex w-full flex-col;
+}
+
+.spec-list-section__item {
+  @apply relative flex w-full items-center border-b border-primary/15 py-24 text-left transition-colors duration-300 ease-in max-992:py-16;
+}
+
+.spec-list-section__item:first-child {
+  @apply border-t border-primary/15;
+}
+
+.spec-list-section__item:hover,
+.spec-list-section__item:focus-visible,
+.spec-list-section__item.is-active {
+  @apply text-primary;
+}
+
+.spec-list-section__media {
+  @apply max-992:hidden relative aspect-spec-media w-full flex-1 min-w-0 overflow-hidden rounded-tl-40 max-992:w-full max-h-500;
+}
+
+.spec-list-section__img {
+  @apply absolute inset-0 block h-full w-full scale-100 object-cover opacity-0 transition-opacity duration-500 ease-in-out;
+}
+
+.spec-list-section__img.is-active {
+  @apply opacity-100;
+}
+
+/* ==========================================================================
+   Split-row section — 4 alternating image/text rows. Image column is 70%
+   width (grid-cols-10 + col-span-7/3, kept to Tailwind's default fraction
+   scale rather than an arbitrary 70% value). Even rows (--reverse) flip via
+   order-* so the image moves to the right without touching DOM order.
+   Below 768px every row stacks image-first regardless of --reverse.
+   ========================================================================== */
+.split-row-section {
+  @apply bg-white pt-140 pb-140 max-1199:pt-90 max-1199:pb-90 max-768:pt-60 max-768:pb-60;
+}
+.split-row-section__list {
+  @apply flex flex-col gap-100 max-1199:gap-60 max-768:gap-40;
+}
+
+.split-row-section__row {
+  @apply grid grid-cols-10 items-center gap-64 max-1199:gap-40 max-768:grid-cols-1 max-768:gap-20;
+}
+
+.split-row-section__media {
+  @apply relative col-span-6 order-1 aspect-zigzag-media-sm overflow-hidden rounded-tl-40 max-768:col-span-1 max-768:order-1;
+}
+
+.split-row-section__media img {
+  @apply block h-full w-full scale-110 object-cover will-change-transform;
+}
+
+.split-row-section__content {
+  @apply col-span-4 order-2 flex flex-col gap-16 max-768:gap-10 max-768:col-span-1 max-768:order-2;
+}
+
+.split-row-section__icon {
+  @apply flex h-72 w-72 shrink-0 items-center justify-center rounded-full border border-tan/30 bg-tan/10 max-768:h-56 max-768:w-56;
+}
+
+.split-row-section__icon svg {
+  @apply block h-36 w-36 max-768:h-24 max-768:w-24;
+}
+
+.split-row-section__row--reverse .split-row-section__media {
+  @apply order-2 max-768:order-1;
+}
+
+.split-row-section__row--reverse .split-row-section__content {
+  @apply order-1 max-768:order-2;
+}
+
+.split-row-section__content h3 {
+  @apply max-768:text-28;
+}
+
+/* ==========================================================================
+   Gallery section.
+   >=1200px: .gallery-section__scatter — a Kettal-style loose photo
+   collage, spanning the section's full width. Each tile's left/width
+   are fractions of the canvas (not fixed px) so the whole composition
+   scales fluidly with the viewport; height comes from an aspect-ratio
+   modifier so tiles scale proportionally rather than stretching. Only
+   `top` stays a fixed px offset (vertical rhythm doesn't need to track
+   width). Below 1200px the composition has no room to breathe, so it's
+   swapped for .gallery-section__grid, the plain responsive masonry
+   fallback. Every tile — in either layout — carries [data-clip-reveal]
+   (see galleryReveal.js): clip-path wipes it in from the bottom the
+   moment IT individually scrolls into view, no scrub, one-shot per tile.
+   ========================================================================== */
+
+.gallery-section__heading {
+  @apply mb-60 flex max-w-680 flex-col gap-16 max-1199:mb-40 max-768:mb-30;
+}
+
+/* ---- >=1200px scatter collage ---- */
+
+.gallery-section__scatter {
+  @apply relative mx-auto hidden h-1300 w-full 1199:block;
+}
+
+.gallery-section__scatter-item {
+  @apply absolute overflow-hidden rounded-tl-20 contain-paint;
+  will-change: clip-path;
+}
+
+.gallery-section__scatter-item img {
+  @apply block h-full w-full scale-100 object-cover transition-transform duration-300 ease-in;
+}
+
+.gallery-section__scatter-item:hover img {
+  @apply scale-105;
+}
+
+.gallery-section__scatter-item--1 {
+  @apply top-0 left-0 w-1/6 aspect-explore-card;
+}
+.gallery-section__scatter-item--2 {
+  @apply top-24 left-1/4 w-1/7 aspect-video;
+}
+.gallery-section__scatter-item--3 {
+  @apply top-0 left-1/2 w-1/6 aspect-explore-card;
+}
+.gallery-section__scatter-item--4 {
+  @apply top-72 right-0 w-1/6 aspect-explore-card;
+}
+.gallery-section__scatter-item--5 {
+  @apply top-470 left-1/6 w-1/6 aspect-explore-card;
+}
+.gallery-section__scatter-item--6 {
+  @apply top-520 left-2/3 w-1/7 aspect-video;
+}
+.gallery-section__scatter-item--7 {
+  @apply top-560 left-5/12 w-1/7 aspect-video;
+}
+.gallery-section__scatter-item--8 {
+  @apply top-890 left-0 w-1/6 aspect-explore-card;
+}
+.gallery-section__scatter-item--9 {
+  @apply top-910 left-1/2 w-1/6 aspect-explore-card;
+}
+.gallery-section__scatter-item--10 {
+  @apply top-700 right-0 w-1/6 aspect-video;
+}
+
+/* ---- <1200px fallback: plain responsive masonry ---- */
+
+.gallery-section__grid {
+  @apply columns-4 gap-24 max-1199:columns-3 max-1199:gap-20 max-768:columns-2 max-768:gap-16 1199:hidden;
+}
+
+.gallery-section__item {
+  @apply relative mb-24 block w-full overflow-hidden rounded-tl-30 break-inside-avoid contain-paint max-768:mb-16;
+  will-change: clip-path;
+}
+
+.gallery-section__item img {
+  @apply block h-full w-full scale-100 object-cover transition-transform duration-300 ease-in;
+}
+
+.gallery-section__item:hover img {
+  @apply scale-105;
+}
+
+.gallery-section__item--square {
+  @apply aspect-square;
+}
+
+.gallery-section__item--tall {
+  @apply aspect-explore-card;
+}
+
+.gallery-section__item--wide {
+  @apply aspect-video;
+}
+
+/* ==========================================================================
+   Gallery grid — replicates thebarbersmark.ca/pages/services' .gal-grid:
+   a single flat 12-column CSS grid, one row height for every row (grid-
+   auto-rows, not per-cell aspect-ratio), each cell spanning a different
+   column count to build an editorial mosaic. One DOM list only — no
+   separate mobile re-pairing — responsive is just each cell's col-span
+   changing at max-1024, per CSS rule 5.
+   grid-auto-rows uses clamp() (raw-CSS exception already used for
+   grid-template-rows/contain/will-change elsewhere in this file) so row
+   height scales fluidly with viewport instead of needing a breakpoint jump.
+   ========================================================================== */
+
+.gallery-grid {
+  @apply grid w-full grid-cols-12 gap-18 opacity-100 transition-opacity duration-300 ease-in max-1024:gap-8;
+  grid-auto-rows: clamp(140px, 19.44vw, 440px);
+}
+
+.gallery-grid.is-fading {
+  @apply opacity-0;
+}
+
+.gallery-grid__cell {
+  @apply relative block h-full w-full overflow-hidden;
+}
+
+.gallery-grid__cell img {
+  @apply block h-full w-full object-cover;
+}
+
+/* 7.webp and 9.webp are wider than their cell, so cover only crops the
+   sides — the sky along their full top edge always stays in frame,
+   reading as a pale band. Scaling from the bottom edge trades that
+   crop axis for a vertical one, pushing the sky out of frame instead. */
+.gallery-grid__cell--a img,
+.gallery-grid__cell--b img {
+  @apply origin-bottom scale-125;
+}
+
+.gallery-grid__cell--a,
+.gallery-grid__cell--b,
+.gallery-grid__cell--c {
+  @apply col-span-4 max-1024:col-span-6;
+}
+
+.gallery-grid__cell--d,
+.gallery-grid__cell--f {
+  @apply col-span-3 max-1024:col-span-6;
+}
+
+.gallery-grid__cell--e {
+  @apply col-span-6 max-1024:col-span-12;
+}
+
+.gallery-grid__cell--g,
+.gallery-grid__cell--h,
+.gallery-grid__cell--i,
+.gallery-grid__cell--j {
+  @apply col-span-6;
+}
+
+/* ---- filtered state: reflow instead of leaving gaps ----
+   The mosaic col-spans above only make sense with the full, curated set
+   of 10 photos. Once a category filter hides some of them, drop to a
+   uniform 3-up (2-up mobile) grid of square tiles so the remaining cells
+   pack together with no gaps. */
+
+.gallery-grid.is-filtered {
+  @apply auto-rows-auto grid-cols-3 max-1024:grid-cols-2;
+}
+
+.gallery-grid.is-filtered .gallery-grid__cell {
+  @apply col-span-1 aspect-square max-h-380 max-1024:max-h-220;
+}
+
+.gallery-grid__see-more {
+  @apply flex justify-center pt-66 max-1024:pt-30;
+}
+
+.gallery-grid__trigger {
+  @apply block h-full w-full cursor-pointer border-0 bg-transparent p-0;
+}
+
+/* ==========================================================================
+   Lightbox — click any .gallery-grid__trigger to open the full-size image
+   with prev/next. Toggled via .is-active (opacity/scale only, per animation
+   rules); lightboxGallery.js manages the open/close state, keyboard
+   (Escape/arrows) and body scroll lock.
+   ========================================================================== */
+
+.lightbox {
+  @apply pointer-events-none fixed inset-0 z-100 flex scale-95 items-center justify-center bg-black/90 opacity-0 transition-all duration-300 ease-in;
+}
+
+.lightbox.is-active {
+  @apply pointer-events-auto scale-100 opacity-100;
+}
+
+.lightbox__media {
+  @apply relative flex h-4/5 w-4/5 items-center justify-center max-768:h-full max-768:w-full max-768:px-24;
+}
+
+.lightbox__img {
+  @apply block max-h-full max-w-full object-contain;
+}
+
+.lightbox__close {
+  @apply absolute top-32 right-32 z-10 flex h-40 w-40 items-center justify-center max-768:top-16 max-768:right-16;
+}
+
+.lightbox__close img {
+  @apply block h-24 w-24;
+}
+
+.lightbox__prev,
+.lightbox__next {
+  @apply absolute top-1/2 z-10 flex h-48 w-48 -translate-y-1/2 items-center justify-center max-768:h-36 max-768:w-36 rounded-full bg-white/20;
+}
+
+.lightbox__prev {
+  @apply left-32 max-768:left-8;
+}
+
+.lightbox__next {
+  @apply right-32 max-768:right-8;
+}
+
+.lightbox__arrow-icon {
+  @apply block h-24 w-24 max-768:h-18 max-768:w-18;
+}
+
+/* .lightbox__arrow-icon--prev {
+  @apply rotate-90;
+}
+
+.lightbox__arrow-icon--next {
+  @apply -rotate-90;
+} */
+
+/* ==========================================================================
+   Gallery filter nav — All (default active) plus category pills. Filtering
+   toggles [hidden] on non-matching .gallery-grid__cell elements; "all"
+   restores the mosaic col-span layout above, any other filter adds
+   .is-filtered (see .gallery-grid.is-filtered above) so the visible cells
+   reflow into a gap-free uniform grid instead of leaving holes in the
+   mosaic's fixed col-spans.
+   ========================================================================== */
+
+.gallery-filter-nav {
+  @apply mb-40 flex flex-wrap items-center justify-center gap-12 max-768:mb-24 max-768:gap-8;
+}
+
+.gallery-filter-nav__btn {
+  @apply cursor-pointer border border-primary/20 px-24 py-10 text-14 tracking-1.6 text-primary uppercase transition-colors duration-300 ease-in max-768:px-16 max-768:py-8 max-768:text-12;
+}
+
+.gallery-filter-nav__btn:hover {
+  @apply border-primary/50;
+}
+
+.gallery-filter-nav__btn.is-active {
+  @apply border-primary bg-primary text-white;
+}
+
+.gallery-grid__cell[hidden] {
+  @apply hidden;
+}

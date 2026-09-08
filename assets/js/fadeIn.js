@@ -1,22 +1,23 @@
 // ============================================================
-// fadeIn.js — Scroll-triggered fade + rise-in for [data-fade] elements
+// fadeIn.js — Scroll-triggered entrance reveals.
+// [data-fade]: fade + rise-in.
 // Used on: any page with [data-fade] nodes
 // ============================================================
 
 export default function initFadeIn() {
-  const els = document.querySelectorAll('[data-fade]');
+  const els = document.querySelectorAll("[data-fade]");
   if (!els.length) return;
 
   if (!window.gsap || !window.ScrollTrigger) {
-    els.forEach((el) => el.classList.add('is-visible'));
+    els.forEach((el) => el.classList.add("is-visible"));
     return;
   }
 
   const { gsap, ScrollTrigger } = window;
   gsap.registerPlugin(ScrollTrigger);
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    els.forEach((el) => el.classList.add('is-visible'));
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    els.forEach((el) => el.classList.add("is-visible"));
     return;
   }
 
@@ -28,10 +29,10 @@ export default function initFadeIn() {
         opacity: 1,
         y: 0,
         duration: 0.8,
-        ease: 'power1.out',
+        ease: "power1.out",
         scrollTrigger: {
           trigger: el,
-          start: 'top 85%',
+          start: "center 0%",
         },
       },
     );

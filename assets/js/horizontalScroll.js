@@ -123,21 +123,6 @@ export default function initHorizontalScroll() {
     );
   });
 
-  // section.querySelectorAll('.hz-slide__info').forEach((info) => {
-  //   gsap.from(info, {
-  //     opacity: 0,
-  //     y: 24,
-  //     ease: 'power1.out',
-  //     scrollTrigger: {
-  //       trigger: info,
-  //       containerAnimation: master,
-  //       start: 'left 85%',
-  //       end: 'left 45%',
-  //       scrub: true,
-  //     },
-  //   });
-  // });
-
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
