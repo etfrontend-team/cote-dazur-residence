@@ -12,6 +12,7 @@ export default function initLenis() {
     smoothWheel: true,
     wheelMultiplier: 1,
     touchMultiplier: 1,
+    syncTouch: true,
   });
 
   window.siteLenis = lenis;
