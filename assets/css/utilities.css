@@ -6,8 +6,6 @@
   @apply inline-block;
 }
 
-/* ===== HERO INTRO (Omniyat-style: scroll → SVG → banner → header) ===== */
-
 .hero-scroll-container {
   @apply relative h-[200vh];
 }
@@ -68,10 +66,6 @@
   @apply absolute inset-0 z-30 flex flex-col justify-end;
 }
 
-/* ==========================================================================
-   Hero section
-   ========================================================================== */
-
 .hero-section {
   @apply relative overflow-hidden;
 }
@@ -107,13 +101,6 @@
   @apply flex shrink-0 items-center gap-16 max-768:flex-wrap;
 }
 
-/* ==========================================================================
-   Inner hero (sticky-pinned banner — About/interior pages)
-   Mirrors reference: section pins via `sticky`, image is scaled up 110% as a
-   safety buffer so the scrub in innerHero.js never exposes an edge, next
-   section then scrolls up over the pinned banner.
-   ========================================================================== */
-
 .inner-hero-section {
   @apply sticky top-0 z-1 flex h-screen w-full items-end justify-center overflow-hidden;
 }
@@ -135,12 +122,6 @@
 .inner-hero-section p {
   @apply max-w-680;
 }
-
-/* ==========================================================================
-   About section (home-page teaser collage — links to full About page)
-   Media tiles use fixed px position/size: a deliberate pixel-perfect collage
-   layout (not content-driven), matching the reference design exactly.
-   ========================================================================== */
 
 .about-section {
   @apply mx-15 mt-15 overflow-hidden;
@@ -186,10 +167,6 @@
   @apply flex flex-col gap-30;
 }
 
-/* ==========================================================================
-   Quote section
-   ========================================================================== */
-
 .quote-section {
   @apply bg-white;
 }
@@ -208,10 +185,6 @@
 .about-section__content .content p + p {
   @apply mt-15;
 }
-
-/* ==========================================================================
-   Image-with-content section
-   ========================================================================== */
 
 .image-with-content {
   @apply flex flex-row items-stretch max-768:flex-col;
@@ -261,7 +234,7 @@
   @apply text-center text-cream/70;
 }
 .image-with-content__desc .content p + p {
-    @apply mt-16;
+  @apply mt-16;
 }
 .image-with-content__ctas {
   @apply flex flex-wrap items-start justify-center gap-100 max-1199:gap-15 max-768:flex-col max-768:items-center;
@@ -274,10 +247,6 @@
 [data-fade].is-visible {
   @apply opacity-100;
 }
-
-/* ==========================================================================
-   Zigzag section (media + content split, char-reveal heading)
-   ========================================================================== */
 
 .zigzag-section__heading {
   @apply mb-60 flex max-w-620 flex-col gap-16 max-1199:mb-40 max-768:mb-30;
@@ -312,21 +281,12 @@
   @apply mt-15;
 }
 
-/* Fixed offset + size: a deliberate pixel-perfect overlay onto
-   .zigzag-section__media (not content-driven), same as the
-   about-section collage tiles. */
 .zigzag-section__media--sm {
   @apply absolute -right-264 bottom-42 z-10 w-320 max-1024:hidden;
 }
 .zigzag-section-cta-wrapper {
   @apply flex gap-40 max-576:flex-col max-576:gap-20;
 }
-
-/* ==========================================================================
-   Parallax image chain (dark, alternating rows: small accent media
-   hanging off the bottom edge, copy column, large main media —
-   each layer scroll-shifts at its own speed, see parallaxMedia.js)
-   ========================================================================== */
 
 .parallax-chain {
   @apply flex flex-col gap-150 max-992:gap-60 max-768:gap-60;
@@ -340,8 +300,6 @@
   @apply relative flex justify-center max-992:flex-col-reverse max-992:gap-50 max-576:gap-30 992:items-center 992:pl-90 z-2;
 }
 
-/* Fixed offset + size: a deliberate pixel-perfect accent overlay hanging
-   off the main media's bottom edge (not content-driven). */
 .parallax-chain__accent {
   @apply absolute -bottom-212 left-47 z-2 aspect-parallax-accent 1366:aspect-parallax-accent-lg h-auto w-full max-w-309 overflow-hidden max-992:hidden rounded-br-50 max-1024:hidden;
 }
@@ -412,8 +370,6 @@
 
 .explore-card--reveal .explore-card__media {
   @apply absolute inset-0 z-10 h-full;
-  /* Chrome fails to repaint sibling cards' animated clip-path without a
-     dedicated compositor layer — promote explicitly. */
   will-change: clip-path;
 }
 
@@ -462,10 +418,6 @@
   @apply w-full border-t border-primary/15;
 }
 
-/* ===== FIND PROPERTY ===== */
-
-/* ===== FIND PROPERTY ===== */
-
 .find-property-section .container-fluid {
   @apply max-768:!px-0;
 }
@@ -496,7 +448,6 @@
   @apply text-primary text-14 font-body tracking-1.4 leading-15 uppercase;
 }
 
-
 .filter-select {
   @apply relative flex items-center w-fit;
 }
@@ -518,21 +469,11 @@
 .find-property-search {
   @apply shrink-0 leading-[1.25] border-tan text-tan hover:bg-tan hover:text-white;
 }
-/* ==========================================================================
-   Residences slider — full-bleed GSAP ScrollTrigger clip-path reveal
-   (Figma nodes 18:4759, 72:58). Pinned in the viewport while each stacked
-   slide wipes in right-to-left over the last as the user scrolls, in place
-   of a swipeable carousel. Figma reuses one background photo across all
-   three Block cards; distinct existing project photos stand in per block
-   here instead so the wipe is visually legible slide-to-slide.
-   ========================================================================== */
 
 .residences-slider {
   @apply relative h-screen w-full overflow-hidden rounded-tl-50 rounded-br-50 max-768:h-auto max-768:overflow-visible max-768:rounded-none;
 }
 
-/* Desktop keeps the pinned clip-path wipe (residencesSlider.js). Mobile keeps
-   one stable image in place and swaps only the block card content on tab tap. */
 .residences-slider__track {
   @apply relative h-full w-full max-768:flex max-768:h-auto max-768:flex-col;
 }
@@ -551,9 +492,6 @@
   @apply max-768:opacity-35;
 }
 
-/* One full-width card per screen (photo+tabs, then the stats card below —
-   same photo-then-content split as .testimonial-card) instead of the desktop
-   photo-overlay card. Tabs swap the active block content in place on mobile. */
 .residences-slider__blocks .residences-slide {
   @apply max-768:hidden max-768:bg-primary;
 }
@@ -625,7 +563,7 @@
 }
 
 .residences-slide__filter {
-       @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-34 rounded-tr-40 rounded-bl-40 bg-darkbg p-24 max-1199:w-240 max-1199:gap-24 max-768:w-200 max-768:gap-20 max-768:p-16;
+  @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-34 rounded-tr-40 rounded-bl-40 bg-darkbg p-24 max-1199:w-240 max-1199:gap-24 max-768:w-200 max-768:gap-20 max-768:p-16;
 }
 
 .residences-slide__filter-block {
@@ -641,7 +579,7 @@
 }
 
 .residences-slide__filter-config p {
-    @apply text-cream max-1199:max-w-200;
+  @apply text-cream max-1199:max-w-200;
 }
 
 .residences-slide__filter-divider {
@@ -689,8 +627,6 @@
   @apply flex flex-col gap-16 max-1199:gap-12;
 }
 
-/* ===== LOCATION SECTION ===== */
-
 .location-section {
   @apply py-0;
 }
@@ -707,16 +643,12 @@
   @apply w-full h-full object-cover object-center;
 }
 
-/* Route connecting lines — inline SVG overlay */
-
 .location-lines-overlay {
   @apply absolute inset-0 w-full h-full pointer-events-none max-768:hidden;
 }
 .location-lines-overlay path {
   @apply stroke-tan;
 }
-
-/* CÔTE D'AZUR map marker */
 
 .location-cda-marker {
   @apply absolute flex items-center gap-8 pointer-events-none left-[33.2%] top-[43.5%] translate-x-[-82%] max-1366:left-[32%] max-1366:translate-x-[-68%] max-768:left-[30%] max-768:translate-x-[-70%]  max-768:hidden;
@@ -729,8 +661,6 @@
 .location-cda-dot {
   @apply w-10 h-10 rounded-full bg-tan;
 }
-
-/* Location pins — navy circles with icon */
 
 .location-pin {
   @apply absolute w-36 h-36 max-576:w-26 max-576:h-26 rounded-full bg-darkbg flex items-center justify-center cursor-pointer z-10
@@ -766,8 +696,6 @@
   @apply left-pin-6-left top-pin-6-top;
 }
 
-/* Bottom-left label */
-
 .location-content {
   @apply absolute bottom-0 left-0 px-64 pb-50 max-1199:px-40 max-1199:pb-40 max-768:px-24 max-768:pb-30 max-425:px-16 max-425:pb-24;
 }
@@ -780,8 +708,6 @@
   @apply text-18 leading-snug opacity-80 max-768:text-16 max-576:text-14;
 }
 
-/* Popup card — flex-col: top row + divider + distance row */
-
 .location-popup {
   @apply absolute w-288 bg-white shadow-location-popup flex flex-col
            opacity-0 pointer-events-none
@@ -792,8 +718,6 @@
 .location-popup.is-open {
   @apply opacity-100 pointer-events-auto translate-y-0;
 }
-
-/* Popup — top row (thumbnail + destination) */
 
 .location-popup-top {
   @apply flex items-start pt-18 pb-10;
@@ -811,19 +735,13 @@
   @apply flex flex-col ml-14 gap-12;
 }
 
-/* Popup — full-width divider */
-
 .location-popup-divider {
   @apply block h-px bg-dark-charcoal/20 mx-16;
 }
 
-/* Popup — distance row (below divider) */
-
 .location-popup-bottom {
   @apply flex flex-col px-16 pt-12 pb-16 gap-12;
 }
-
-/* Shared label + value styles */
 
 .location-popup-label {
   @apply text-12 font-body font-normal text-primary tracking-widest uppercase leading-none;
@@ -832,11 +750,6 @@
 .location-popup-value {
   @apply text-18 max-768:text-14 font-body font-semibold text-tan leading-tight;
 }
-
-/* ==========================================================================
-   Text-image banner — subtitle + title (left col), description (right col,
-   bottom-aligned), then a wide landscape image spanning the full container.
-   ========================================================================== */
 
 .text-image-banner__header {
   @apply grid grid-cols-2 items-end gap-80 pb-60 max-1199:gap-40 max-1199:pb-40 max-768:grid-cols-1 max-768:gap-24 max-768:pb-30;
@@ -853,8 +766,6 @@
 .text-image-banner__media img {
   @apply absolute inset-0 block h-full w-full scale-110 object-cover will-change-transform;
 }
-
-/* ===== BEČIĆI LOCATION STORY (editorial numbered list) ===== */
 
 .becici-section {
   @apply bg-cream;
@@ -876,7 +787,6 @@
   @apply border-t border-primary/15;
 }
 
-/* Slide-in hover overlay — slides from left via translate on ::before */
 .becici-section__route {
   @apply relative flex items-center gap-50 border-b border-primary/15 overflow-hidden
          cursor-default max-1199:gap-36 max-768:gap-20
@@ -892,7 +802,6 @@
   @apply translate-x-0;
 }
 
-/* Large Cinzel index as visual anchor */
 .becici-section__route-number {
   @apply relative z-1 shrink-0 font-Cinzel text-tan leading-none font-normal
          text-heading-2 py-44 max-1199:text-heading-3 max-1199:py-32 max-768:text-36 max-768:py-24;
@@ -914,14 +823,10 @@
   @apply relative z-1 shrink-0 flex flex-col items-end gap-4 py-44 max-1199:py-32 max-768:py-24;
 }
 
-/* Big display distance — Cinzel tan, large but smaller than the index */
 .becici-section__route-value {
   @apply font-Cinzel text-tan leading-none font-normal text-32 max-1199:text-32 max-768:text-24;
 }
 
-/* Route hover media — sticky panel, one image per route, crossfaded via
-   .is-active (locationRouteImages.js). Height matches tallest the list
-   can grow across all 6 routes at desktop. Hidden below 992px. */
 .becici-section__media {
   @apply sticky top-100 col-span-5 h-750 w-full overflow-hidden rounded-tl-50
          max-1199:h-560 max-992:hidden;
@@ -938,21 +843,6 @@
 .becici-section__media-item img {
   @apply block h-full w-full object-cover;
 }
-
-/* ==========================================================================
-   Scroll-reveal gallery — pinned section: a small center image (clip-path
-   inset, tweened toward inset(0)) grows to fill the viewport while two
-   flanking side images slide off-canvas in sync (xPercent tied to the same
-   scroll progress — see scrollRevealGallery.js) and the copy fades in once
-   the image is nearly full-bleed. The side row's spacer is w-2/5 to match
-   the center's initial clip width, so the flanking images line up flush
-   against its edges at scroll start. Percentage-based sizing throughout
-   (not px) keeps the whole effect responsive without a resize recalculation.
-   Track height and clip-path are raw CSS (unavoidable — vh units and
-   percentage inset() aren't expressible via the spacing/utility scale,
-   same exception already used elsewhere in this file for grid-template-*,
-   contain and will-change).
-   ========================================================================== */
 
 .scroll-reveal-gallery__track {
   @apply relative w-full;
@@ -982,7 +872,8 @@
 .scroll-reveal-gallery__stage {
   @apply absolute inset-0 z-10 flex h-full w-full items-center justify-center text-white;
 }
-.scroll-reveal-gallery__stage {}
+.scroll-reveal-gallery__stage {
+}
 
 .scroll-reveal-gallery__center {
   @apply absolute inset-0 h-full w-full overflow-hidden;
@@ -1010,17 +901,6 @@
 .scroll-reveal-gallery__copy h2 {
   @apply mb-24;
 }
-
-/* ==========================================================================
-   Testimonials — sticky image panel (left) + scroll-activated review list
-   (right). Panel image crossfades and slow-zooms out as each review scrolls
-   through the vertical center; counter flips to match (About page).
-   Reference uses Almarai/Instrument Serif + a gray/black palette; this
-   reuses the site's own OptimaLTPro/Graphik fonts and primary/tan/charcoal
-   palette instead of importing new fonts, everything else (layout, spacing,
-   scroll behaviour) mirrors the reference 1:1. No Figma frame supplied —
-   sizing not covered by an existing token is a placeholder assumption.
-   ========================================================================== */
 
 .testimonials-section {
   @apply bg-white pt-140 pb-100 max-1199:pt-90 max-1199:pb-70 max-768:pt-60 max-768:pb-50;
@@ -1095,14 +975,6 @@
   @apply mt-24 flex items-end justify-between max-576:flex-col max-576:items-start max-576:gap-16;
 }
 
-/* ==========================================================================
-   Page loader — full-screen logo-scale splash shown from first paint until
-   window `load` fires (site-wide, independent of the scroll-driven hero
-   intro on index.html). Visible by default via CSS alone so it never
-   depends on JS having loaded — an inline script (see body markup) is the
-   critical path that hides it; GSAP only adds the scale-pulse on top.
-   ========================================================================== */
-
 .page-loader {
   @apply fixed inset-0 z-100 flex items-center justify-center bg-white transition-opacity duration-500 ease-out;
 }
@@ -1125,12 +997,6 @@
   }
 }
 
-/* ==========================================================================
-   Spec-list section — left: title + hoverable spec list, right: image that
-   crossfades to match whichever spec item is hovered/focused. First item is
-   active by default. Below 992px the list stacks above a single static
-   image (no hover target on touch, so it just shows the active/first one).
-   ========================================================================== */
 .spec-list-section {
   @apply bg-cream pt-100 pb-100 max-1199:pt-90 max-1199:pb-90 max-768:pt-60 max-768:pb-60;
 }
@@ -1175,13 +1041,6 @@
   @apply opacity-100;
 }
 
-/* ==========================================================================
-   Split-row section — 4 alternating image/text rows. Image column is 70%
-   width (grid-cols-10 + col-span-7/3, kept to Tailwind's default fraction
-   scale rather than an arbitrary 70% value). Even rows (--reverse) flip via
-   order-* so the image moves to the right without touching DOM order.
-   Below 768px every row stacks image-first regardless of --reverse.
-   ========================================================================== */
 .split-row-section {
   @apply bg-white pt-140 pb-140 max-1199:pt-90 max-1199:pb-90 max-768:pt-60 max-768:pb-60;
 }
@@ -1225,26 +1084,9 @@
   @apply max-768:text-28;
 }
 
-/* ==========================================================================
-   Gallery section.
-   >=1200px: .gallery-section__scatter — a Kettal-style loose photo
-   collage, spanning the section's full width. Each tile's left/width
-   are fractions of the canvas (not fixed px) so the whole composition
-   scales fluidly with the viewport; height comes from an aspect-ratio
-   modifier so tiles scale proportionally rather than stretching. Only
-   `top` stays a fixed px offset (vertical rhythm doesn't need to track
-   width). Below 1200px the composition has no room to breathe, so it's
-   swapped for .gallery-section__grid, the plain responsive masonry
-   fallback. Every tile — in either layout — carries [data-clip-reveal]
-   (see galleryReveal.js): clip-path wipes it in from the bottom the
-   moment IT individually scrolls into view, no scrub, one-shot per tile.
-   ========================================================================== */
-
 .gallery-section__heading {
   @apply mb-60 flex max-w-680 flex-col gap-16 max-1199:mb-40 max-768:mb-30;
 }
-
-/* ---- >=1200px scatter collage ---- */
 
 .gallery-section__scatter {
   @apply relative mx-auto hidden h-1300 w-full 1199:block;
@@ -1294,8 +1136,6 @@
   @apply top-700 right-0 w-1/6 aspect-video;
 }
 
-/* ---- <1200px fallback: plain responsive masonry ---- */
-
 .gallery-section__grid {
   @apply columns-4 gap-24 max-1199:columns-3 max-1199:gap-20 max-768:columns-2 max-768:gap-16 1199:hidden;
 }
@@ -1325,18 +1165,6 @@
   @apply aspect-video;
 }
 
-/* ==========================================================================
-   Gallery grid — replicates thebarbersmark.ca/pages/services' .gal-grid:
-   a single flat 12-column CSS grid, one row height for every row (grid-
-   auto-rows, not per-cell aspect-ratio), each cell spanning a different
-   column count to build an editorial mosaic. One DOM list only — no
-   separate mobile re-pairing — responsive is just each cell's col-span
-   changing at max-1024, per CSS rule 5.
-   grid-auto-rows uses clamp() (raw-CSS exception already used for
-   grid-template-rows/contain/will-change elsewhere in this file) so row
-   height scales fluidly with viewport instead of needing a breakpoint jump.
-   ========================================================================== */
-
 .gallery-grid {
   @apply grid w-full grid-cols-12 gap-18 opacity-100 transition-opacity duration-300 ease-in max-1024:gap-8;
   grid-auto-rows: clamp(140px, 19.44vw, 440px);
@@ -1354,10 +1182,6 @@
   @apply block h-full w-full object-cover;
 }
 
-/* 7.webp and 9.webp are wider than their cell, so cover only crops the
-   sides — the sky along their full top edge always stays in frame,
-   reading as a pale band. Scaling from the bottom edge trades that
-   crop axis for a vertical one, pushing the sky out of frame instead. */
 .gallery-grid__cell--a img,
 .gallery-grid__cell--b img {
   @apply origin-bottom scale-125;
@@ -1385,12 +1209,6 @@
   @apply col-span-6;
 }
 
-/* ---- filtered state: reflow instead of leaving gaps ----
-   The mosaic col-spans above only make sense with the full, curated set
-   of 10 photos. Once a category filter hides some of them, drop to a
-   uniform 3-up (2-up mobile) grid of square tiles so the remaining cells
-   pack together with no gaps. */
-
 .gallery-grid.is-filtered {
   @apply auto-rows-auto grid-cols-3 max-1024:grid-cols-2;
 }
@@ -1406,13 +1224,6 @@
 .gallery-grid__trigger {
   @apply block h-full w-full cursor-pointer border-0 bg-transparent p-0;
 }
-
-/* ==========================================================================
-   Lightbox — click any .gallery-grid__trigger to open the full-size image
-   with prev/next. Toggled via .is-active (opacity/scale only, per animation
-   rules); lightboxGallery.js manages the open/close state, keyboard
-   (Escape/arrows) and body scroll lock.
-   ========================================================================== */
 
 .lightbox {
   @apply pointer-events-none fixed inset-0 z-100 flex scale-95 items-center justify-center bg-black/90 opacity-0 transition-all duration-300 ease-in;
@@ -1455,23 +1266,6 @@
   @apply block h-24 w-24 max-768:h-18 max-768:w-18;
 }
 
-/* .lightbox__arrow-icon--prev {
-  @apply rotate-90;
-}
-
-.lightbox__arrow-icon--next {
-  @apply -rotate-90;
-} */
-
-/* ==========================================================================
-   Gallery filter nav — All (default active) plus category pills. Filtering
-   toggles [hidden] on non-matching .gallery-grid__cell elements; "all"
-   restores the mosaic col-span layout above, any other filter adds
-   .is-filtered (see .gallery-grid.is-filtered above) so the visible cells
-   reflow into a gap-free uniform grid instead of leaving holes in the
-   mosaic's fixed col-spans.
-   ========================================================================== */
-
 .gallery-filter-nav {
   @apply mb-40 flex flex-wrap items-center justify-center gap-12 max-768:mb-24 max-768:gap-8;
 }
@@ -1492,13 +1286,6 @@
   @apply hidden;
 }
 
-
-
-/* ==========================================================================
-   Contact Us page — contact-section (intro/details column + enquiry
-   form column, both sitting on the section's bg-tan/20 background)
-   ========================================================================== */
-
 .contact-section__inner {
   @apply flex flex-row items-start gap-100 max-1199:flex-col max-1199:gap-60 max-768:gap-40;
 }
@@ -1507,9 +1294,6 @@
   @apply flex flex-1 min-w-0 flex-col items-start gap-40 text-left max-1199:w-full;
 }
 
-/* Company name sits directly under the "Contact Us" label — the base h3
-   ladder (52px+) reads as a second competing headline here, so it's scoped
-   down to a smaller size for this one context. */
 .contact-section__name {
   @apply flex flex-col gap-8;
 }
@@ -1518,26 +1302,20 @@
   @apply text-24 max-768:text-18 leading-snug;
 }
 
-/* Contact-info card — pairs visually with the enquiry-form card on the
-   right so both columns read as one balanced, elevated pair, instead of
-   free-floating text next to a boxed form. */
 .contact-section__card {
-  @apply flex w-full flex-col gap-28 rounded-tl-40 rounded-br-40 bg-white p-32  max-768:p-24;
+  @apply flex w-full flex-col gap-28 rounded-tl-40 rounded-br-40 border border-primary/10 bg-white p-32 max-768:p-24;
 }
 
 .contact-section__details {
   @apply m-0 flex list-none flex-col gap-4 p-0 text-left;
 }
 
-/* Each row is an interactive strip: icon avatar flips to a solid primary
-   fill (white icon) on hover, row gets a soft highlight — a small
-   "reachable" cue on things that are literally tap/click targets. */
 .contact-section__detail {
   @apply -mx-12 flex items-center gap-14 rounded-20 px-12 py-10 transition-colors duration-200 hover:bg-cream/50;
 }
 
 .contact-section__detail-icon {
-  @apply flex size-36 shrink-0 items-center justify-center rounded-full bg-cream/70 transition-colors duration-200;
+  @apply flex size-40 shrink-0 items-center justify-center rounded-full bg-cream/70 transition-colors duration-200;
 }
 
 .contact-section__detail-icon img {
@@ -1560,8 +1338,6 @@
   @apply flex items-center gap-12;
 }
 
-/* Reusable circular icon button — bordered, no fill, inverts to a solid
-   primary chip with a white icon on hover/focus. */
 .icon-badge {
   @apply flex size-40 shrink-0 items-center justify-center rounded-full border border-primary/20 transition-colors duration-300 hover:border-primary hover:bg-primary focus-visible:border-primary focus-visible:bg-primary;
 }
@@ -1576,18 +1352,14 @@
   filter: brightness(0) saturate(100%) invert(1);
 }
 
-/* Form is a proper elevated card (solid white surface, shadow) so it reads
-   as a distinct, contained panel against the section's own bg-tan/20. */
 .contact-section__form {
-  @apply flex flex-1 min-w-0 flex-col gap-32 rounded-tl-40 rounded-br-40  bg-white p-40 max-1199:w-full max-768:p-28;
+  @apply flex flex-1 min-w-0  flex-col gap-32 rounded-tl-40 rounded-br-40 border border-primary/10 bg-white p-40 max-1199:w-full max-768:p-28;
 }
 
 .contact-section__form-header {
-  @apply flex flex-col gap-8 border-b border-primary/10 pb-28;
+  @apply flex flex-col gap-8  pb-4;
 }
 
-/* The base h3 ladder (52px+) is sized for a full-width page heading; scoped
-   down here so it stays proportionate inside the card. */
 .contact-section__form-header h3 {
   @apply text-32 max-768:text-24 leading-snug;
 }
@@ -1596,9 +1368,6 @@
   @apply flex flex-row gap-20 max-576:flex-col max-576:gap-20;
 }
 
-/* Field wrapper: leading icon + input inside a bordered, rounded box —
-   replaces the globally shared underline style (which is cream-on-dark,
-   built for the footer's dark panel) with a dark-on-light bordered field. */
 .contact-section__field {
   @apply h-auto w-full items-center gap-12 rounded-20 border border-primary/15 bg-cream/25 px-16 py-13 transition-colors duration-200;
 }
@@ -1616,208 +1385,26 @@
 }
 
 .contact-section__form .form-textarea {
-  @apply h-110 border-b border-primary/15 px-16 py-13 text-primary transition-colors duration-200 placeholder:text-primary/45 focus:border-primary focus:bg-white;
+  @apply h-110  border-b border-primary/15 text-primary transition-colors duration-200 placeholder:text-primary/45 focus:border-primary focus:bg-white pt-0!;
 }
 
-.contact-section__interest {
-  @apply m-0 flex flex-col gap-14 border-0 p-0;
+.contact-section__form .form-line {
+  @apply h-auto flex-col items-start gap-6 border-primary/15;
 }
 
-.contact-section__interest-heading {
-  @apply flex flex-wrap items-baseline gap-10 p-0;
+.contact-section__form .form-line label {
+  @apply text-16 font-body text-primary;
 }
 
-.contact-section__interest-hint {
-  @apply text-12 font-body text-primary/45;
+.contact-section__form .form-textarea::placeholder {
+  @apply text-16 font-body text-primary;
 }
 
-.contact-section__interest-options {
-  @apply flex flex-wrap gap-12 mt-14;
+.contact-section__form .form-line input {
+  @apply h-32 text-primary placeholder:text-primary/45;
 }
 
-/* Checkbox pills — the native input stays as an invisible, focusable hit
-   target stacked over its label; the label is the visible pill and flips
-   to a solid fill when its input is checked. */
-.form-checkbox {
-  @apply relative inline-flex;
-}
-
-.form-checkbox__input {
-  @apply absolute inset-0 h-full w-full cursor-pointer opacity-0;
-}
-
-.form-checkbox__label {
-  @apply inline-flex cursor-pointer items-center rounded-full border border-primary/25 px-16 py-8 text-14 font-body text-primary transition-colors duration-200;
-}
-
-.form-checkbox__input:checked + .form-checkbox__label {
-  @apply border-primary bg-primary text-white;
-}
-
-.form-checkbox__input:hover + .form-checkbox__label {
-  @apply border-primary;
-}
-
-.form-checkbox__input:focus-visible + .form-checkbox__label {
-  @apply border-primary;
-}
-
-.contact-section__submit {
-  @apply flex w-full items-center justify-center gap-10 py-16;
-}
-
-.contact-section__submit-icon {
-  @apply block size-20 transition-transform duration-300;
-  filter: invert(1);
-}
-
-.contact-section__submit:hover .contact-section__submit-icon,
-.contact-section__submit:focus-visible .contact-section__submit-icon {
-  @apply translate-x-4;
-  filter: none;
-}
-
-/* ==========================================================================
-   Contact Us page — cta-section (dark banner inviting a private viewing)
-   ========================================================================== */
-
-.cta-section__inner {
-  @apply mx-auto flex max-w-680 flex-col items-center gap-24 text-center;
-}
-
-
-.map-section__track {
-  @apply relative w-full;
-  height: 320vh;
-}
-
-.map-section__sticky {
-  @apply bg-white sticky top-0 h-screen w-full overflow-hidden;
-}
-
-.map-section__stage {
-  @apply absolute inset-0 z-10 flex h-full w-full items-center justify-center;
-}
-
-.map-section__frame {
-  @apply absolute inset-0 h-full w-full overflow-hidden;
-  clip-path: inset(27% 30%);
-}
-
-.map-section__frame iframe {
-  @apply absolute inset-0 block h-full w-full border-0;
-}
-
-.map-section__overlay {
-  @apply pointer-events-none absolute inset-0 bg-black/45;
-}
-
-.map-section__copy {
-  @apply relative z-20 flex w-full max-w-620 flex-col items-center gap-16 px-24 text-center max-768:max-w-full;
-}
-
-.map-section__track {
-  @apply relative w-full;
-  height: 320vh;
-}
-
-.map-section__sticky {
-  @apply bg-white sticky top-0 h-screen w-full overflow-hidden;
-}
-
-.map-section__stage {
-  @apply absolute inset-0 z-10 flex h-full w-full items-center justify-center;
-}
-
-.map-section__frame {
-  @apply absolute inset-0 h-full w-full overflow-hidden;
-  clip-path: inset(27% 30%);
-}
-
-.map-section__frame iframe {
-  @apply absolute inset-0 block h-full w-full border-0;
-}
-
-.map-section__overlay {
-  @apply pointer-events-none absolute inset-0 bg-black/45;
-}
-
-.map-section__copy {
-  @apply relative z-20 flex w-full max-w-620 flex-col items-center gap-16 px-24 text-center max-768:max-w-full;
-}
-
-
-
-.contact-section__inner {
-  @apply flex flex-row items-start gap-100 max-1199:flex-col max-1199:gap-60 max-768:gap-40;
-}
-
-.contact-section__intro {
-  @apply flex flex-1 min-w-0 flex-col items-start gap-40 text-left max-1199:w-full;
-}
-
-.contact-section__name {
-  @apply flex flex-col gap-8;
-}
-
-.contact-section__name h3 {
-  @apply text-24 max-768:text-18 leading-snug;
-}
-
-.contact-section__details {
-  @apply m-0 flex list-none flex-col gap-12 p-0 text-left;
-}
-
-.contact-section__socials {
-  @apply flex flex-col gap-16;
-}
-
-.contact-section__socials-list {
-  @apply flex items-center gap-12;
-}
-
-.icon-badge {
-  @apply flex size-40 shrink-0 items-center justify-center rounded-full border border-primary/20 transition-colors duration-300 hover:border-primary hover:bg-primary focus-visible:border-primary focus-visible:bg-primary;
-}
-
-.icon-badge img {
-  @apply block size-18;
-  filter: brightness(0) saturate(100%);
-}
-
-.icon-badge:hover img,
-.icon-badge:focus-visible img {
-  filter: brightness(0) saturate(100%) invert(1);
-}
-
-.contact-section__form {
-  @apply flex flex-1 min-w-0 flex-col gap-32 rounded-tl-40 rounded-br-40 border border-primary/10 bg-white p-40 max-1199:w-full max-768:p-28;
-}
-
-.contact-section__form-header {
-  @apply flex flex-col gap-8 border-b border-primary/10 pb-28;
-}
-
-.contact-section__form-header h3 {
-  @apply text-32 max-768:text-24 leading-snug;
-}
-
-.contact-section__form-row {
-  @apply flex flex-wrap gap-24;
-}
-
-.contact-section__form .form-line,
-.contact-section__form .form-textarea {
-  @apply border-primary/25;
-}
-
-.contact-section__form .form-line input,
-.contact-section__form .form-textarea {
-  @apply text-primary placeholder:text-primary/45;
-}
-
-.contact-section__form .form-line:focus-within,
-.contact-section__form .form-textarea:focus {
+.contact-section__form .form-line:focus-within {
   @apply border-primary;
 }
 
@@ -1834,31 +1421,24 @@
 }
 
 .contact-section__interest-options {
-  @apply flex flex-wrap gap-12;
+  @apply mt-14 flex flex-wrap gap-12;
 }
 
 .form-checkbox {
-  @apply relative inline-flex;
+  @apply inline-flex items-center gap-10;
 }
 
 .form-checkbox__input {
-  @apply absolute inset-0 h-full w-full cursor-pointer opacity-0;
+  @apply size-18 shrink-0 cursor-pointer rounded-4 border border-primary/25 accent-primary transition-colors duration-200;
+}
+
+.form-checkbox__input:hover,
+.form-checkbox__input:focus-visible {
+  @apply border-primary;
 }
 
 .form-checkbox__label {
-  @apply inline-flex cursor-pointer items-center rounded-full border border-primary/25 px-16 py-8 text-14 font-body text-primary transition-colors duration-200;
-}
-
-.form-checkbox__input:checked + .form-checkbox__label {
-  @apply border-primary bg-primary text-white;
-}
-
-.form-checkbox__input:hover + .form-checkbox__label {
-  @apply border-primary;
-}
-
-.form-checkbox__input:focus-visible + .form-checkbox__label {
-  @apply border-primary;
+  @apply cursor-pointer text-14 font-body text-primary;
 }
 
 .contact-section__submit {
@@ -1877,5 +1457,46 @@
 }
 
 .cta-section__inner {
-  @apply mx-auto flex max-w-680 flex-col items-center gap-24 text-center;
+  @apply flex items-center gap-120 max-1199:flex-col max-1199:items-start max-1199:gap-50 max-768:gap-40;
 }
+
+.cta-section__media {
+  @apply relative h-509 rounded-tl-50 flex-1 shrink-0 overflow-hidden max-1199:w-full max-768:w-full max-768:w-full max-425:h-auto;
+}
+
+.cta-section__media img {
+  @apply block h-full w-full object-cover;
+}
+
+.cta-section__content {
+  @apply flex flex-1 flex-col items-start gap-35 max-1199:w-full;
+}
+
+.cta-section__content .content p {
+  @apply max-w-600;
+}
+
+.map-section__frame {
+  @apply relative h-screen w-full overflow-hidden;
+}
+
+.map-section__frame iframe {
+  @apply absolute inset-0 block h-full w-full border-0;
+}
+
+.form-line label {
+  @apply text-primary;
+}
+
+.contact-us-title h1 {
+  @apply max-1024:leading-[60px] max-768:leading-tight;
+}
+
+.icon-badge-telegram img {
+  @apply w-28 h-28;
+}
+
+.icon-badge-facebook img {
+  @apply w-22 h-22;
+}
+

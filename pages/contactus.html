@@ -314,7 +314,7 @@
           </div>
           <div class="hero-section__overlay"></div>
           <div class="container-fluid inner-hero-section__inner">
-            <div class="title title-cream">
+            <div class="title title-cream contact-us-title">
               <h1>Let's Find Your Home at Côte d'Azur</h1>
             </div>
             <div class="content content-cream medium">
@@ -336,13 +336,6 @@
           >
             <div class="container-fluid contact-section__inner">
               <div class="contact-section__intro">
-                <div class="content content-primary label">
-                  <p>Contact Us</p>
-                </div>
-                <div class="title title-primary contact-section__name">
-                  <h3>Côte d'Azur Résidences</h3>
-                </div>
-
                 <div class="contact-section__card">
                   <ul class="contact-section__details">
                     <li class="contact-section__detail">
@@ -435,6 +428,7 @@
                         target="_self"
                         aria-label="Chat with us on WhatsApp"
                       >
+                      
                         <img
                           src="../assets/icons/whatsapp-icon.svg"
                           width="18"
@@ -461,7 +455,7 @@
                         />
                       </a>
                       <a
-                        class="icon-badge"
+                        class="icon-badge icon-badge-telegram"
                         href="#"
                         role="link"
                         target="_self"
@@ -493,7 +487,7 @@
                         />
                       </a>
                       <a
-                        class="icon-badge"
+                        class="icon-badge icon-badge-facebook"
                         href="#"
                         role="link"
                         target="_self"
@@ -515,63 +509,43 @@
 
               <form class="contact-section__form" id="contact-form">
                 <div class="contact-section__form-header">
-                  <div class="content content-primary label">
-                    <p>Send an Inquiry</p>
-                  </div>
                   <div class="title title-primary">
-                    <h3>Let's talk about your new home</h3>
-                  </div>
-                  <div class="content content-charcoal small">
-                    <p>
-                      Share your details below and our sales team will be in
-                      touch.
-                    </p>
+                    <h2>Contact Form</h2>
                   </div>
                 </div>
 
                 <div class="contact-section__form-row">
                   <div class="form-line">
-                    <label class="visually-hidden" for="contact-name"
-                      >Name</label
-                    >
+                    <label for="contact-name">Name</label>
                     <input
                       id="contact-name"
                       type="text"
                       name="name"
-                      placeholder="Name"
                     />
                   </div>
                   <div class="form-line">
-                    <label class="visually-hidden" for="contact-phone"
-                      >Phone</label
-                    >
+                    <label for="contact-phone">Phone</label>
                     <input
                       id="contact-phone"
                       type="tel"
                       name="phone"
-                      placeholder="Phone"
                     />
                   </div>
                 </div>
 
                 <div class="form-line">
-                  <label class="visually-hidden" for="contact-email"
-                    >Email</label
-                  >
+                  <label for="contact-email">Email</label>
                   <input
                     id="contact-email"
                     type="email"
                     name="email"
-                    placeholder="Email"
                   />
                 </div>
 
                 <fieldset class="contact-section__interest">
                   <legend class="contact-section__interest-heading">
                     <span class="filter-label">I'm interested in</span>
-                    <span class="contact-section__interest-hint"
-                      >Select all that apply</span
-                    >
+                    
                   </legend>
                   <div class="contact-section__interest-options">
                     <div class="form-checkbox">
@@ -653,62 +627,52 @@
 
           <!-- cta-section start -->
           <section
-            class="cta-section bg-primary pt-140 pb-140 max-1199:pt-90 max-1199:pb-90 max-768:pt-60 max-768:pb-60"
+            class="cta-section pt-140 pb-140 max-1199:pt-90 max-1199:pb-90 max-768:pt-60 max-768:pb-60"
           >
             <div class="container-fluid cta-section__inner">
-              <div class="title title-cream">
-                <h2>Visit the Site</h2>
+              <div class="cta-section__media">
+                <img
+                  src="../assets/images/footer-building.webp"
+                  width="900"
+                  height="507"
+                  alt="Côte d'Azur Résidence building exterior"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-              <div class="content content-cream medium">
-                <p>
-                  Book a private viewing of the show apartment and site — our
-                  team can arrange airport transfers from Tivat for qualified
-                  buyers.
-                </p>
+              <div class="cta-section__content">
+                <div class="title title-primary">
+                  <h2>Visit the Site</h2>
+                </div>
+                <div class="content">
+                  <p>
+                    Book a private viewing of the show apartment and site —
+                    our team can arrange airport transfers from Tivat for
+                    qualified buyers.
+                  </p>
+                </div>
+                <a
+                  href="#contact-form"
+                  class="btn btn-secondary"
+                  role="link"
+                  target="_self"
+                  aria-label="Schedule a visit"
+                  >Schedule a Visit</a
+                >
               </div>
-              <a
-                href="#contact-form"
-                class="btn btn-cream-outline"
-                role="link"
-                target="_self"
-                aria-label="Schedule a visit"
-                >Schedule a Visit</a
-              >
             </div>
           </section>
           <!-- cta-section end -->
 
           <!-- map-section start -->
           <section class="map-section">
-            <div class="map-section__track">
-              <div class="map-section__sticky">
-                <div class="map-section__stage">
-                  <div class="map-section__frame">
-                    <iframe
-                      src="https://www.google.com/maps?q=42.283747,18.883780&z=15&output=embed"
-                      title="Côte d'Azur Résidences location map — Bečići, Budva, Montenegro"
-                      loading="lazy"
-                    ></iframe>
-                    <div class="map-section__overlay"></div>
-                  </div>
-
-                  <div class="map-section__copy">
-                    <!-- <div class="content content-cream label">
-                      <p>Find Us</p>
-                    </div>
-                    <div class="title title-cream">
-                      <h2>Bečići, Budva, Montenegro</h2>
-                    </div>
-                    <a
-                      href="https://maps.app.goo.gl/vTQkXhqYc7oC9KXQ7"
-                      class="btn btn-cream-outline"
-                      role="link"
-                      target="_blank"
-                      aria-label="Open Côte d'Azur Résidences location in Google Maps"
-                      >Open in Google Maps</a
-                    > -->
-                  </div>
-                </div>
+            <div class="container-fluid">
+              <div class="map-section__frame">
+                <iframe
+                  src="https://www.google.com/maps?q=42.283747,18.883780&z=15&output=embed"
+                  title="Côte d'Azur Résidences location map — Bečići, Budva, Montenegro"
+                  loading="lazy"
+                ></iframe>
               </div>
             </div>
           </section>

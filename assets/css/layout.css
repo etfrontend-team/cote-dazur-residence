@@ -36,7 +36,6 @@ header[data-scrolled='true']::before {
     @apply h-auto max-1366:max-w-190 max-768:max-w-140;
 }
 
-/* Single nav, reused for desktop row + mobile fullscreen overlay via [data-menu-open] */
 .main-nav__links {
     @apply flex items-center gap-24 max-1199:hidden;
 }
@@ -130,8 +129,6 @@ header[data-menu-open='true'] .main-nav__mobile-bg {
     @apply absolute inset-0 bg-black/60;
 }
 
-/* Grouped inside .main-nav__actions (after lang) so it sits next to the lang dropdown at the
-   right edge, in-flow instead of fixed, sharing the row's items-center baseline with the logo */
 .main-nav__close {
     @apply pointer-events-none hidden shrink-0 p-10 opacity-0 transition-opacity duration-300;
 }
@@ -150,8 +147,6 @@ footer {
     @apply relative block p-15 max-768:p-10;
 }
 
-/* Figma has no separate mobile/tablet frame for the footer — spacing below
-   scales the desktop values down proportionally at max-1199/max-768. */
 footer::before {
     content: '';
     @apply pointer-events-none absolute inset-0 -z-10 bg-tan/20 backdrop-blur-50;
