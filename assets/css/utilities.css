@@ -214,7 +214,7 @@
    ========================================================================== */
 
 .image-with-content {
-  @apply flex flex-row items-stretch max-768:flex-col;
+  @apply flex flex-row items-stretch max-768:flex-col gap-15;
 }
 
 .image-with-content__media {
@@ -260,7 +260,9 @@
 .image-with-content__desc p {
   @apply text-center text-cream/70;
 }
-
+.image-with-content__desc .content p + p {
+    @apply mt-16;
+}
 .image-with-content__ctas {
   @apply flex flex-wrap items-start justify-center gap-100 max-1199:gap-15 max-768:flex-col max-768:items-center;
 }
@@ -462,8 +464,10 @@
 
 /* ===== FIND PROPERTY ===== */
 
+/* ===== FIND PROPERTY ===== */
+
 .find-property {
-  @apply relative -top-[45px] max-768:top-[0px] rounded-tl-20 max-992:rounded-tl-none w-[calc(100vw-110px)] max-992:w-full  left-55 right-55 z-40 flex items-stretch shadow-find-property max-1199:left-40 max-1199:right-40 max-1024:left-0 max-1024:right-0 max-1024:flex-col;
+  @apply relative -top-[45px] max-768:top-[0px] rounded-tl-20 max-992:rounded-tl-none w-[calc(100vw-145px)] max-992:w-full  z-40 flex items-stretch shadow-find-property max-1199:w-full max-1024:left-0 max-1024:right-0 max-1024:flex-col;
 }
 
 .find-property-label {
@@ -477,25 +481,29 @@
 .find-property-filters {
   @apply bg-white border border-cream flex-1 flex items-center justify-between px-40 py-24 max-1199:px-24 max-992:flex-wrap max-992:gap-16 max-992:px-24;
 }
+.find-property-filters form {
+  @apply flex items-center justify-between max-992:flex-wrap max-992:gap-16 w-full;
+}
 
 .find-property-filter {
   @apply flex flex-col gap-10 w-200 relative max-1199:w-160 max-992:w-[48%] max-576:w-[47%];
 }
 
 .filter-label {
-  @apply text-primary text-14 max-768:text-12 font-body tracking-1.4 leading-15 uppercase;
+  @apply text-primary text-14 font-body tracking-1.4 leading-15 uppercase;
 }
 
+
 .filter-select {
-  @apply relative flex items-center;
+  @apply relative flex items-center w-fit;
 }
 
 .filter-select__input {
-  @apply text-tan text-heading-5 max-768:text-14 font-body w-full appearance-none bg-transparent pr-28 cursor-pointer outline-none;
+  @apply w-fit text-tan text-heading-5 max-768:text-14 font-body w-full appearance-none bg-transparent pr-28 cursor-pointer outline-none;
 }
 
 .filter-select__icon {
-  @apply pointer-events-none absolute right-0 shrink-0;
+  @apply pointer-events-none absolute left-full shrink-0;
   filter: brightness(0) saturate(100%) invert(61%) sepia(10%) saturate(1078%)
     hue-rotate(355deg) brightness(91%) contrast(80%);
 }
@@ -507,7 +515,6 @@
 .find-property-search {
   @apply shrink-0 leading-[1.25] border-tan text-tan hover:bg-tan hover:text-white;
 }
-
 /* ==========================================================================
    Residences slider — full-bleed GSAP ScrollTrigger clip-path reveal
    (Figma nodes 18:4759, 72:58). Pinned in the viewport while each stacked
@@ -615,7 +622,7 @@
 }
 
 .residences-slide__filter {
-  @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-34 rounded-tr-40 rounded-bl-40 bg-darkbg p-24 max-1199:w-240 max-1199:gap-24 max-768:w-200 max-768:gap-20 max-768:p-16;
+    @apply absolute right-70 bottom-70 max-1199:bottom-40 max-1199:right-40 z-10 flex w-293 flex-col items-start gap-16 rounded-tr-40 rounded-bl-40 bg-darkbg p-24 max-1199:w-240 max-768:w-200 max-768:gap-20 max-768:p-16;
 }
 
 .residences-slide__filter-block {
@@ -623,7 +630,7 @@
 }
 
 .residences-slide__filter-caption p {
-  @apply text-cream/50;
+  @apply text-cream/50 text-14;
 }
 
 .residences-slide__filter-figure p {
@@ -631,7 +638,7 @@
 }
 
 .residences-slide__filter-config p {
-  @apply text-cream max-1199:max-w-200;
+    @apply text-cream max-1199:max-w-200 text-14 max-768:text-12;
 }
 
 .residences-slide__filter-divider {
@@ -961,7 +968,16 @@
 }
 
 .scroll-reveal-gallery__copy {
-  @apply pointer-events-none relative z-20 flex w-full max-w-620 flex-col items-center px-24 text-center max-768:max-w-full;
+  @apply relative z-20 flex w-full max-w-620 flex-col items-center px-24 text-center max-768:max-w-full;
+}
+.scroll-reveal-gallery__copy .content p + p {
+  @apply mt-15;
+}
+.scroll-reveal-gallery__actions {
+  @apply mt-24 flex flex-wrap max-576:flex-col max-576:items-center gap-30 max-768:gap-20;
+}
+.scroll-reveal-gallery__copy h2 {
+  @apply mb-24;
 }
 
 /* ==========================================================================

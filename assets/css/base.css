@@ -250,6 +250,21 @@ h3,
   @apply text-primary;
 }
 
+.title-dark-blue-gray h1,
+.title-dark-blue-gray h2,
+.title-dark-blue-gray h3,
+.title-dark-blue-gray h4,
+.title-dark-blue-gray h5,
+.title-dark-blue-gray h6,
+.title-dark-blue-gray .h1,
+.title-dark-blue-gray .h2,
+.title-dark-blue-gray .h3,
+.title-dark-blue-gray .h4,
+.title-dark-blue-gray .h5,
+.title-dark-blue-gray .h6 {
+    @apply text-dark-blue-gray;
+}
+
 .content-primary p {
   @apply text-primary;
 }

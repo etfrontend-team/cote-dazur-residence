@@ -2503,6 +2503,7 @@ footer::before {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  gap: calc(var(--spacing) * 15);
   @media (width < 769px) {
     flex-direction: column;
   }
@@ -2611,6 +2612,9 @@ footer::before {
   @supports (color: color-mix(in lab, red, red)) {
     color: color-mix(in oklab, var(--color-cream) 70%, transparent);
   }
+}
+.image-with-content__desc .content p + p {
+  margin-top: calc(var(--spacing) * 16);
 }
 .image-with-content__ctas {
   display: flex;
@@ -3078,20 +3082,15 @@ footer::before {
 .find-property {
   position: relative;
   top: calc(45px * -1);
-  right: calc(var(--spacing) * 55);
-  left: calc(var(--spacing) * 55);
   z-index: 40;
   display: flex;
-  width: calc(100vw - 110px);
+  width: calc(100vw - 145px);
   align-items: stretch;
   border-top-left-radius: var(--radius-20);
   --tw-shadow: 0px 4px 44px var(--tw-shadow-color, rgba(0, 0, 0, 0.1));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   @media (width < 1200px) {
-    right: calc(var(--spacing) * 40);
-  }
-  @media (width < 1200px) {
-    left: calc(var(--spacing) * 40);
+    width: 100%;
   }
   @media (width < 1025px) {
     right: 0px;
@@ -3172,6 +3171,18 @@ footer::before {
     padding-inline: calc(var(--spacing) * 24);
   }
 }
+.find-property-filters form {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  @media (width < 993px) {
+    flex-wrap: wrap;
+  }
+  @media (width < 993px) {
+    gap: calc(var(--spacing) * 16);
+  }
+}
 .find-property-filter {
   position: relative;
   display: flex;
@@ -3197,16 +3208,15 @@ footer::before {
   letter-spacing: var(--tracking-1\.4);
   color: var(--color-primary);
   text-transform: uppercase;
-  @media (width < 769px) {
-    font-size: var(--text-12);
-  }
 }
 .filter-select {
   position: relative;
   display: flex;
+  width: fit-content;
   align-items: center;
 }
 .filter-select__input {
+  width: fit-content;
   width: 100%;
   cursor: pointer;
   appearance: none;
@@ -3224,7 +3234,7 @@ footer::before {
 .filter-select__icon {
   pointer-events: none;
   position: absolute;
-  right: 0px;
+  left: 100%;
   flex-shrink: 0;
   filter: brightness(0) saturate(100%) invert(61%) sepia(10%) saturate(1078%) hue-rotate(355deg) brightness(91%) contrast(80%);
 }
@@ -3505,7 +3515,7 @@ footer::before {
   width: calc(var(--spacing) * 293);
   flex-direction: column;
   align-items: flex-start;
-  gap: calc(var(--spacing) * 34);
+  gap: calc(var(--spacing) * 16);
   border-top-right-radius: var(--radius-40);
   border-bottom-left-radius: var(--radius-40);
   background-color: var(--color-darkbg);
@@ -3518,9 +3528,6 @@ footer::before {
   }
   @media (width < 1200px) {
     width: calc(var(--spacing) * 240);
-  }
-  @media (width < 1200px) {
-    gap: calc(var(--spacing) * 24);
   }
   @media (width < 769px) {
     width: calc(var(--spacing) * 200);
@@ -3538,6 +3545,7 @@ footer::before {
   gap: calc(var(--spacing) * 16);
 }
 .residences-slide__filter-caption p {
+  font-size: var(--text-14);
   color: color-mix(in srgb, #f3f1ef 50%, transparent);
   @supports (color: color-mix(in lab, red, red)) {
     color: color-mix(in oklab, var(--color-cream) 50%, transparent);
@@ -3550,9 +3558,13 @@ footer::before {
   font-weight: var(--font-weight-normal);
 }
 .residences-slide__filter-config p {
+  font-size: var(--text-14);
   color: var(--color-cream);
   @media (width < 1200px) {
     max-width: calc(var(--spacing) * 200);
+  }
+  @media (width < 769px) {
+    font-size: var(--text-12);
   }
 }
 .residences-slide__filter-divider {
@@ -4228,7 +4240,6 @@ footer::before {
   }
 }
 .scroll-reveal-gallery__copy {
-  pointer-events: none;
   position: relative;
   z-index: 20;
   display: flex;
@@ -4241,6 +4252,27 @@ footer::before {
   @media (width < 769px) {
     max-width: 100%;
   }
+}
+.scroll-reveal-gallery__copy .content p + p {
+  margin-top: calc(var(--spacing) * 15);
+}
+.scroll-reveal-gallery__actions {
+  margin-top: calc(var(--spacing) * 24);
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--spacing) * 30);
+  @media (width < 769px) {
+    gap: calc(var(--spacing) * 20);
+  }
+  @media (width < 577px) {
+    flex-direction: column;
+  }
+  @media (width < 577px) {
+    align-items: center;
+  }
+}
+.scroll-reveal-gallery__copy h2 {
+  margin-bottom: calc(var(--spacing) * 24);
 }
 .testimonials-section {
   background-color: var(--color-white);
