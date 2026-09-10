@@ -18,6 +18,7 @@ import initTestimonialCard from "./testimonialCard.js";
 import initFadeIn from "./fadeIn.js";
 import initExploreCardReveal from "./exploreCardReveal.js";
 import initParallaxMedia from "./parallaxMedia.js";
+import initMapReveal from "./mapReveal.js";
 import initInnerHero from "./innerHero.js";
 import initAboutSection from "./aboutSection.js";
 import initCharReveal from "./charReveal.js";
@@ -50,6 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
   initFadeIn();
   initExploreCardReveal();
   initParallaxMedia();
+  initMapReveal();
   initInnerHero();
   initAboutSection();
   initCharReveal();
