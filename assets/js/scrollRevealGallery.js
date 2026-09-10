@@ -17,11 +17,16 @@ export default function initScrollRevealGallery() {
   const sideLeft = section
     ? section.querySelector(".scroll-reveal-gallery__side--left")
     : null;
+  const sideLeftImg = sideLeft ? sideLeft.querySelector("img") : null;
   const sideRight = section
     ? section.querySelector(".scroll-reveal-gallery__side--right")
     : null;
+  const sideRightImg = sideRight ? sideRight.querySelector("img") : null;
   const copy = section
     ? section.querySelector(".scroll-reveal-gallery__copy")
+    : null;
+  const overlay = section
+    ? section.querySelector(".scroll-reveal-gallery__overlay")
     : null;
 
   if (
@@ -42,6 +47,7 @@ export default function initScrollRevealGallery() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     gsap.set(center, { clipPath: "inset(0% 0%)" });
     gsap.set(copy, { opacity: 1, y: 0 });
+    if (overlay) gsap.set(overlay, { opacity: 1 });
     return;
   }
 
@@ -69,9 +75,21 @@ export default function initScrollRevealGallery() {
       0,
     )
     .fromTo(
+      sideLeftImg,
+      { scale: 1.4 },
+      { scale: 1, ease: "none", duration: 1 },
+      0,
+    )
+    .fromTo(
       sideRight,
       { xPercent: 0 },
       { xPercent: 300, ease: "none", duration: 1 },
+      0,
+    )
+    .fromTo(
+      sideRightImg,
+      { scale: 1.4 },
+      { scale: 1, ease: "none", duration: 1 },
       0,
     )
     .fromTo(
@@ -79,6 +97,12 @@ export default function initScrollRevealGallery() {
       { opacity: 0, y: 24 },
       { opacity: 1, y: 0, ease: "none", duration: 0.4 },
       0.6,
+    )
+    .fromTo(
+      overlay,
+      { opacity: 0 },
+      { opacity: 1, ease: "none", duration: 0.5 },
+      0.5,
     );
 }
 

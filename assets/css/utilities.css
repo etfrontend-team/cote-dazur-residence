@@ -833,26 +833,98 @@
   @apply text-18 max-768:text-14 font-body font-semibold text-tan leading-tight;
 }
 
-/* ===== BEČIĆI LOCATION STORY ===== */
+/* ==========================================================================
+   Text-image banner — subtitle + title (left col), description (right col,
+   bottom-aligned), then a wide landscape image spanning the full container.
+   ========================================================================== */
+
+.text-image-banner__header {
+  @apply grid grid-cols-2 items-end gap-80 pb-60 max-1199:gap-40 max-1199:pb-40 max-768:grid-cols-1 max-768:gap-24 max-768:pb-30;
+}
+
+.text-image-banner__lead {
+  @apply flex flex-col gap-20 max-768:gap-14;
+}
+
+.text-image-banner__media {
+  @apply relative w-full overflow-hidden aspect-text-image-banner max-768:aspect-video rounded-tl-50;
+}
+
+.text-image-banner__media img {
+  @apply absolute inset-0 block h-full w-full scale-110 object-cover will-change-transform;
+}
+
+/* ===== BEČIĆI LOCATION STORY (editorial numbered list) ===== */
 
 .becici-section {
   @apply bg-cream;
 }
 
 .becici-section__layout {
-  @apply grid grid-cols-12 gap-80 max-1199:gap-50 max-992:gap-60 max-768:grid-cols-1 max-768:gap-50;
+  @apply grid grid-cols-12 gap-80 max-1199:gap-50 max-992:gap-0 max-768:grid-cols-1;
 }
 
 .becici-section__journey {
-  @apply col-span-7 max-768:col-span-1;
+  @apply col-span-7 max-992:col-span-12;
 }
 
-/* Route hover media — one image per route, absolutely stacked and
-   crossfaded via .is-active (see locationRouteImages.js). Sticky so the
-   panel stays in view while the route list scrolls past it. */
+.becici-section__heading {
+  @apply flex flex-col gap-14 pb-70 max-1199:pb-50 max-768:pb-40;
+}
 
+.becici-section__routes {
+  @apply border-t border-primary/15;
+}
+
+/* Slide-in hover overlay — slides from left via translate on ::before */
+.becici-section__route {
+  @apply relative flex items-center gap-50 border-b border-primary/15 overflow-hidden
+         cursor-default max-1199:gap-36 max-768:gap-20
+         hover:px-12 transform transition-all duration-300 ease-in-out max-768:px-0;
+}
+
+.becici-section__route::before {
+  content: "";
+  @apply absolute inset-0 -translate-x-full bg-white/55 transition-transform duration-500 ease-out;
+}
+
+.becici-section__route:hover::before {
+  @apply translate-x-0;
+}
+
+/* Large Cinzel index as visual anchor */
+.becici-section__route-number {
+  @apply relative z-1 shrink-0 font-Cinzel text-tan leading-none font-normal
+         text-heading-2 py-44 max-1199:text-heading-3 max-1199:py-32 max-768:text-36 max-768:py-24;
+}
+
+.becici-section__route-place {
+  @apply relative z-1 flex flex-1 min-w-0 flex-col gap-8 py-44 max-1199:py-32 max-768:py-24;
+}
+
+.becici-section__route-context {
+  @apply text-12 font-body tracking-1.4 text-primary/50 uppercase;
+}
+
+.becici-section__route-place .title h3 {
+  @apply text-28 leading-tight normal-case max-1199:text-24 max-768:text-18;
+}
+
+.becici-section__route-distance {
+  @apply relative z-1 shrink-0 flex flex-col items-end gap-4 py-44 max-1199:py-32 max-768:py-24;
+}
+
+/* Big display distance — Cinzel tan, large but smaller than the index */
+.becici-section__route-value {
+  @apply font-Cinzel text-tan leading-none font-normal text-32 max-1199:text-32 max-768:text-24;
+}
+
+/* Route hover media — sticky panel, one image per route, crossfaded via
+   .is-active (locationRouteImages.js). Height matches tallest the list
+   can grow across all 6 routes at desktop. Hidden below 992px. */
 .becici-section__media {
-  @apply sticky top-100 col-span-5 h-620 w-full overflow-hidden rounded-tl-50 max-1199:h-450 max-992:col-span-5 max-768:static max-768:col-span-1 max-768:h-320;
+  @apply sticky top-100 col-span-5 h-750 w-full overflow-hidden rounded-tl-50
+         max-1199:h-560 max-992:hidden;
 }
 
 .becici-section__media-item {
@@ -865,51 +937,6 @@
 
 .becici-section__media-item img {
   @apply block h-full w-full object-cover;
-}
-
-.becici-section__journey-heading {
-  @apply mb-24 flex items-end justify-between gap-20 max-768:mb-16 max-576:flex-col max-576:items-start;
-}
-
-.becici-section__journey-heading .title h3 {
-  @apply text-28 leading-tight max-768:text-24;
-}
-
-.becici-section__journey-heading .content p {
-  @apply text-12 tracking-1.4 text-tan uppercase;
-}
-
-.becici-section__routes {
-  @apply border-t border-primary/20;
-}
-
-.becici-section__route {
-  @apply grid grid-cols-12 items-center gap-16 border-b border-primary/20 py-24 transition-colors duration-300 hover:bg-white/40 max-1199:py-20 max-768:gap-10 max-768:py-18;
-}
-
-.becici-section__route-number {
-  @apply col-span-1 text-12 font-body tracking-1.4 text-tan;
-}
-
-.becici-section__route-place {
-  @apply col-span-7 flex flex-col gap-6 max-992:col-span-6 max-768:col-span-7;
-}
-
-.becici-section__route-place > span,
-.becici-section__route-distance > span {
-  @apply text-12 font-body tracking-1.4 text-primary/60 uppercase;
-}
-
-.becici-section__route-place .title h3 {
-  @apply text-18 leading-tight normal-case max-768:text-16;
-}
-
-.becici-section__route-distance {
-  @apply col-span-4 flex flex-col items-end gap-6 text-right max-992:col-span-5 max-768:col-span-4 max-768:items-start max-768:text-left;
-}
-
-.becici-section__route-distance strong {
-  @apply text-14 font-body font-medium leading-tight text-primary max-576:text-12;
 }
 
 /* ==========================================================================
@@ -933,7 +960,7 @@
 }
 
 .scroll-reveal-gallery__sticky {
-  @apply bg-cream sticky top-0 h-screen w-full overflow-hidden;
+  @apply sticky top-0 h-screen w-full overflow-hidden;
 }
 
 .scroll-reveal-gallery__row {
@@ -945,7 +972,7 @@
 }
 
 .scroll-reveal-gallery__side img {
-  @apply block h-full w-full object-cover;
+  @apply block h-full w-full object-cover will-change-transform;
 }
 
 .scroll-reveal-gallery__spacer {
@@ -953,8 +980,9 @@
 }
 
 .scroll-reveal-gallery__stage {
-  @apply absolute inset-0 z-10 flex h-full w-full items-center justify-center;
+  @apply absolute inset-0 z-10 flex h-full w-full items-center justify-center text-white;
 }
+.scroll-reveal-gallery__stage {}
 
 .scroll-reveal-gallery__center {
   @apply absolute inset-0 h-full w-full overflow-hidden;
@@ -967,7 +995,7 @@
 }
 
 .scroll-reveal-gallery__overlay {
-  @apply pointer-events-none absolute inset-0 bg-black/45;
+  @apply pointer-events-none absolute inset-0 bg-black/65 opacity-0;
 }
 
 .scroll-reveal-gallery__copy {
@@ -1462,4 +1490,392 @@
 
 .gallery-grid__cell[hidden] {
   @apply hidden;
+}
+
+
+
+/* ==========================================================================
+   Contact Us page — contact-section (intro/details column + enquiry
+   form column, both sitting on the section's bg-tan/20 background)
+   ========================================================================== */
+
+.contact-section__inner {
+  @apply flex flex-row items-start gap-100 max-1199:flex-col max-1199:gap-60 max-768:gap-40;
+}
+
+.contact-section__intro {
+  @apply flex flex-1 min-w-0 flex-col items-start gap-40 text-left max-1199:w-full;
+}
+
+/* Company name sits directly under the "Contact Us" label — the base h3
+   ladder (52px+) reads as a second competing headline here, so it's scoped
+   down to a smaller size for this one context. */
+.contact-section__name {
+  @apply flex flex-col gap-8;
+}
+
+.contact-section__name h3 {
+  @apply text-24 max-768:text-18 leading-snug;
+}
+
+/* Contact-info card — pairs visually with the enquiry-form card on the
+   right so both columns read as one balanced, elevated pair, instead of
+   free-floating text next to a boxed form. */
+.contact-section__card {
+  @apply flex w-full flex-col gap-28 rounded-tl-40 rounded-br-40 bg-white p-32  max-768:p-24;
+}
+
+.contact-section__details {
+  @apply m-0 flex list-none flex-col gap-4 p-0 text-left;
+}
+
+/* Each row is an interactive strip: icon avatar flips to a solid primary
+   fill (white icon) on hover, row gets a soft highlight — a small
+   "reachable" cue on things that are literally tap/click targets. */
+.contact-section__detail {
+  @apply -mx-12 flex items-center gap-14 rounded-20 px-12 py-10 transition-colors duration-200 hover:bg-cream/50;
+}
+
+.contact-section__detail-icon {
+  @apply flex size-36 shrink-0 items-center justify-center rounded-full bg-cream/70 transition-colors duration-200;
+}
+
+.contact-section__detail-icon img {
+  @apply block size-20;
+}
+
+.contact-section__detail:hover .contact-section__detail-icon {
+  @apply bg-primary;
+}
+
+.contact-section__detail:hover .contact-section__detail-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.contact-section__socials {
+  @apply flex flex-col gap-16 border-t border-primary/10 pt-28;
+}
+
+.contact-section__socials-list {
+  @apply flex items-center gap-12;
+}
+
+/* Reusable circular icon button — bordered, no fill, inverts to a solid
+   primary chip with a white icon on hover/focus. */
+.icon-badge {
+  @apply flex size-40 shrink-0 items-center justify-center rounded-full border border-primary/20 transition-colors duration-300 hover:border-primary hover:bg-primary focus-visible:border-primary focus-visible:bg-primary;
+}
+
+.icon-badge img {
+  @apply block size-18;
+  filter: brightness(0) saturate(100%);
+}
+
+.icon-badge:hover img,
+.icon-badge:focus-visible img {
+  filter: brightness(0) saturate(100%) invert(1);
+}
+
+/* Form is a proper elevated card (solid white surface, shadow) so it reads
+   as a distinct, contained panel against the section's own bg-tan/20. */
+.contact-section__form {
+  @apply flex flex-1 min-w-0 flex-col gap-32 rounded-tl-40 rounded-br-40  bg-white p-40 max-1199:w-full max-768:p-28;
+}
+
+.contact-section__form-header {
+  @apply flex flex-col gap-8 border-b border-primary/10 pb-28;
+}
+
+/* The base h3 ladder (52px+) is sized for a full-width page heading; scoped
+   down here so it stays proportionate inside the card. */
+.contact-section__form-header h3 {
+  @apply text-32 max-768:text-24 leading-snug;
+}
+
+.contact-section__form-row {
+  @apply flex flex-row gap-20 max-576:flex-col max-576:gap-20;
+}
+
+/* Field wrapper: leading icon + input inside a bordered, rounded box —
+   replaces the globally shared underline style (which is cream-on-dark,
+   built for the footer's dark panel) with a dark-on-light bordered field. */
+.contact-section__field {
+  @apply h-auto w-full items-center gap-12 rounded-20 border border-primary/15 bg-cream/25 px-16 py-13 transition-colors duration-200;
+}
+
+.contact-section__field:focus-within {
+  @apply border-primary bg-white;
+}
+
+.contact-section__field input {
+  @apply text-primary placeholder:text-primary/45;
+}
+
+.contact-section__field-icon {
+  @apply block size-18 shrink-0;
+}
+
+.contact-section__form .form-textarea {
+  @apply h-110 border-b border-primary/15 px-16 py-13 text-primary transition-colors duration-200 placeholder:text-primary/45 focus:border-primary focus:bg-white;
+}
+
+.contact-section__interest {
+  @apply m-0 flex flex-col gap-14 border-0 p-0;
+}
+
+.contact-section__interest-heading {
+  @apply flex flex-wrap items-baseline gap-10 p-0;
+}
+
+.contact-section__interest-hint {
+  @apply text-12 font-body text-primary/45;
+}
+
+.contact-section__interest-options {
+  @apply flex flex-wrap gap-12 mt-14;
+}
+
+/* Checkbox pills — the native input stays as an invisible, focusable hit
+   target stacked over its label; the label is the visible pill and flips
+   to a solid fill when its input is checked. */
+.form-checkbox {
+  @apply relative inline-flex;
+}
+
+.form-checkbox__input {
+  @apply absolute inset-0 h-full w-full cursor-pointer opacity-0;
+}
+
+.form-checkbox__label {
+  @apply inline-flex cursor-pointer items-center rounded-full border border-primary/25 px-16 py-8 text-14 font-body text-primary transition-colors duration-200;
+}
+
+.form-checkbox__input:checked + .form-checkbox__label {
+  @apply border-primary bg-primary text-white;
+}
+
+.form-checkbox__input:hover + .form-checkbox__label {
+  @apply border-primary;
+}
+
+.form-checkbox__input:focus-visible + .form-checkbox__label {
+  @apply border-primary;
+}
+
+.contact-section__submit {
+  @apply flex w-full items-center justify-center gap-10 py-16;
+}
+
+.contact-section__submit-icon {
+  @apply block size-20 transition-transform duration-300;
+  filter: invert(1);
+}
+
+.contact-section__submit:hover .contact-section__submit-icon,
+.contact-section__submit:focus-visible .contact-section__submit-icon {
+  @apply translate-x-4;
+  filter: none;
+}
+
+/* ==========================================================================
+   Contact Us page — cta-section (dark banner inviting a private viewing)
+   ========================================================================== */
+
+.cta-section__inner {
+  @apply mx-auto flex max-w-680 flex-col items-center gap-24 text-center;
+}
+
+
+.map-section__track {
+  @apply relative w-full;
+  height: 320vh;
+}
+
+.map-section__sticky {
+  @apply bg-white sticky top-0 h-screen w-full overflow-hidden;
+}
+
+.map-section__stage {
+  @apply absolute inset-0 z-10 flex h-full w-full items-center justify-center;
+}
+
+.map-section__frame {
+  @apply absolute inset-0 h-full w-full overflow-hidden;
+  clip-path: inset(27% 30%);
+}
+
+.map-section__frame iframe {
+  @apply absolute inset-0 block h-full w-full border-0;
+}
+
+.map-section__overlay {
+  @apply pointer-events-none absolute inset-0 bg-black/45;
+}
+
+.map-section__copy {
+  @apply relative z-20 flex w-full max-w-620 flex-col items-center gap-16 px-24 text-center max-768:max-w-full;
+}
+
+.map-section__track {
+  @apply relative w-full;
+  height: 320vh;
+}
+
+.map-section__sticky {
+  @apply bg-white sticky top-0 h-screen w-full overflow-hidden;
+}
+
+.map-section__stage {
+  @apply absolute inset-0 z-10 flex h-full w-full items-center justify-center;
+}
+
+.map-section__frame {
+  @apply absolute inset-0 h-full w-full overflow-hidden;
+  clip-path: inset(27% 30%);
+}
+
+.map-section__frame iframe {
+  @apply absolute inset-0 block h-full w-full border-0;
+}
+
+.map-section__overlay {
+  @apply pointer-events-none absolute inset-0 bg-black/45;
+}
+
+.map-section__copy {
+  @apply relative z-20 flex w-full max-w-620 flex-col items-center gap-16 px-24 text-center max-768:max-w-full;
+}
+
+
+
+.contact-section__inner {
+  @apply flex flex-row items-start gap-100 max-1199:flex-col max-1199:gap-60 max-768:gap-40;
+}
+
+.contact-section__intro {
+  @apply flex flex-1 min-w-0 flex-col items-start gap-40 text-left max-1199:w-full;
+}
+
+.contact-section__name {
+  @apply flex flex-col gap-8;
+}
+
+.contact-section__name h3 {
+  @apply text-24 max-768:text-18 leading-snug;
+}
+
+.contact-section__details {
+  @apply m-0 flex list-none flex-col gap-12 p-0 text-left;
+}
+
+.contact-section__socials {
+  @apply flex flex-col gap-16;
+}
+
+.contact-section__socials-list {
+  @apply flex items-center gap-12;
+}
+
+.icon-badge {
+  @apply flex size-40 shrink-0 items-center justify-center rounded-full border border-primary/20 transition-colors duration-300 hover:border-primary hover:bg-primary focus-visible:border-primary focus-visible:bg-primary;
+}
+
+.icon-badge img {
+  @apply block size-18;
+  filter: brightness(0) saturate(100%);
+}
+
+.icon-badge:hover img,
+.icon-badge:focus-visible img {
+  filter: brightness(0) saturate(100%) invert(1);
+}
+
+.contact-section__form {
+  @apply flex flex-1 min-w-0 flex-col gap-32 rounded-tl-40 rounded-br-40 border border-primary/10 bg-white p-40 max-1199:w-full max-768:p-28;
+}
+
+.contact-section__form-header {
+  @apply flex flex-col gap-8 border-b border-primary/10 pb-28;
+}
+
+.contact-section__form-header h3 {
+  @apply text-32 max-768:text-24 leading-snug;
+}
+
+.contact-section__form-row {
+  @apply flex flex-wrap gap-24;
+}
+
+.contact-section__form .form-line,
+.contact-section__form .form-textarea {
+  @apply border-primary/25;
+}
+
+.contact-section__form .form-line input,
+.contact-section__form .form-textarea {
+  @apply text-primary placeholder:text-primary/45;
+}
+
+.contact-section__form .form-line:focus-within,
+.contact-section__form .form-textarea:focus {
+  @apply border-primary;
+}
+
+.contact-section__interest {
+  @apply m-0 flex flex-col gap-14 border-0 p-0;
+}
+
+.contact-section__interest-heading {
+  @apply flex flex-wrap items-baseline gap-10 p-0;
+}
+
+.contact-section__interest-hint {
+  @apply text-12 font-body text-primary/45;
+}
+
+.contact-section__interest-options {
+  @apply flex flex-wrap gap-12;
+}
+
+.form-checkbox {
+  @apply relative inline-flex;
+}
+
+.form-checkbox__input {
+  @apply absolute inset-0 h-full w-full cursor-pointer opacity-0;
+}
+
+.form-checkbox__label {
+  @apply inline-flex cursor-pointer items-center rounded-full border border-primary/25 px-16 py-8 text-14 font-body text-primary transition-colors duration-200;
+}
+
+.form-checkbox__input:checked + .form-checkbox__label {
+  @apply border-primary bg-primary text-white;
+}
+
+.form-checkbox__input:hover + .form-checkbox__label {
+  @apply border-primary;
+}
+
+.form-checkbox__input:focus-visible + .form-checkbox__label {
+  @apply border-primary;
+}
+
+.contact-section__submit {
+  @apply flex w-full items-center justify-center gap-10 py-16;
+}
+
+.contact-section__submit-icon {
+  @apply block size-20 transition-transform duration-300;
+  filter: invert(1);
+}
+
+.contact-section__submit:hover .contact-section__submit-icon,
+.contact-section__submit:focus-visible .contact-section__submit-icon {
+  @apply translate-x-4;
+  filter: none;
+}
+
+.cta-section__inner {
+  @apply mx-auto flex max-w-680 flex-col items-center gap-24 text-center;
 }

@@ -32,6 +32,7 @@ import initSpecListSection from "./specListSection.js";
 import initGalleryReveal from "./galleryReveal.js";
 import initLightboxGallery from "./lightboxGallery.js";
 import initGalleryFilter from "./galleryFilter.js";
+import initTextImageBannerReveal from "./textImageBannerReveal.js";
 
 window.Lenis = Lenis;
 window.gsap = gsap;
@@ -73,4 +74,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initGalleryReveal();
   initLightboxGallery();
   initGalleryFilter();
+  initTextImageBannerReveal();
 });
